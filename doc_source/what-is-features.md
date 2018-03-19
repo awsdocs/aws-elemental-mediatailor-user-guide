@@ -8,7 +8,7 @@ AWS Elemental MediaTailor offers both server\-side and client\-side ad view repo
 + For server\-side reporting, the service sends reporting information to ad tracking URLs directly\.
 
 + For client\-side reporting, the service provides the beacons for the downstream player or content distribution network \(CDN\) to call directly to the ad decision server \(ADS\) for reporting on how much of an ad that a viewer watches, in quartile percentages \(25%, 50%, 75%, or 100%\)\.
-For more information about setting up reporting, see [[ERROR] BAD/MISSING LINK TEXT](ad-reporting.md)\.
+For more information about setting up reporting, see [Ad Tracking Reporting in AWS Elemental MediaTailor](ad-reporting.md)\.
 
 Audio   
 AWS Elemental MediaTailor supports multiple audio tracks\. For more information, see [Alternate Audio and Subtitles](manifest-audio-captions.md)\.

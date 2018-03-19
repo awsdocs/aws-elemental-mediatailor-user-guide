@@ -13,7 +13,8 @@ AWS Elemental MediaTailor supports Apple HTTP Live Streaming \(HLS\) manifest ma
 + [Features of AWS Elemental MediaTailor](what-is-features.md)
 + [Related Services](#related-services)
 + [Accessing AWS Elemental MediaTailor](#accessing-emt)
-+ [Regions and Endpoints](#regions-endpoints)
++ [Pricing for AWS Elemental MediaTailor](#pricing)
++ [Regions for AWS Elemental MediaTailor](#regions-endpoints)
 + [Stream Requirements](#stream-reqmts)
 
 ## Are You a First\-Time User of AWS Elemental MediaTailor?<a name="are-you-a-first-time-user"></a>
@@ -32,9 +33,9 @@ If you are a first\-time user of AWS Elemental MediaTailor, we recommend that yo
 
 + **Amazon CloudFront** is a global content delivery network \(CDN\) service that securely delivers data and videos to your viewers\. Use CloudFront to deliver content with the best possible performance\. For more information about CloudFront, see the [Amazon CloudFront website](https://aws.amazon.com/cloudfront/)\.
 
-+ AWS Elemental MediaPackage is a just\-in\-time packaging and origination service that customizes live video assets for distribution in a format that is compatible with the device that makes the request\. Use AWS Elemental MediaPackage as an origin server to prepare content and add ad markers before sending streams to AWS Elemental MediaTailor\. For more information about how AWS Elemental MediaTailor works with origin servers, see [How AWS Elemental MediaTailor Works](what-is-flow.md)\.
++ **AWS Elemental MediaPackage** is a just\-in\-time packaging and origination service that customizes live video assets for distribution in a format that is compatible with the device that makes the request\. Use AWS Elemental MediaPackage as an origin server to prepare content and add ad markers before sending streams to AWS Elemental MediaTailor\. For more information about how AWS Elemental MediaTailor works with origin servers, see [How AWS Elemental MediaTailor Works](what-is-flow.md)\.
 
-+ **AWS Identity and Access Management \(IAM\)** is a web service that helps you securely control access to AWS resources for your users\. Use IAM to control who can use your AWS resources \(authentication\) and what resources they can use in which ways \(authorization\)\. For more information, see [[ERROR] BAD/MISSING LINK TEXT](setting-up.md)\.
++ **AWS Identity and Access Management \(IAM\)** is a web service that helps you securely control access to AWS resources for your users\. Use IAM to control who can use your AWS resources \(authentication\) and what resources they can use in which ways \(authorization\)\. For more information, see [Setting Up AWS Elemental MediaTailor](setting-up.md)\.
 
 ## Accessing AWS Elemental MediaTailor<a name="accessing-emt"></a>
 
@@ -44,11 +45,13 @@ You must access your AWS account by providing credentials that verify that you h
 
 To log in to the AWS Elemental MediaTailor console, use the following link: **https://console\.aws\.amazon\.com/mediatailor/home**\.
 
-## Regions and Endpoints<a name="regions-endpoints"></a>
+## Pricing for AWS Elemental MediaTailor<a name="pricing"></a>
 
- Currently, AWS Elemental MediaTailor is available in the following region:
+As with other AWS products, there are no contracts or minimum commitments for using AWS Elemental MediaTailor\. You are charged based your use of the service\. For more information, see [AWS Elemental MediaTailor Pricing](https://aws.amazon.com/mediatailor/pricing/)\.
 
-+ US East \(N\. Virginia\)
+## Regions for AWS Elemental MediaTailor<a name="regions-endpoints"></a>
+
+To reduce data latency in your applications, AWS Elemental MediaTailor offers regional endpoints to make your requests\. To view the list of regions in which AWS Elemental MediaTailor is available, see [http://docs.aws.amazon.com/general/latest/gr/rande.html#mediatailor_region](http://docs.aws.amazon.com/general/latest/gr/rande.html#mediatailor_region)\.
 
 ## Stream Requirements<a name="stream-reqmts"></a>
 

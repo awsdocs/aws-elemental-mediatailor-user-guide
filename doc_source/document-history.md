@@ -1,17 +1,16 @@
 # Document History for AWS Elemental MediaTailor<a name="document-history"></a>
 
-The following table describes the documentation for this release of AWS Elemental MediaTailor\.
+The following table describes important changes to this documentation\. 
 
 + **API version:** 1\.0
-
-+ **Latest documentation update:** January 26, 2018
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| Initial document creation\. | New document\. | November 27, 2017 | 
-| Corrected links\. | Corrected links to the AWS Elemental MediaTailor console\. | December 1, 2017 | 
-| Corrected ExternalID value\. | In [Setting up Permissions for Amazon CloudWatch](monitoring-permissions.md), the ExternalID for permissions between AWS Elemental MediaTailor and Amazon CloudWatch is Midas\. | December 5, 2017 | 
+| Add information for CloudWatch and for VAST/VPAID\.  | Added information about available CloudWatch metrics, namespaces, and dimensions in [Monitoring and Troubleshooting AWS Elemental MediaTailor](monitoring.md)\. Added and updated information for VAST and VPAID in [VAST](vast.md), [Client\-side Reporting](ad-reporting-client-side.md) and [Slate Management](slate-management.md)\.  | March 16, 2018 | 
+| Enable github delivery\.  | Open source delivery of public documentation assets\.  | February 16, 2018 | 
+| Added new regions\. | In [Regions for AWS Elemental MediaTailor](what-is.md#regions-endpoints), added Singapore, Sydney, and Tokyo\. | February 8, 2018 | 
+| Added default Amazon CloudFront distribution paths for ad storage\. | In [Integrating AWS Elemental MediaTailor and a CDN](integrating-cdn-standard.md), added the list of paths for the Amazon CloudFront distributions where AWS Elemental MediaTailor stores ads\.  | February 6, 2018 | 
 | Added IAM policy information specific to AWS Elemental MediaTailor\. | In [Setting Up AWS Elemental MediaTailor](setting-up.md), added instructions for creating non\-admin roles with limited permissions\. | January 3, 2018 | 
 | Added default Amazon CloudFront distribution paths for ad storage\. | In [Integrating AWS Elemental MediaTailor and a CDN](integrating-cdn-standard.md), added the list of paths for the Amazon CloudFront distributions where AWS Elemental MediaTailor stores ads\.  | January 26, 2018 | 
 

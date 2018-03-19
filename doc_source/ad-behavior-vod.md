@@ -23,3 +23,73 @@ If you want to create mid\-roll breaks but your ADS doesn't support VMAP, then e
 CUE\-OUT/IN \(or SCTE\-OUT/IN\) markers allow AWS Elemental MediaTailor to insert ads throughout the manifest\. If the manifest contains markers, and the CUE\-IN marker immediately follows the CUE\-OUT marker \(there are no segments between them\), this informs AWS Elemental MediaTailor that it is an ad insertion request\.
 
 The CUE\-OUT markers should have no duration \(or a duration of 0\) specified, such as `#EXT-X-CUE-OUT:0`\.
+
+For post\-rolls, CUE\-OUT/IN markers must precede the last content segment\. This is because the HLS spec requires tag decorators to be explicitly declared before a segment\. 
+
+For example, for the following declaration: 
+
+```
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXTINF:4.000,
+Videocontent.ts
+#EXT-X-ENDLIST
+```
+
+AWS Elemental MediaTailor inserts a post\-roll like the following:
+
+```
+#EXTINF:4.000,
+Videocontent.ts
+#EXT-X-DISCONTINUITY
+#EXTINF:3.0,
+Adsegment1.ts
+#EXTINF:3.0,
+Adsegment2.ts 
+#EXTINF:1.0,
+Adsegment3.ts
+#EXT-X-ENDLIST
+```
+
+You cannot use multiple CUE\-OUT/IN tags in succession to mimic ad pod behavior\. This is because CUE\-OUT/IN tags must be explicitly attached to a segment\. 
+
+For example, the following declaration is invalid:
+
+```
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXTINF:4.000,
+Videocontent.ts
+```
+
+The following declaration is valid:
+
+```
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXTINF:4.000,
+Somecontent1.ts
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXTINF:4.000,
+Somecontent2.ts
+#EXT-X-CUE-OUT: 0
+#EXT-X-CUE-IN
+#EXTINF:4.000,
+Videocontent.ts
+```
+
+The above declaration results in an output like the following: 
+
+```
+Ad 1
+Somecontent.ts
+Ad 2
+Somecontent2.ts
+Videocontent.ts
+Post-Roll Ad 3
+```
