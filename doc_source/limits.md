@@ -1,10 +1,10 @@
 # Limits in AWS Elemental MediaTailor<a name="limits"></a>
 
-The following sections provide information about the limits in AWS Elemental MediaTailor\. For information about requesting an increase to soft limits, see [AWS Service Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. Hard limits cannot be changed\.
+The following sections provide information about the limits in AWS Elemental MediaTailor\. For information about requesting an increase to soft limits, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. Hard limits cannot be changed\.
 
 ## Soft Limits<a name="soft-limits"></a>
 
-The following table describes limits in AWS Elemental MediaTailor that can be increased\. For information about changing limits, see [AWS Service Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. 
+The following table describes limits in AWS Elemental MediaTailor that can be increased\. For information about changing limits, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. 
 
 
 | Resource or Operation | Default Limit | 
@@ -20,8 +20,8 @@ The following table describes limits within AWS Elemental MediaTailor that can't
 | --- | --- | 
 | Configurations | 50 | 
 | Characters per field | Content origin: 512**Ad decision server**: 25,000 | 
-| Ad decision server \(ADS\) timeout | AWS Elemental MediaTailor waits for 1\.5 seconds before timing out on an open connection to an ad server\. When a connection times out, AWS Elemental MediaTailor is unable to fill the ad break with ads due to no response from the ADS\. | 
-| Origin server timeout | AWS Elemental MediaTailor waits for two seconds before timing out on an open connection to the origin server when requesting template manifests\. Timeouts generate HTTP 504 \(Gateway Time\-out\) response errors\.  | 
-| ADS redirect | AWS Elemental MediaTailor follows a maximum of three redirects in VAST wrapper tags\.  | 
-| Sessions becoming stale | Sessions expire after 10 times the manifest duration if there are no requests during that timeframe, or if the origin server does not advance in that timeframe\. For example, if a manifest has one minute's worth of segments, the player must make a request or the origin server must advance within 10 minutes\. Otherwise, AWS Elemental MediaTailor starts returning HTTP 400 \(Bad Request\) response errors \(bad request for expired sessions\)\. | 
+| Ad decision server \(ADS\) timeout | MediaTailor waits for 1\.5 seconds before timing out on an open connection to an ad server\. When a connection times out, MediaTailor is unable to fill the ad break with ads due to no response from the ADS\. | 
+| Origin server timeout | MediaTailor waits for two seconds before timing out on an open connection to the origin server when requesting template manifests\. Timeouts generate HTTP 504 \(Gateway Time\-out\) response errors\.  | 
+| ADS redirect | MediaTailor follows a maximum of three redirects in VAST wrapper tags\.  | 
+| Sessions becoming stale | Sessions expire after 10 times the manifest duration if there are no requests during that timeframe, or if the origin server does not advance in that timeframe\. For example, if a manifest has one minute's worth of segments, the player must make a request or the origin server must advance within 10 minutes\. Otherwise, MediaTailor starts returning HTTP 400 \(Bad Request\) response errors \(bad request for expired sessions\)\. | 
 | Manifest size | The size of any playback manifest, input or output, is limited to a maximum of 1 MB\. Please gzip your input manifest into AWS Elemental MediaTailor to ensure that you stay under this limit\.  | 

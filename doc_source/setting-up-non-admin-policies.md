@@ -1,8 +1,8 @@
 # Step 1: Create Policies<a name="setting-up-non-admin-policies"></a>
 
-Create two policies for AWS Elemental MediaTailor: one to provide read/write access, and one to provide read\-only access\. Perform these steps one time only for each policy\.
+Create two policies for MediaTailor: one to provide read/write access, and one to provide read\-only access\. Perform these steps one time only for each policy\.
 
-**To create policies for AWS Elemental MediaTailor**
+**To create policies for MediaTailor**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -25,7 +25,7 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
    }
    ```
 
-   This policy allows all actions on all resources in AWS Elemental MediaTailor\.
+   This policy allows all actions on all resources in MediaTailor\.
 
 1. Choose **Review policy**\.
 
@@ -40,8 +40,8 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
            {
                "Effect": "Allow",
                "Action": [
-                   "mediatailor:GetConfig",
-                   "mediatailor:GetAllConfigs"
+                   "mediatailor:GetPlaybackConfiguration",
+                   "mediatailor:ListPlaybackConfigurations"
                ],
                "Resource": "*"
            }

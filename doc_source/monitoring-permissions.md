@@ -2,7 +2,7 @@
 
 Use AWS Identity and Access Management \(IAM\) to create a role that gives AWS Elemental MediaTailor access to Amazon CloudWatch\. You must perform these steps for CloudWatch Logs to be published for your account\. CloudWatch automatically publishes metrics for your account\.
 
-**To allow AWS Elemental MediaTailor access to CloudWatch**
+**To allow MediaTailor access to CloudWatch**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -17,9 +17,7 @@ Use AWS Identity and Access Management \(IAM\) to create a role that gives AWS E
 1. Choose **Next: Permissions**\.
 
 1. Add a permissions policy that specifies what actions this role can complete\. Select from one of the following options, and then choose **Next: Review**:
-
    + **CloudWatchLogsFullAccess** to provide full access to Amazon CloudWatch Logs
-
    + **CloudWatchFullAccess** to provide full access to Amazon CloudWatch
 
 1. For **Role name**, type **MediaTailorLogger**, and then choose **Create role**\.
@@ -32,7 +30,7 @@ Use AWS Identity and Access Management \(IAM\) to create a role that gives AWS E
 
    1. Choose **Edit trust relationship**\.
 
-   1. In the policy document, change the principal to the AWS Elemental MediaTailor service\. It should look like this:
+   1. In the policy document, change the principal to the MediaTailor service\. It should look like this:
 
       ```
       "Principal": {

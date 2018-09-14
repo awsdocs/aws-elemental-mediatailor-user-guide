@@ -2,7 +2,7 @@
 
 Create a user group for each of the policies that you created in step 1\. This way, when you create additional users you can add the users to a group rather than attaching individual policies to each user\. 
 
-**To create groups for users who need access to AWS Elemental MediaTailor**
+**To create groups for users who need access to MediaTailor**
 
 1. In the navigation pane of the IAM console, choose **Groups**, and then choose **Create New Group**\.
 
