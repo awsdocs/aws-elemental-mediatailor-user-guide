@@ -7,21 +7,22 @@ The following sections provide information about the limits in AWS Elemental Med
 The following table describes limits in AWS Elemental MediaTailor that can be increased\. For information about changing limits, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. 
 
 
-| Resource or Operation | Default Limit | 
-| --- | --- | 
-| Transactions | 3,000 concurrent transactions per second across all request types \(such as manifest requests and tracking requests for client\-side reporting\)\. This is an account\-level limit\.Your transactions per second are largely dependent on how often the player requests updated manifests\. For example, a player with eight second segments might update the manifest every eight seconds\. The player, then, generates 0\.125 transactions per second\.To request a limit increase, create a case with [AWS Support](https://console.aws.amazon.com/support/home)\.  | 
+| Limit | Default Setting | Description | 
+| --- | --- | --- | 
+| Concurrent transactions | 3,000 | The maximum number of concurrent transactions per second across all request types\. This is an account\-level limit\. Your transaction count depends largely on how often players request updated manifests and the number of players\. Each player request counts as a transaction\.  | 
 
 ## Hard Limits<a name="hard-limits"></a>
 
-The following table describes limits within AWS Elemental MediaTailor that can't be increased\.
+The following table describes limits in AWS Elemental MediaTailor that can't be increased\.
 
 
-| Resource or Operation | Default Limit | 
-| --- | --- | 
-| Configurations | 50 | 
-| Characters per field | Content origin: 512**Ad decision server**: 25,000 | 
-| Ad decision server \(ADS\) timeout | MediaTailor waits for 1\.5 seconds before timing out on an open connection to an ad server\. When a connection times out, MediaTailor is unable to fill the ad break with ads due to no response from the ADS\. | 
-| Origin server timeout | MediaTailor waits for two seconds before timing out on an open connection to the origin server when requesting template manifests\. Timeouts generate HTTP 504 \(Gateway Time\-out\) response errors\.  | 
-| ADS redirect | MediaTailor follows a maximum of three redirects in VAST wrapper tags\.  | 
-| Sessions becoming stale | Sessions expire after 10 times the manifest duration if there are no requests during that timeframe, or if the origin server does not advance in that timeframe\. For example, if a manifest has one minute's worth of segments, the player must make a request or the origin server must advance within 10 minutes\. Otherwise, MediaTailor starts returning HTTP 400 \(Bad Request\) response errors \(bad request for expired sessions\)\. | 
-| Manifest size | The size of any playback manifest, input or output, is limited to a maximum of 1 MB\. Please gzip your input manifest into AWS Elemental MediaTailor to ensure that you stay under this limit\.  | 
+| Limit | Setting | Description | 
+| --- | --- | --- | 
+| Ad decision server \(ADS\) length | 25,000  | The maximum number of characters in an ad decision server \(ADS\) specification\.  | 
+| Ad decision server \(ADS\) redirects | 3 | The maximum depth of redirects that MediaTailor follows in VAST wrapper tags\.  | 
+| Ad decision server \(ADS\) timeout | 1\.5  | The maximum number of seconds that MediaTailor waits before timing out on an open connection to an ad decision server \(ADS\)\. When a connection times out, MediaTailor is unable to fill the ad break with ads due to no response from the ADS\. | 
+| Configurations | 500 | The maximum number of configurations that MediaTailor allows\.  | 
+| Content origin length | 512  | The maximum number of characters in a content origin specification\.  | 
+| Content origin server timeout | 2 | The maximum number of seconds that MediaTailor waits before timing out on an open connection to the content origin server when requesting template manifests\. Timeouts generate HTTP 504 \(Gateway Timeout\) response errors\.  | 
+| Manifest size | 2 | The maximum size, in MB, of any playback manifest, whether in input or output\. To ensure that you stay under the limit, use gzip to compress your input manifests into MediaTailor\.  | 
+| Session expiration  | 10 times the manifest duration  | The maximum amount of time that MediaTailor allows a session to remain inactive before ending the session\. Session activity can be a player request or an advance by the origin server\. When the session expires, MediaTailor returns an HTTP 400 \(Bad Request\) response error\.  | 

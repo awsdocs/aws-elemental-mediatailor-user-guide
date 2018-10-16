@@ -22,21 +22,23 @@ aws cloudwatch list-metrics --namespace "AWS/MediaTailor"
 
 ## AWS Elemental MediaTailor CloudWatch Metrics<a name="metrics"></a>
 
-The MediaTailor namespace includes the following metrics\. These metrics are published by default to your account\.
+The AWS Elemental MediaTailor namespace includes the following metrics\. These metrics are published by default to your account\.
 
 
 | Metric | Description | 
 | --- | --- | 
-| AdDecisionServer\.Ads |  Count of ads included in ad decision server \(ADS\) responses for the time period that you specified\. | 
-| `AdDecisionServer.Duration` | Total duration \(in milliseconds\) of all ads that MediaTailor received from the ad decision server \(ADS\) in the time period that you specified\. | 
-| AdDecisionServer\.Errors | Number of non\-HTTP 200 status code responses or empty responses that MediaTailor received from the ad decision server \(ADS\) in the time period that you specified\. | 
-| AdDecisionServer\.FillRate | The simple average of the rate that responses from the ad decision server \(ADS\) were filled\. The rate is defined as \(AdDecisionServer\.Duration\)/\(Avails\.Duration\)\. This number can be higher than 100%\.**Example 1**If your ADS returns 120 seconds of ads and the ad break is 180 seconds, then the` AdDecisionServer.FillRate` is 67% \(120/180\)\. The best `Avails.FillRate` that we can attain for this ad break is therefore 67%\.**Example 2**If your ADS returns 120 seconds of ads and the ad break is 90 seconds, then the `AdDecisionServer.FillRate` is 133% \(120/90\)\. The best `Avails.FillRate` that we can attain for this ad break is therefore 100%\.For information about the simple average, see [Simple Average Explanation](#metrics-simple-average)\. | 
-| AdNotReady |  Number of times that the ADS pointed at an ad that wasn't yet transcoded by the internal transcoder service\. A high incidence of this metric might contribute to a low overall `Avails.FillRate`\.  | 
-| Avails\.Duration | Total duration \(in milliseconds\) of all ad breaks that MediaTailor encountered in the time period that you specified\.  | 
-| Avails\.FilledDuration | Total duration \(in milliseconds\) of all ad breaks that MediaTailor filled in the time period that you specified\.This metric is calculated as \(number of concurrent sessions\) x \(ad break duration filled\)\. | 
-| Avails\.FillRate |  The simple average of the rate that ad breaks were filled\. The rate is defined as \(`Avails.FilledDuration`\) / \(`Avails.Duration`\)\. For information about the simple average, see [Simple Average Explanation](#metrics-simple-average)\. **Example** If your ADS returns 90 seconds of ads and the ad break is 120 seconds, then the `AdDecisionServer.FillRate` is 75% \(90/120\)\.  If the `Avails.FillRate` is low, look at the `AdDecisionServer.FillRate` compared to the `Avails.FillRate`\. If the `AdDecisionServer.FillRate` is low \(50% or lower\) and `Avails.FillRate` is also low, your ADS might be returning only enough ads for half of a typical break duration, so the maximum `Avails.FillRate` that we can attain is bounded by 50%\.  | 
-| GetManifest\.Errors | Number of errors received when MediaTailor is generating manifests\. | 
-| `Origin.Errors` | Number of non\-HTTP 200 status code responses that MediaTailor received from the origin server in the time period that you specified\. | 
+| AdDecisionServer\.Ads |  The count of ads included in ad decision server \(ADS\) responses for the time period that you specified\. | 
+| `AdDecisionServer.Duration` | The total duration, in milliseconds, of all ads that MediaTailor received from the ad decision server \(ADS\) in the time period that you specified\. | 
+| AdDecisionServer\.Errors |  The number of non\-HTTP 200 status code responses, empty responses, and timed\-out responses that MediaTailor received from the ADS in the time period that you specified\. | 
+| AdDecisionServer\.FillRate | The simple average of the rates at which the responses from the ad decision server \(ADS\) fill the time available for the corresponding ad breaks\. Each rate is defined as \(AdDecisionServer\.Duration\)/\(Avails\.Duration\)\. This number can be higher than 100%\.For information about the simple average, see [Simple Average Explanation](#metrics-simple-average)\.For example, for a single ad break, if the ADS returns 120 seconds of ads and the ad break is 180 seconds, then the `AdDecisionServer.FillRate` for this single ad break is 67% \(120/180\)\. The best `Avails.FillRate` that MediaTailor can attain for this ad break is 67%\.If your ADS returns 120 seconds of ads and the ad break is 90 seconds, then the `AdDecisionServer.FillRate` is 133% \(120/90\)\. The best `Avails.FillRate` that MediaTailor can attain for this ad break is therefore 100%\. | 
+| AdDecisionServer\.Timeouts |  The number of timed\-out requests to the ADS in the time period that you specified\.  | 
+| AdNotReady |  The number of times that the ADS pointed at an ad that wasn't yet transcoded by the internal transcoder service\. A high value for this metric might contribute to a low overall `Avails.FillRate`\.  | 
+| Avails\.Duration | The total duration, in milliseconds, of all ad breaks that MediaTailor encountered in the time period that you specified\.  | 
+| Avails\.FilledDuration | The total duration, in milliseconds, of all ad breaks that MediaTailor filled in the time period that you specified\.This metric is calculated as \(number of concurrent sessions\) x \(ad break duration filled\)\. | 
+| Avails\.FillRate |  The simple average of the rate at which MediaTailor filled ad breaks\. The rate is defined as \(`Avails.FilledDuration`\) / \(`Avails.Duration`\)\. For information about the simple average, see [Simple Average Explanation](#metrics-simple-average)\. For example, if your ADS returns 90 seconds of ads and the ad break is 120 seconds, then the `AdDecisionServer.FillRate` for this single ad is 75% \(90/120\)\.  If the `Avails.FillRate` is low, look at the `AdDecisionServer.FillRate` compared to the `Avails.FillRate`\. If the `AdDecisionServer.FillRate` is low \(50% or lower\) and `Avails.FillRate` is also low, your ADS might be returning only enough ads for half of a typical break duration\. The maximum `Avails.FillRate` that MediaTailor can attain is bounded by the `AdDecisionServer.FillRate`\.  | 
+| GetManifest\.Errors | The number of errors received when MediaTailor is generating manifests\. | 
+| `Origin.Errors` |  The number of non\-HTTP 200 status code responses and timed\-out responses that MediaTailor received from the origin server in the time period that you specified\. | 
+| Origin\.Timeouts |  The number of timed\-out requests to the origin server in the time period that you specified\.  | 
 
 ### Simple Average Explanation<a name="metrics-simple-average"></a>
 
