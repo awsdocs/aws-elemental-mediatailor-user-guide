@@ -1,6 +1,6 @@
 # Setting Up AWS Elemental MediaTailor<a name="setting-up"></a>
 
-Before you start using MediaTailor, complete the following steps\.
+Before you start using AWS Elemental MediaTailor, complete the following steps\.
 
 **Topics**
 + [Signing Up for AWS](setting-up-aws-sign-up.md)

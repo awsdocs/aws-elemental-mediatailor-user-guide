@@ -1,21 +1,23 @@
 # Live Content Ad Behavior<a name="ad-behavior-live"></a>
 
-In live streams, AWS Elemental MediaTailor always performs ad replacement, with the total time between XX\-OUT and XX\-IN markers preserved as closely as possible\. Note the following about live ad insertion:
-+ MediaTailor always prioritizes the content stream over ad content\. If MediaTailor encounters an early CUE\-IN before the ad break time has elapsed, the ad might be truncated\.
-+ If there aren't enough ads in the VAST response to fill the ad break in the manifest, MediaTailor plays the underlying stream \(or the ad slate if one was provided in the ADS and origin server configuration\)\.
-+ If the fragment duration for individual ads exceeds the ad break in the manifest, MediaTailor fits as many complete ads as it can\. When it can't fit any more complete ads, MediaTailor plays the slate or underlying stream\. 
+In live streams, AWS Elemental MediaTailor always performs ad replacement, preserving the total time between cue\-out and cue\-in markers as closely as possible\. The cue out can optionally indicate the duration of the ad break\. Every cue\-out indicator must have a matching cue\-in indicator in the live workflow\. 
 
-  If the ad break is for 70 seconds but the VAST response includes two ads, each of which is 40 seconds, MediaTailor plays one ad for a total of 40 seconds and then displays the configured ad slate or underlying content stream for the remaining 30 seconds of the ad break\.
+AWS Elemental MediaTailor performs ad replacement for live content for HLS and DASH, with cue\-out, cue\-in, and duration specified as follows: 
++ For HLS, cue out and cue in are specified with XX\-OUT and XX\-IN markers\. The duration is specified in the `CUE-OUT`, or `SCTE-OUT`, marker\. 
++ For DASH, the cue out is specified by the `Period` start and the cue in is specified by the end of the period\. The duration is specified in the `duration` of the first `Event` in the period\. 
 
-Ad behavior is further refined by the length of the CUE\-OUT duration, as described in the following sections\.
+## Ad Selection and Replacement<a name="ad-behavior-live-ad-selection"></a>
 
-## XX\-OUT Duration Greater Than Zero<a name="greater-0-duration"></a>
+AWS Elemental MediaTailor includes ads from the ADS VAST response as follows: 
++ If a duration is specified, MediaTailor selects a set of ads that fit into the duration and includes them\. 
++ If no duration is specified, MediaTailor plays as many ads as it can until it encounters a cue\-in indicator\.
 
-If the CUE\-OUT \(or SCTE\-OUT\) duration is greater than zero, MediaTailor replaces as many ads that fit in the ad break without truncation:
-+ If the VAST response includes a single ad and the ad break duration is less than the ad creative duration, MediaTailor doesn't splice any ads into the content stream\. Instead, the service displays the configured ad slate or underlying content stream for the duration of the break\.
-+ If the CUE\-IN is presented earlier than expected, MediaTailor honors the CUE\-IN and returns to the content stream, possibly cutting off some of the ad\. 
-+ If the CUE\-IN is not encountered by the time the CUE\-OUT duration is reached, MediaTailor ends the ad break and the stream returns to the content stream\.
+AWS Elemental MediaTailor adheres to the following guidelines during live ad replacement: 
++ MediaTailor tries to play complete ads, without clipping or truncation\.
++ Whenever MediaTailor encounters a cue\-in indicator, it returns to the underlying content\. This can mean truncating an ad that is currently playing\. 
++ At the end of the duration, MediaTailor returns to the underlying content\.
++ If MediaTailor runs out of ads to play for the duration indicated, it plays the slate, if one is configured, or it returns to the underlying content\. This happens most commonly when the ads that are available don't completely fill up the duration\. This can also happen when the ADS response doesn't provide enough ads to fill the ad break\.
 
-## XX\-OUT Duration Equal to Zero<a name="zero-duration"></a>
-
-If the CUE\-OUT \(or SCTE\-OUT\) duration is zero, MediaTailor splices in all ads from the ADS response until it encounters a CUE\-IN marker\. No CUE\-IN markers in a live scenario is an error state that requires attention\.
+## Examples<a name="ad-behavior-live-examples"></a>
++ If the ad break has a duration set to 70 seconds and the ADS response contains two 40\-second ads, AWS Elemental MediaTailor plays one of the 40\-second ads\. In the time left over, it switches to the configured slate or underlying content\. At any point during this process, if MediaTailor encounters a cue\-in indicator, it cuts immediately to the underlying content\. 
++ If the ad break has a duration set to 30 seconds and the shortest ad provided by the ADS response is 40 seconds, MediaTailor plays no ads\. If an ad slate is configured, MediaTailor plays that for 30 seconds or until it encounters a cue\-in indicator\. Otherwise, MediaTailor plays the underlying content\.

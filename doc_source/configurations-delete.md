@@ -1,6 +1,6 @@
 # Deleting a Configuration<a name="configurations-delete"></a>
 
-Delete a configuration to make it unavailable for playback\.
+You can delete a configuration to make it unavailable for playback\.
 
 **To delete a configuration**
 
@@ -10,4 +10,4 @@ Delete a configuration to make it unavailable for playback\.
    + Choose the name of the configuration that you want to delete\. 
    + In the **Configuration name** column, choose the radio button, and then choose **Delete**\.
 
-1. In the **Delete** confirmation box, type **Delete**, and then choose **Delete**\.
+1. In the **Delete** confirmation box, enter **Delete**, and then choose **Delete**\.

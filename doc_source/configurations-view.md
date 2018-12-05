@@ -1,6 +1,6 @@
 # Viewing a Configuration<a name="configurations-view"></a>
 
-View the configuration's current settings\.
+You can view the configuration's current settings\.
 
 **To view a configuration**
 
@@ -8,4 +8,4 @@ View the configuration's current settings\.
 
 1. On the **Configurations** page, choose the **Configuration name** for the configuration to view\.
 
-   In addition to the values provided when the configuration was created, MediaTailor displays the name of the configuration, playback endpoints, and relevant access URLs\.
+   In addition to the values provided when the configuration was created, AWS Elemental MediaTailor displays the name of the configuration, playback endpoints, and relevant access URLs\.

@@ -10,9 +10,9 @@ Use AWS Identity and Access Management \(IAM\) to create a role that gives AWS E
 
 1. Choose the **Another AWS account** role type\.
 
-1. For **Account ID**, type your AWS account ID\.
+1. For **Account ID**, enter your AWS account ID\.
 
-1. Select **Require external ID** and type **Midas**\. This option automatically adds a condition to the trust policy that allows the service to assume the role only if the request includes the correct `sts:ExternalID`\.
+1. Select **Require external ID** and enter **Midas**\. This option automatically adds a condition to the trust policy that allows the service to assume the role only if the request includes the correct `sts:ExternalID`\.
 
 1. Choose **Next: Permissions**\.
 
@@ -20,7 +20,7 @@ Use AWS Identity and Access Management \(IAM\) to create a role that gives AWS E
    + **CloudWatchLogsFullAccess** to provide full access to Amazon CloudWatch Logs
    + **CloudWatchFullAccess** to provide full access to Amazon CloudWatch
 
-1. For **Role name**, type **MediaTailorLogger**, and then choose **Create role**\.
+1. For **Role name**, enter **MediaTailorLogger**, and then choose **Create role**\.
 
 1. On the **Roles** page, choose the role that you just created\. 
 

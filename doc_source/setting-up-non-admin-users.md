@@ -1,14 +1,14 @@
 # Step 3: Create Users<a name="setting-up-non-admin-users"></a>
 
-Create IAM users for the individuals who require access to MediaTailor, and add each user to the appropriate user group to ensure that they have the right level of permissions\. If you already have users created, skip past the user creation steps to modify the permissions for the users\.
+Create IAM users for the individuals who require access to AWS Elemental MediaTailor, and add each user to the appropriate user group to ensure that they have the right level of permissions\. If you already have users created, skip past the user creation steps to modify the permissions for the users\.
 
-**To create users who can access MediaTailor**
+**To create users who can access AWS Elemental MediaTailor**
 
 1. In the navigation pane of the IAM console, choose **Users**, and then choose **Add user**\.
 
-1. For **User name**, type the name that the user will use to sign in to MediaTailor\.
+1. For **User name**, enter the name that the user will use to sign in to MediaTailor\.
 
-1. Select the check box next to **AWS Management Console access**, select **Custom password**, and then type the new user's password in the box\. You can optionally select **Require password reset** to force the user to create a password the next time the user signs in\.
+1. Select the check box next to **AWS Management Console access**, select **Custom password**, and then enter the new user's password in the box\. You can optionally select **Require password reset** to force the user to create a password the next time the user signs in\.
 
 1. Choose **Next: Permissions**\.
 

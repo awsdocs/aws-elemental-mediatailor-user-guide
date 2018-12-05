@@ -1,6 +1,6 @@
 # HLS Live Manifest Examples<a name="manifest-hls-example"></a>
 
-The following example shows a valid live master playlist as input to MediaTailor\.
+The following example shows a valid live master manifest as input to AWS Elemental MediaTailor:
 
 ```
 #EXTM3U
@@ -13,7 +13,7 @@ scte35_2.m3u8
 scte35_3.m3u8
 ```
 
-The following example shows a media playlist as input to MediaTailor\. Note the `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags describing ad break opportunities\.
+The following example shows a media manifest as input to AWS Elemental MediaTailor\. Note the `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags that describe ad break opportunities:
 
 ```
 #EXTM3U

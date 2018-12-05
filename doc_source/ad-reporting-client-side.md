@@ -1,12 +1,12 @@
 # Client\-side Reporting<a name="ad-reporting-client-side"></a>
 
-With client\-side reporting, MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. Client\-side reporting enables functionality like trick play for VOD \(players display visual feedback during fast forward and rewind\) and other advanced playback behavior during ad breaks that requires player development \(like no skip\-forward and countdown timers on ad breaks\)\.
+With client\-side reporting, AWS Elemental MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. Client\-side reporting enables functionality like trick play for VOD \(players display visual feedback during fast forward and rewind\) and other advanced playback behavior during ad breaks that requires player development \(like no skip\-forward and countdown timers on ad breaks\)\.
 
 Use client\-side reporting for VPAID functionality\. For more information, see [VPAID Handling](vpaid.md)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
 
 **To perform client\-side ad reporting**
 
-1. From the player, initialize a new MediaTailor playback session using a request like the following:
+1. From the player, initialize a new AWS Elemental MediaTailor playback session using a request like the following:
 
    ```
    POST <mediatailorURL>/v1/session/<hashed-account-ID>/<originID>/<assetID>
@@ -26,10 +26,16 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
 1. AWS Elemental MediaTailor responds to the request with two relative URLs, one for the manifest and one for the tracking endpoint: 
    + Manifest – used to retrieve content manifests and ad segments
 
-     Example:
+     HLS example:
 
      ```
      /v1/master/<hashed-account-id>/<originID>/<assetID>?aws.sessionID=<session>
+     ```
+
+     DASH example: 
+
+     ```
+     /v1/dash/<hashed-account-id>/<originID>/<assetID>?aws.sessionID=<session>
      ```
    + Tracking – used to poll for upcoming ad breaks
 
@@ -42,15 +48,28 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    To construct the full manifest and tracking URLs, prefix the relative URLs with *<mediatailorURL>*\. 
 
 1. The player should periodically poll the tracking URL\. When an ad is coming, the response from AWS Elemental MediaTailor to the player's polling request contains a JSON object that specifies the time offsets for the ad breaks\. The offsets are relative to when the player initiated the session\. You can use them when programming specific behaviors in the player, such as preventing the viewer from skipping past the ads\. The response also includes duration, timing, and identification information\. 
-   + `adID`: HLS sequence number associated with the beginning of this ad\.
-   + `duration`: length in ISO 8601 seconds format\. The response includes durations for the entire ad break and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID Handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration is typically slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have to entirely replace with a VPAID ad without incurring drift\.
-   + `durationInSeconds`: length in seconds format\. The response includes durations for the entire ad break and for each ad and beacon \(though beacon durations are always zero\)\.
-   + `startTime`: time position in ISO 8601 seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad break and for each ad and beacon\.
-   + `startTimeInSeconds`: time position in seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad break and for each ad and beacon\.
-   + `beaconUrls`: where each beacon is sent\.
-   + `eventId`: HLS sequence number associated with the beacon\.
-   + `eventType`: type of beacon\.
-   + `availId`: HLS sequence number associated with the start of the ad break\.
+
+   The following values can be included in the response:
+   + `adID`: For HLS, the sequence number associated with the beginning of the ad\. For DASH, the period ID of the ad\.
+   + `adParameters`: String of ad parameters from VAST VPAID, which AWS Elemental MediaTailor passes along to the player\.
+   + `apiFramework`: Set to "`VPAID`"\. Tells the player this is a VPAID ad\.
+   + `availId`: For HLS, the sequence number associated with the start of the ad break\. For DASH, the period ID of the avail, which is usually the period ID of the content that is to be replaced with an ad\.
+   + `beaconUrls`: Where each beacon should be sent\.
+   + `bitrate`: Bit rate of the video asset\. This is not typically included for an executable asset\.
+   + `delivery`: Either "`progressive`" or "`streaming`", depending on the protocol\.
+   + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad break and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID Handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
+   + `durationInSeconds`: Length in seconds format\. The response includes durations for the entire ad break and for each ad and beacon \(though beacon durations are always zero\)\.
+   + `eventId`: For HLS, the sequence number that is associated with the beacon\. For DASH, the `ptsTime` of the start of the ad\.
+   + `eventType`: Type of beacon\.
+   + `height`: Height of the video asset\.
+   + `maintainAspectRatio`: Indicates whether to maintain the aspect ratio while scaling\.
+   + `mediaFilesList`: Assets that the player needs to know about\.
+   + `mediaFileUri`: URI that points to either an executable asset or video asset\. Example: `"https://myad.com/ad/ad134/vpaid.js"`\. 
+   + `mediaType`: Typically either JavaScript or Flash for executable assets\. 
+   + `mezzanine`: The mezzanine MP4 asset, specified if the VPAID ad includes one\. Example: `"https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4"`\.
+   + `scalable`: Indicates whether to scale the video to other dimensions\.
+   + `startTime`: Time position in ISO 8601 seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad break and for each ad and beacon\.
+   + `startTimeInSeconds`: Time position in seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad break and for each ad and beacon\.
    + `apiFramework`: Set to "`VPAID`"\. Tells the player this is a VPAID ad\.
    + `adParameters`: String of ad parameters from VAST VPAID, which AWS Elemental MediaTailor passes along to the player\.
    + `mediaFilesList`: Assets that the player needs to know about\.
@@ -64,7 +83,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `maintainAspectRatio`: Indicates whether to maintain the aspect ratio while scaling\.
    + `mezzanine`: Specifies a mezzanine MP4 asset, if the VPAID ad includes one\. Example: `"https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4"`\.
 
-   Example responses:
+   The following example responses indicate that an ad is coming:
 
    ```
    {

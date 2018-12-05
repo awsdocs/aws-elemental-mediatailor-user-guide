@@ -1,6 +1,6 @@
 # Editing a Configuration<a name="configurations-edit"></a>
 
-Edit a configuration to update the origin server and ad decision server \(ADS\) mapping, or change how MediaTailor interacts with a content distribution network \(CDN\)\.
+You can edit a configuration to update the origin server and ad decision server \(ADS\) mapping, or change how AWS Elemental MediaTailor interacts with a content distribution network \(CDN\)\.
 
 **To edit a configuration **
 
@@ -8,6 +8,6 @@ Edit a configuration to update the origin server and ad decision server \(ADS\) 
 
 1. On the **Configurations** page, choose the name of the configuration that you want to edit\.
 
-1. On the configuration details page, choose **Edit**, and then revise the configuration settings as needed\. Note that you can't edit the configuration name\. For information about configuration attributes, see [Creating a Configuration](configurations-create.md)\.
+1. On the configuration details page, choose **Edit**, and then revise the configuration settings as needed\. You can't edit the configuration name\. For information about configuration attributes, see [Creating a Configuration](configurations-create.md)\.
 
 1. Choose **Save**\.

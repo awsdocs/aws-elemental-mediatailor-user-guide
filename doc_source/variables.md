@@ -15,10 +15,10 @@ The query parameters take the following forms:
 
 1. Create a configuration in MediaTailor that uses a template ADS request URL that satisfies the ADS requirements\. In the URL, include static parameters and include placeholders for dynamic parameters\. Enter your template URL in the configuration's **Ad decision server** field\. 
 
-   In the following example template URL, `correlation` provides session data, and `user` provides player data:
+   In the following example template URL, `correlation` provides session data, and `deviceType` provides player data:
 
    ```
-   https://my.ads.server.com/path?correlation=[session.id]&user=[player_params.userID]
+   https://my.ads.server.com/path?correlation=[session.id]&deviceType=[player_params.deviceType]
    ```
 
 1. On the player, configure the session initiation request for AWS Elemental MediaTailor to provide parameters for the player data\. Include your parameters in the session initiation request, and omit them from subsequent requests for the session\. 
@@ -29,16 +29,40 @@ The query parameters take the following forms:
    + \(Option\) Call for server\-side ad\-tracking reporting – Prefix parameters for the ADS with `ads` and omit the `ads` prefix in the parameters that you want MediaTailor to send to the origin server:   
 **Example**  
 
+     The following examples show incoming requests for HLS and DASH to AWS Elemental MediaTailor\. MediaTailor uses the `deviceType` in its request to the ADS and the `auth_token` in its request to the origin server\. 
+
+     HLS example:
+
      ```
-     GET master.m3u8?ads.userID=xyzuser&auth_token=kjhdsaf7gh
+     GET master.m3u8?ads.deviceType=ipad&auth_token=kjhdsaf7gh
      ```
-   + \(Option\) Call for client\-side ad\-tracking reporting – Provide parameters for the ADS inside an `adsParams` object\. Provide parameters that you want MediaTailor to send to the origin server as top\-level objects: 
+
+     DASH example:
+
+     ```
+     GET manifest.mpd?ads.deviceType=ipad&auth_token=kjhdsaf7gh
+     ```
+   + \(Option\) Call for client\-side ad\-tracking reporting – Provide parameters for the ADS inside an `adsParams` object\. Provide parameters that you want MediaTailor to send to the origin server as top\-level objects\. 
+
+     HLS example:
 
      ```
      POST master.m3u8
          {
              "adsParams": {
-                "userID": "xyzuser"
+                "deviceType": "ipad"
+            }
+            "auth_token": "kjhdsaf7gh"
+         }
+     ```
+
+     DASH example:
+
+     ```
+     POST manifest.mpd
+         {
+             "adsParams": {
+                "deviceType": "ipad"
             }
             "auth_token": "kjhdsaf7gh"
          }
@@ -46,14 +70,24 @@ The query parameters take the following forms:
 
 When the player initiates a session, AWS Elemental MediaTailor replaces the variables in the template ADS request URL with the player `ads` data and the session data\. It passes the remaining parameters from the player to the origin server\.
 
-The following examples show calls from AWS Elemental MediaTailor that correspond to the preceding player's session initialization call examples\. MediaTailor calls the ADS with session data and the player's user ID, and calls the origin server with the player's authorization token:
+The following examples show the calls to the ADS and origin server from AWS Elemental MediaTailor that correspond to the preceding player's session initialization call examples\. MediaTailor calls the ADS with session data and the player's device type: 
 
 ```
-https://my.ads.server.com/path?correlation=896976764&user=xyzuser
+https://my.ads.server.com/path?correlation=896976764&deviceType=ipad
 ```
+
+MediaTailor calls the origin server with the player's authorization token:
+
+HLS example:
 
 ```
 https://my.origin.server.com/master.m3u8?auth_token=kjhdsaf7gh
+```
+
+DASH example:
+
+```
+https://my.origin.server.com/manifest.mpd?auth_token=kjhdsaf7gh
 ```
 
 The following sections provide details for configuring session and player data\.

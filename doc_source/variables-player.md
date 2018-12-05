@@ -23,15 +23,37 @@ If your ADS requires a URL\-encoded value, URL\-encode the value twice on the pl
    For example, if the decoded representation of the values sent to the ADS is `param1=value1:&param2=value2:`, then the URL\-encoded representation is `param1=value1%3A&param2=value2%3A`\.
 
 1. In the session initialization call from the player, pass the key\-value pairs to MediaTailor as the value of a single query parameter\. The following example calls provide the example key\-value pairs for server\- and client\-side ad tracking reporting\.  
-**Example Example request for server\-side ad\-tracking reporting \- using URL\-encoded pairs**  
+**Example Example requests for server\-side ad\-tracking reporting \- using URL\-encoded pairs**  
+
+   HLS:
 
    ```
-   GET <masterAssetID>.m3u8?ads.param1=value1%3A&ads.param2=value2%3A
+   <master>.m3u8?ads.param1=value1%3A&ads.param2=value2%3A
+   ```
+
+   DASH:
+
+   ```
+   <manifest>.mpd?ads.param1=value1%3A&ads.param2=value2%3A
    ```  
 **Example Example request for client\-side ad\-tracking reporting \- with no URL\-encoding**  
 
+   HLS:
+
    ```
-   POST <masterAssetID>.m3u8
+   POST <master>.m3u8
+       {
+           "adsParams": {
+              "param1": "value1:",
+              "param2": "value2:"
+          }
+       }
+   ```
+
+   DASH:
+
+   ```
+   POST <manifest>.mpd
        {
            "adsParams": {
               "param1": "value1:",

@@ -1,6 +1,6 @@
 # Monitoring AWS Elemental MediaTailor with Amazon CloudWatch<a name="monitoring-cloudwatch"></a>
 
-You can monitor MediaTailor using CloudWatch, which collects raw data and processes it into readable, near real\-time metrics\. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing\. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met\. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
+You can monitor AWS Elemental MediaTailor using CloudWatch, which collects raw data and processes it into readable, near real\-time metrics\. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing\. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met\. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
 
 **To view metrics using the CloudWatch console**  
 Metrics are grouped first by the service namespace, and then by the various dimension combinations within each namespace\.
@@ -56,7 +56,7 @@ The actual weighted average `FillRate` is 79% \( \[45 seconds filled \+ 120 seco
 
 ## AWS Elemental MediaTailor CloudWatch Dimensions<a name="dimensions"></a>
 
-You can filter the MediaTailor data using the following dimensions\.
+You can filter the AWS Elemental MediaTailor data using the following dimensions\.
 
 
 | Dimension | Description | 

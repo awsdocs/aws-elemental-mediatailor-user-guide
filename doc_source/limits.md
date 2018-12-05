@@ -9,7 +9,7 @@ The following table describes limits in AWS Elemental MediaTailor that can be in
 
 | Limit | Default Setting | Description | 
 | --- | --- | --- | 
-| Concurrent transactions | 3,000 | The maximum number of concurrent transactions per second across all request types\. This is an account\-level limit\. Your transaction count depends largely on how often players request updated manifests and the number of players\. Each player request counts as a transaction\.  | 
+| Transactions | 3,000 | The maximum number of concurrent transactions per second across all request types\. This is an account\-level limit\. Your transaction count depends largely on how often players request updated manifests and the number of players\. Each player request counts as a transaction\.  | 
 
 ## Hard Limits<a name="hard-limits"></a>
 

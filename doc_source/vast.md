@@ -6,7 +6,7 @@ AWS Elemental MediaTailor supports VAST 3\.0 and 2\.0 and VMAP 1\.0 for server\-
 
 For IAB specifications, see the following:
 + VAST 3\.0 – [https://www\.iab\.com/guidelines/digital\-video\-ad\-serving\-template\-vast\-3\-0/](https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/)
-+  VMAP 1\.0 – [https://www\.iab\.com/guidelines/digital\-video\-multiple\-ad\-playlist\-vmap\-1\-0\-1/](https://www.iab.com/guidelines/digital-video-multiple-ad-playlist-vmap-1-0-1/)
++ VMAP 1\.0 – [https://www\.iab\.com/guidelines/digital\-video\-multiple\-ad\-playlist\-vmap\-1\-0\-1/](https://www.iab.com/guidelines/digital-video-multiple-ad-playlist-vmap-1-0-1/)
 + VPAID – [https://www\.iab\.com/guidelines/digital\-video\-player\-ad\-interface\-definition\-vpaid\-2\-0/](https://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/)
 
 **Topics**
