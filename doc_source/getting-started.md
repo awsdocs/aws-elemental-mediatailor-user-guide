@@ -156,8 +156,8 @@ Where:
 + `master.m3u8` or `manifest.mpd` is the name of the manifest from the test stream plus its file extension\. Define this so that you get a fully identified manifest when you append this to the video content source that you configured in [Step 4: Create a Configuration](#getting-started-add-mapping)\. 
 
 Using the values from the preceding examples, the full URLs are the following:
-+ HLS: `[https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com](https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com)/v1/master/hashed-account-id/origin-id/master.m3u8`
-+ DASH: `[https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com](https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com)/v1/dash/hashed-account-id/origin-id/manifest.mpd`
++ HLS: `https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/master/AKIAIOSFODNN7EXAMPLE/myOrigin/master.m3u8`
++ DASH: `https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/dash/AKIAIOSFODNN7EXAMPLE/myOrigin/manifest.mpd`
 
 You can test the stream using one of the following methods:
 + As shown in the preceding example, enter the URL in a standalone player\.
