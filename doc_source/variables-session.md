@@ -8,8 +8,8 @@ You can use the following variables in the template ADS request URL:
   + For DASH, MediaTailor obtains the duration value from the period's event duration, if one is specified\. Otherwise, it uses the default value\. 
 + **\[session\.avail\_duration\_secs\]** – the duration in seconds of the ad availability slot\. MediaTailor determines this value the same way it determines `[session.avail_duration_ms]`\.
 + **\[session\.client\_ip\]** – the remote IP address that the MediaTailor request came from\. If the `X-forwarded-for` header is set, then that value is what MediaTailor uses for the `client_ip`\.
-+ **\[session\.id\]** – a unique numeric identifier for the current playback session\. All requests that a player makes during a session have the same value for this field, so it can be used for ADS fields that are intended to correlate requests for a single viewing\.
-+ **\[session\.referer\]** – usually, the URL of the page that is hosting the video player\. MediaTailor sets this variable to the value of the `Referer` header that the player used in its request to MediaTailor\. If the player doesn't include this header, MediaTailor leaves the **\[session\.referer\]** empty\. If you use a CDN or proxy in front of the manifest endpoint and you want this variable to appear, proxy the correct header from the player here\.
++ **\[session\.id\]** – a unique numeric identifier for the current playback session\. All requests that a player makes for a session have the same id, so it can be used for ADS fields that are intended to correlate requests for a single viewing\.
++ **\[session\.referer\]** – usually, the URL of the page that is hosting the video player\. MediaTailor sets this variable to the value of the `Referer` header that the player used in its request to MediaTailor\. If the player doesn't provide this header, MediaTailor leaves the **\[session\.referer\]** empty\. If you use a CDN or proxy in front of the manifest endpoint and you want this variable to appear, proxy the correct header from the player here\.
 + **\[session\.user\_agent\]** – the `User-Agent` header that MediaTailor received from the player’s session initialization request\. If you're using a CDN or proxy in front of the manifest endpoint, you must proxy the correct header from the player here\.
 + **\[session\.uuid\]** – alternative to **\[session\.id\]**\. This is a unique identifier for the current playback session, such as the following: 
 
@@ -17,7 +17,7 @@ You can use the following variables in the template ADS request URL:
   e039fd39-09f0-46b2-aca9-9871cc116cde
   ```
 + **\[avail\.random\]** – a random number between 0 and 10,000,000,000 that MediaTailor generates for each request to the ADS\. Some ad servers use this parameter to enable features such as separating ads from competing companies\.
-+ **\[event\_id\]** – the value parsed from the SCTE\-35 field `splice_event_id` as a long number\. MediaTailor uses this value to designate linear ad break numbers or to populate ad server query strings, like ad pod positions\.
++ **\[event\_id\]** – the value parsed from the SCTE\-35 field `splice_event_id`, as a long number\. MediaTailor uses this value to designate linear ad break numbers or to populate ad server query strings, like ad pod positions\.
 + **\[avail\_num\]** – the value parsed from the SCTE\-35 field `avail_num`\. MediaTailor can use this value to designate linear ad break numbers\.
 
 **Example Examples**  

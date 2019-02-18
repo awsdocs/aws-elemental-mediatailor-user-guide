@@ -8,6 +8,6 @@ You can delete a configuration to make it unavailable for playback\.
 
 1. On the **Configurations** page, do one of the following:
    + Choose the name of the configuration that you want to delete\. 
-   + In the **Configuration name** column, choose the radio button, and then choose **Delete**\.
+   + In the **Configuration name** column, choose the option next to the name, and then choose **Delete**\.
 
 1. In the **Delete** confirmation box, enter **Delete**, and then choose **Delete**\.

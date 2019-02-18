@@ -1,6 +1,6 @@
 # Dynamic Ad Variables in AWS Elemental MediaTailor<a name="variables"></a>
 
-The AWS Elemental MediaTailor request to the ad decision server \(ADS\) includes information about the current viewing session, which helps the ADS choose the best ads to provide in its response\. In your ADS request configuration, you specify the query parameters to use to convey the viewing session information\. 
+The AWS Elemental MediaTailor request to the ad decision server \(ADS\) includes information about the current viewing session, which helps the ADS choose the best ads to provide in its response\. When you configure your ADS request, you specify the query parameters to use to convey the information\. 
 
 The query parameters take the following forms:
 + **Static values** – values that don't change from one session to the next\. For example, the response type that MediaTailor expects from the ADS\.
@@ -26,7 +26,7 @@ The query parameters take the following forms:
    The type of call that the player makes to initialize the session determines whether the player \(client\) or MediaTailor \(server\) provides ad\-tracking reporting for the session\. For information about these two options, see [Ad Tracking Reporting in AWS Elemental MediaTailor](ad-reporting.md)\. 
 
    Make one of the following types of calls, depending on whether you want server\- or client\-side ad\-tracking reporting\. In both of the example calls, `userID` is intended for the ADS and `auth_token` is intended for the origin:
-   + \(Option\) Call for server\-side ad\-tracking reporting – Prefix parameters for the ADS with `ads` and omit the `ads` prefix in the parameters that you want MediaTailor to send to the origin server:   
+   + \(Option\) Call for server\-side ad\-tracking reporting – Prefix the parameters that you want MediaTailor to send to the ADS with `ads`\. Leave the prefix off for parameters that you want MediaTailor to send to the origin server:   
 **Example**  
 
      The following examples show incoming requests for HLS and DASH to AWS Elemental MediaTailor\. MediaTailor uses the `deviceType` in its request to the ADS and the `auth_token` in its request to the origin server\. 
@@ -68,7 +68,7 @@ The query parameters take the following forms:
          }
      ```
 
-When the player initiates a session, AWS Elemental MediaTailor replaces the variables in the template ADS request URL with the player `ads` data and the session data\. It passes the remaining parameters from the player to the origin server\.
+When the player initiates a session, AWS Elemental MediaTailor replaces the variables in the template ADS request URL with the session data and the player's `ads` parameters\. It passes the remaining parameters from the player to the origin server\.
 
 The following examples show the calls to the ADS and origin server from AWS Elemental MediaTailor that correspond to the preceding player's session initialization call examples\. MediaTailor calls the ADS with session data and the player's device type: 
 

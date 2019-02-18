@@ -4,12 +4,12 @@ AWS Elemental MediaTailor supports input and output of multiple audio and WebVTT
 
 ## Audio<a name="manifest-audio-captions-alternate"></a>
 
-If your content contains alternate audio, AWS Elemental MediaTailor transcodes audio\-only renditions of the ads to the alternate audio tracks for your content\. This way, audio switching continues to work during ad breaks\. The service always inserts the default audio from the ad and replicates it across your audio tracks during ad breaks\.
+If your content contains alternate audio, AWS Elemental MediaTailor transcodes audio\-only renditions of the ads to the alternate audio tracks for your content\. This way, audio switching continues to work during ad breaks\. The service inserts the default audio from the ad and replicates it across your audio tracks during ad breaks\.
 
-The audio sample rate must be from 16 to 320 kHz for ad transcoding to succeed\.
+For ad transcoding to succeed, the audio sample rate must be from 16 to 320 kHz\.
 
 ## Subtitles<a name="manifest-audio-captions-subtitles"></a>
 
-Ad playback does not include subtitles\. Instead, AWS Elemental MediaTailor inserts blank offsets for the webVTT sidecar files during ad breaks\. 
+Ad playback doesn't include subtitles\. Instead, AWS Elemental MediaTailor inserts blank offsets for the webVTT sidecar files during ad breaks\. 
 
 For DASH, AWS Elemental MediaTailor supports in\-band subtitles\. MediaTailor currently does not support sideband subtitles\. 

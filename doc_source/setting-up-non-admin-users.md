@@ -1,6 +1,6 @@
 # Step 3: Create Users<a name="setting-up-non-admin-users"></a>
 
-Create IAM users for the individuals who require access to AWS Elemental MediaTailor, and add each user to the appropriate user group to ensure that they have the right level of permissions\. If you already have users created, skip past the user creation steps to modify the permissions for the users\.
+Create IAM users for the individuals who require access to AWS Elemental MediaTailor\. Next, add each user to the appropriate user group to ensure that they have the right level of permissions\. If you already have users created, skip past the user creation steps to modify the permissions for the users\.
 
 **To create users who can access AWS Elemental MediaTailor**
 

@@ -1,7 +1,7 @@
 # AWS Elemental MediaTailor User Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -32,10 +32,10 @@ Amazon's trademarks and trade dress may not be used in
       + [HLS Live Manifest Examples](manifest-hls-example.md)
       + [HLS Manifest Tag Handling](manifest-hls-tags.md)
    + [DASH .mpd Manifests](manifest-dash.md)
-      + [AWS Elemental MediaTailor Support for DASH](dash-support.md)
-      + [DASH Manifest Requirements](manifest-dash-manifest-requirements.md)
-      + [DASH Location Feature](dash-location-feature.md)
+      + [DASH Ad Markers](dash-ad-markers.md)
+      + [DASH Ad Avail Duration](dash-ad-avail-duration.md)
       + [DASH Manifest Examples](dash-manifest-examples.md)
+      + [DASH Location Feature](dash-location-feature.md)
 + [Working with Configurations in AWS Elemental MediaTailor](configurations.md)
    + [Creating a Configuration](configurations-create.md)
    + [Viewing a Configuration](configurations-view.md)
@@ -44,7 +44,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Integrating with AWS Elemental MediaTailor](integrating.md)
    + [CDN Integration](integrating-cdn.md)
       + [Integrating AWS Elemental MediaTailor and a CDN](integrating-cdn-standard.md)
-+ [VAST](vast.md)
++ [VAST in AWS Elemental MediaTailor](vast.md)
    + [VAST Integration](vast-integration.md)
    + [VPAID Handling](vpaid.md)
 + [Dynamic Ad Variables in AWS Elemental MediaTailor](variables.md)
@@ -59,9 +59,15 @@ Amazon's trademarks and trade dress may not be used in
    + [Server-side Reporting](ad-reporting-server-side.md)
    + [Client-side Reporting](ad-reporting-client-side.md)
 + [Monitoring and Troubleshooting AWS Elemental MediaTailor](monitoring.md)
-   + [Setting up Permissions for Amazon CloudWatch](monitoring-permissions.md)
+   + [Setting Up Permissions for Amazon CloudWatch](monitoring-permissions.md)
    + [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch](monitoring-cloudwatch.md)
+   + [Logging AWS Elemental MediaTailor API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
++ [Tagging AWS Elemental MediaTailor Resources](tagging.md)
 + [Limits in AWS Elemental MediaTailor](limits.md)
++ [Playback Errors Returned by AWS Elemental MediaTailor](playback-errors.md)
+   + [Client Playback Errors Returned by AWS Elemental MediaTailor](playback-errors-client.md)
+   + [Server Playback Errors Returned by AWS Elemental MediaTailor](playback-errors-server.md)
+   + [Playback Error Examples](playback-errors-examples.md)
 + [AWS Elemental MediaTailor Resources](resources.md)
 + [Document History for AWS Elemental MediaTailor](document-history.md)
 + [AWS Glossary](glossary.md)

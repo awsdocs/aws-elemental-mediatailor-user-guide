@@ -12,7 +12,7 @@ Audio
 AWS Elemental MediaTailor supports multiple audio tracks\. For more information, see [Alternate Audio and Subtitles](manifest-audio-captions.md)\.
 
 Content and Ad Continuity  
-AWS Elemental MediaTailor uses a transcoding service to ensure that ads and content have the same bit rate and resolution so that transitions are smooth throughout playback\.
+AWS Elemental MediaTailor uses a transcoding service to ensure that ads and content have the same bitrate and resolution so that transitions are smooth throughout playback\.
 
 Personalized Content  
 AWS Elemental MediaTailor uses VAST or VMAP to pass viewer information to the ad decision server \(ADS\), and in return receives targeted ads that are relevant for the viewer\.

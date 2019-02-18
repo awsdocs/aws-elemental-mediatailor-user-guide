@@ -1,8 +1,8 @@
 # Player Data<a name="variables-player"></a>
 
-To configure AWS Elemental MediaTailor to send data received from the player to the ADS, in the template ADS URL, specify `player_params.<query_parameter_name>` variables\. For example, if the player sends a query parameter named `user_id` in its request to AWS Elemental MediaTailor and you need to pass that data in the ADS request, then include `[player_params.user_id]` in the ADS URL configuration\. 
+To configure AWS Elemental MediaTailor to send data received from the player to the ADS, in the template ADS URL, specify `player_params.<query_parameter_name>` variables\. For example, if the player sends a query parameter named `user_id` in its request to MediaTailor, to pass that data in the ADS request, include `[player_params.user_id]` in the ADS URL configuration\. 
 
-This functionality allows you to control the query parameters that are included in the ADS request\. Typically, you add a special query parameter that the ADS recognizes to the ADS request URL and provide key\-value pairs as the value of the parameter\. 
+This allows you to control the query parameters that are included in the ADS request\. Typically, you add a special query parameter that the ADS recognizes to the ADS request URL and provide key\-value pairs as the value of the parameter\. 
 
 The examples used in the following procedure use the following key\-value pairs:
 + *param1* with a value of *value1:*
@@ -16,7 +16,7 @@ The examples used in the following procedure use the following key\-value pairs:
    https://my.ads.com/path?param1=[player_params.param1]&param2=[player_params.param2]
    ```
 
-1. \(Optional\) For server\-side ad\-tracking reporting, URL\-encode the key\-value pairs on the player\. When MediaTailor receives a session initialization request from the player for a session with server\-side reporting, it URL\-decodes the values once before substituting them into the ADS request URL\. 
+1. \(Optional\) For server\-side ad\-tracking reporting, URL\-encode the key\-value pairs on the player\. When MediaTailor receives the session initialization request, it URL\-decodes the values once before substituting them into the ADS request URL\. 
 **Note**  
 If your ADS requires a URL\-encoded value, URL\-encode the value twice on the player\. This way, the decoding done by MediaTailor results in a once\-encoded value for the ADS\. 
 
@@ -62,7 +62,7 @@ If your ADS requires a URL\-encoded value, URL\-encode the value twice on the pl
        }
    ```
 
-For server\-side reporting, MediaTailor decodes the parameters when the player request is received\. For client\-side reporting, it does not alter the parameters received in the JSON payload\. MediaTailor sends the following request to the ADS:
+For server\-side reporting, MediaTailor decodes the parameters when the player request is received\. For client\-side reporting, it doesn't alter the parameters received in the JSON payload\. MediaTailor sends the following request to the ADS:
 
 ```
 https://my.ads.com/<path>?param1=value1:&param2=value2:

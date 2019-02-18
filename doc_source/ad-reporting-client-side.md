@@ -1,6 +1,6 @@
 # Client\-side Reporting<a name="ad-reporting-client-side"></a>
 
-With client\-side reporting, AWS Elemental MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. Client\-side reporting enables functionality like trick play for VOD \(players display visual feedback during fast forward and rewind\) and other advanced playback behavior during ad breaks that requires player development \(like no skip\-forward and countdown timers on ad breaks\)\.
+With client\-side reporting, AWS Elemental MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. Client\-side reporting enables functionality like trick play for VOD \(players display visual feedback during fast forward and rewind\)\. It also enables other advanced playback behavior during ad breaks that require player development \(like no skip\-forward and countdown timers on ad breaks\)\.
 
 Use client\-side reporting for VPAID functionality\. For more information, see [VPAID Handling](vpaid.md)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
 
@@ -19,7 +19,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
        }
    ```
 
-   In the message body JSON: 
+   Note the following about the message body JSON: 
    + The `adsParams` are parameter specifications that MediaTailor uses in the request to the ADS\. In the MediaTailor configuration, you define these parameters as `[player_params.param]` in the ADS template URL, as described in [Player Data](variables-player.md)\.
    + Any other query parameters that you provide are forwarded by MediaTailor to your origin server\.
 
@@ -55,8 +55,8 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `apiFramework`: Set to "`VPAID`"\. Tells the player this is a VPAID ad\.
    + `availId`: For HLS, the sequence number associated with the start of the ad break\. For DASH, the period ID of the avail, which is usually the period ID of the content that is to be replaced with an ad\.
    + `beaconUrls`: Where each beacon should be sent\.
-   + `bitrate`: Bit rate of the video asset\. This is not typically included for an executable asset\.
-   + `delivery`: Either "`progressive`" or "`streaming`", depending on the protocol\.
+   + `bitrate`: Bitrate of the video asset\. This is not typically included for an executable asset\.
+   + `delivery`: Either `progressive` or `streaming`, depending on the protocol\.
    + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad break and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID Handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
    + `durationInSeconds`: Length in seconds format\. The response includes durations for the entire ad break and for each ad and beacon \(though beacon durations are always zero\)\.
    + `eventId`: For HLS, the sequence number that is associated with the beacon\. For DASH, the `ptsTime` of the start of the ad\.
@@ -64,13 +64,13 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `height`: Height of the video asset\.
    + `maintainAspectRatio`: Indicates whether to maintain the aspect ratio while scaling\.
    + `mediaFilesList`: Assets that the player needs to know about\.
-   + `mediaFileUri`: URI that points to either an executable asset or video asset\. Example: `"https://myad.com/ad/ad134/vpaid.js"`\. 
+   + `mediaFileUri`: URI that points to either an executable asset or video asset\. Example: `https://myad.com/ad/ad134/vpaid.js`\. 
    + `mediaType`: Typically either JavaScript or Flash for executable assets\. 
-   + `mezzanine`: The mezzanine MP4 asset, specified if the VPAID ad includes one\. Example: `"https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4"`\.
+   + `mezzanine`: The mezzanine MP4 asset, specified if the VPAID ad includes one\. Example: `https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4`\.
    + `scalable`: Indicates whether to scale the video to other dimensions\.
    + `startTime`: Time position in ISO 8601 seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad break and for each ad and beacon\.
    + `startTimeInSeconds`: Time position in seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad break and for each ad and beacon\.
-   + `apiFramework`: Set to "`VPAID`"\. Tells the player this is a VPAID ad\.
+   + `apiFramework`: Set to "`VPAID`"\. Tells the player that this is a VPAID ad\.
    + `adParameters`: String of ad parameters from VAST VPAID, which AWS Elemental MediaTailor passes along to the player\.
    + `mediaFilesList`: Assets that the player needs to know about\.
    + `mediaFileUri`: URI that points to either an executable or video asset\. Example: `"https://myad.com/ad/ad134/vpaid.js"`\. 
@@ -78,7 +78,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `mediaType`: Typically either JavaScript or Flash for executable assets\. 
    + `width`: Width of the video asset\.
    + `height`: Height of the video asset\.
-   + `bitrate`: Bit rate of the video asset\. This is not typically included for an executable asset\.
+   + `bitrate`: Bitrate of the video asset\. This is not typically included for an executable asset\.
    + `scalable`: Indicates whether to scale the video to other dimensions\.
    + `maintainAspectRatio`: Indicates whether to maintain the aspect ratio while scaling\.
    + `mezzanine`: Specifies a mezzanine MP4 asset, if the VPAID ad includes one\. Example: `"https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4"`\.

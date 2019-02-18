@@ -4,7 +4,7 @@ In AWS Elemental MediaTailor, you can configure a URL to an MP4 slate, to be use
 
 Configuring a slate is optional in all situations except where VPAID is used: 
 + For non\-VPAID situations, if you don't configure a slate, MediaTailor handles unfilled and partially filled ad breaks by showing the underlying stream content\. 
-+ For VPAID, you must configure a slate\. MediaTailor inserts the slate for the duration of the VPAID ad\. In certain cases, to accommodate user interactivity, this duration may be slightly higher than the duration of the VPAID ad as reported by VAST\. The video player then handles the VPAID ad based on the client\-side reporting metadata that MediaTailor returns\. For information about client\-side reporting, see [Client\-side Reporting](ad-reporting-client-side.md)\. For information about VPAID, see [VPAID Handling](vpaid.md)\. 
++ For VPAID, you must configure a slate\. MediaTailor inserts the slate for the duration of the VPAID ad\. In certain cases, to accommodate user interactivity, this duration might be slightly higher than the duration of the VPAID ad as reported by VAST\. The video player then handles the VPAID ad based on the client\-side reporting metadata that MediaTailor returns\. For information about client\-side reporting, see [Client\-side Reporting](ad-reporting-client-side.md)\. For information about VPAID, see [VPAID Handling](vpaid.md)\. 
 
 The slate that you configure must be a high\-quality MP4 asset that contains both audio and video\. Empty audio slates sometimes cause playback issues on some players\. 
 

@@ -10,7 +10,7 @@ When you use a CDN in the AWS Elemental MediaTailor workflow, the request and re
 
 1. The player requests segments from the URLs that are provided in the manifest\. 
 
-1. The CDN translates the segment URLs and forwards content segment requests to the origin server and forwards ad requests to the Amazon CloudFront distribution where MediaTailor stores transcoded ads\.
+1. The CDN translates the segment URLs\. It forwards content segment requests to the origin server and forwards ad requests to the Amazon CloudFront distribution where MediaTailor stores transcoded ads\.
 
 1. The origin server and MediaTailor respond with the requested segments, and playback begins\.
 
@@ -18,7 +18,7 @@ The following sections describe how to configure AWS Elemental MediaTailor and t
 
 ## How AWS Elemental MediaTailor Handles BaseURLs for DASH<a name="baseurls-for-dash"></a>
 
-With server\-side ad insertion, the content segments and ad segments come from different locations\. In your DASH manifests, AWS Elemental MediaTailor manages URL settings based on your CDN configuration and the URLs specified in the manifest\. MediaTailor uses the rules listed below to manage the `BaseURL` settings in your DASH manifests for your content segments and ad segments\. 
+With server\-side ad insertion, the content segments and ad segments come from different locations\. In your DASH manifests, AWS Elemental MediaTailor manages URL settings based on your CDN configuration and the URLs specified in the manifest\. MediaTailor uses the rules in the following list to manage the `BaseURL` settings in your DASH manifests for your content segments and ad segments\. 
 
 AWS Elemental MediaTailor behavior for content segments:
 + If you specify a **CDN content segment prefix** in your configuration, then MediaTailor makes sure that there is exactly one `BaseURL`, with your specified prefix, defined at the `MPD` level\.

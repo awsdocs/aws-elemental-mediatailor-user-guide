@@ -25,26 +25,26 @@ As with other AWS products, there are no contracts or minimum commitments for us
 
 ## Regions for AWS Elemental MediaTailor<a name="regions-endpoints"></a>
 
-To reduce data latency in your applications, AWS Elemental MediaTailor offers regional endpoints to make your requests\. To view the list of regions in which AWS Elemental MediaTailor is available, see [https://docs.aws.amazon.com/general/latest/gr/rande.html#mediatailor_region](https://docs.aws.amazon.com/general/latest/gr/rande.html#mediatailor_region)\.
+To reduce data latency in your applications, AWS Elemental MediaTailor offers regional endpoints to make your requests\. To view the list of Regions in which AWS Elemental MediaTailor is available, see [https://docs.aws.amazon.com/general/latest/gr/rande.html#mediatailor_region](https://docs.aws.amazon.com/general/latest/gr/rande.html#mediatailor_region)\.
 
 ## Stream Requirements<a name="stream-reqmts"></a>
 
 A video stream must meet the following requirements to work with AWS Elemental MediaTailor:
 + Use Apple HLS \(HTTP Live Streaming\) or MPEG DASH \(Dynamic Adaptive Streaming over HTTP\)
-+ Use live streaming or video\-on\-demand \(VOD\)
++ Use live streaming or video on demand \(VOD\)
 + Be accessible on the public internet and have a public IP address
 + Contain ad markers in one of the formats described in [Step 2: Prepare a Stream](getting-started.md#getting-started-prep-stream)
 
 ## Sensitive Information<a name="sensitive-information"></a>
 
-AWS Elemental MediaTailor does not require that you supply any customer data\.
+AWS Elemental MediaTailor doesn't require that you supply any customer data\.
 
-Do not put sensitive information, like customer account numbers, credit card information, or passwords, into free\-form fields or query parameters\. This applies to all use of AWS Elemental MediaTailor, including the console, API, SDKs, and the AWS CLI\. Any data that you enter into the service might get picked up for inclusion in diagnostic logs\.
+Don't put sensitive information, like customer account numbers, credit card information, or passwords, into free\-form fields or query parameters\. This applies to all use of AWS Elemental MediaTailor, including the console, API, SDKs, and the AWS CLI\. Any data that you enter into the service might get picked up for inclusion in diagnostic logs\.
 
-When you provide a URL to an external server, do not include unencrypted credentials information in the URL to validate your request to that server\.
+When you provide a URL to an external server, don't include unencrypted credentials information in the URL to validate your request to that server\.
 
 ## Transcoded Ad Management<a name="transcoded-ad-management"></a>
 
-AWS Elemental MediaTailor manages transcoded ads on your behalf with no additional charge\. When you play ads in a video stream, depending on where your ad data is located, it might get copied to another AWS Region\.
+AWS Elemental MediaTailor manages transcoded ads on your behalf with no additional charge\. When you play an ad in a video stream, it might get copied to another AWS Region\.
 
 If you need to delete your transcoded ad assets for any reason, file a case with AWS Support\. On the navigation bar of the console, choose **Support**, and then choose **Support Center**\. Create a case, and choose the category of **Service Limit Increase**\.

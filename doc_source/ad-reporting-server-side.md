@@ -4,7 +4,7 @@ AWS Elemental MediaTailor defaults to server\-side reporting: the service sends 
 
 **To perform server\-side ad reporting**
 
-1. From the player, initialize a new AWS Elemental MediaTailor playback session using a request in one of the following formats, according to your protocol:
+1. From the player, initialize a new MediaTailor playback session using a request in one of the following formats, according to your protocol:
    + HLS format
 
      ```
