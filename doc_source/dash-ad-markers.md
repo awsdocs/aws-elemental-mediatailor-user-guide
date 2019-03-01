@@ -1,6 +1,6 @@
 # DASH Ad Markers<a name="dash-ad-markers"></a>
 
-A `Period` in a DASH manifest is eligible for ad replacement by MediaTailor when the first event in its event stream has splice insert or time signal cue out markers\. You can provide the markers in clear XML or in a base64\-encoded binary:
+A `Period` in a DASH manifest is eligible for ad replacement by MediaTailor when the first event in its event stream has splice insert or time signal cue out markers\. You can provide the markers in clear XML or in base64\-encoded binary:
 + **Clear XML** – the event stream `schemeIdUri` must be set to `urn:scte:scte35:2013:xml`, and the first event must have `scte35:SpliceInfoSection` markers containing one of the following: 
   + `scte35:SpliceInsert` with `outOfNetworkIndicator` set to `true`
 

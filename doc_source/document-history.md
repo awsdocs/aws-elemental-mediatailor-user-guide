@@ -1,14 +1,14 @@
 # Document History for AWS Elemental MediaTailor<a name="document-history"></a>
 
 The following table describes important changes to this documentation\. 
-+ **API version:** 1\.0
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [HLS ad marker documentation](hls-ad-markers.md) | Added a section that describes supported HLS ad markers\. | March 1, 2019 | 
 | [Tagging support](tagging.md) | Added support for tagging of configuration resources in AWS Elemental MediaTailor\. Tagging allows you to identify and organize your AWS resources and control access to them and to track your AWS costs\. | February 14, 2019 | 
 | [Added AWS CloudTrail logging information\.](logging-using-cloudtrail.md) | Added topic about using CloudTrail to log actions in the AWS Elemental MediaTailor API\. | February 11, 2019 | 
 | [Added section on playback errors](playback-errors.md) | Added information about the errors that might be returned by MediaTailor during playback, in response to requests from a player or a content delivery network \(CDN\)\. | February 4, 2019 | 
-| [DASH base64\-encoded binary](manifest-dash.md) | Added support for providing splicing information in manifests in a base64\-encoded binary, inside `<scte35:Signal>` `<scte35:Binary>` markers\. | January 4, 2019 | 
+| [DASH base64\-encoded binary](manifest-dash.md) | Added support for providing splicing information in manifests in base64\-encoded binary, inside `<scte35:Signal>` `<scte35:Binary>` markers\. | January 4, 2019 | 
 | [DASH time signal](manifest-dash.md) | Added support for providing splicing information in manifests inside `<scte35:TimeSignal>` markers\. | December 5, 2018 | 
 | [DASH location support](dash-location-feature.md) | Added support for the MPEG\-DASH `<Location>` tag\. | December 4, 2018 | 
 | [DASH Support](manifest.md) | Added support for MPEG\-DASH manifests\. | November 14, 2018 | 
