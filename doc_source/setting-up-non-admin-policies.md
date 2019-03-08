@@ -1,50 +1,57 @@
-# Step 1: Create Policies<a name="setting-up-non-admin-policies"></a>
+# Step 2: Create Policies<a name="setting-up-non-admin-policies"></a>
 
-Create two policies for AWS Elemental MediaTailor: one to provide read/write access, and one to provide read\-only access\. Perform these steps one time only for each policy\.
+Create two policies for AWS Elemental MediaTailor: one to provide read/write access, and one to provide read\-only access\. 
 
 **To create policies for AWS Elemental MediaTailor**
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+1. In the navigation pane of the IAM console, choose **Policies**\.
 
-1. Use your Administrator user credentials to sign in to the IAM console\.
+1. On the **Policies** page, create a policy named **MediaTailorAllAccess** that allows all actions on all resources in MediaTailor:
 
-1. In the navigation pane of the console, choose **Policies**, and then choose **Create policy**\.
+   1. Choose **Create policy**\.
 
-1. Choose the **JSON** tab and paste the following policy:
+   1. Choose the **JSON** tab and paste the following policy:
 
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": "mediatailor:*",
-               "Resource": "*"
-           }
-       ]
-   }
-   ```
+      ```
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": "mediatailor:*",
+                  "Resource": "*"
+              }
+          ]
+      }
+      ```
 
-   This policy allows all actions on all resources in AWS Elemental MediaTailor\.
+   1. Choose **Review policy**\.
 
-1. Choose **Review policy**\.
+   1. On the **Review policy** page, for **Name**, enter **MediaTailorAllAccess**, and then choose **Create policy**\.
 
-1. On the **Review policy** page, for **Name**, enter **MediaTailorAllAccess**, and then choose **Create policy**\.
+1. On the **Policies** page, create a read\-only policy named **MediaTailorReadOnlyAccess** for MediaTailor:
 
-1. On the **Policies** page, repeat the steps in this section to create a read\-only policy\. Use the following policy and call it **MediaTailorReadOnlyAccess**:
+   1. Choose **Create policy**\.
 
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": [
-                   "mediatailor:GetPlaybackConfiguration",
-                   "mediatailor:ListPlaybackConfigurations"
-               ],
-               "Resource": "*"
-           }
-       ]
-   }
-   ```
+   1. Choose the **JSON** tab and paste the following read\-only policy:
+
+      ```
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "mediatailor:GetPlaybackConfiguration",
+                      "mediatailor:ListPlaybackConfigurations",
+                      "mediatailor:ListTagsForResource"
+                  ],
+                  "Resource": "*"
+              }
+          ]
+      }
+      ```
+
+   1. Choose **Review policy**\.
+
+   1. On the **Review policy** page, for **Name**, enter **MediaTailorReadOnlyAccess**, and then choose **Create policy**\.
