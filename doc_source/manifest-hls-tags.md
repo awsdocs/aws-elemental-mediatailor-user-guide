@@ -11,4 +11,4 @@ To identify ad creative boundaries, AWS Elemental MediaTailor converts `EXT-X-CU
 + Where an ad transitions back to content
 
 **EXT\-X\-KEY Value**  
-When the origin server enables encryption or digital rights management \(DRM\) on the content stream, the manifest includes `EXT-X-KEY` tags\. Ads aren't encrypted, so AWS Elemental MediaTailor sets the `EXT-X-KEY` tag to `NONE` for ad breaks\. When playback returns to the content stream, MediaTailor re\-enables the `EXT-X-KEY` tag\.
+When the origin server enables encryption or digital rights management \(DRM\) on the content stream, the manifest includes `EXT-X-KEY` tags\. Ads aren't encrypted, so AWS Elemental MediaTailor sets the `EXT-X-KEY` tag to `NONE` for ad avails\. When playback returns to the content stream, MediaTailor re\-enables the `EXT-X-KEY` tag\.

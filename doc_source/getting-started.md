@@ -30,7 +30,7 @@ Configure your origin server to produce manifests for HLS or DASH that are compa
 HLS manifests must satisfy the following requirements:
 + Manifests must be accessible on the public internet\.
 + Manifests must be live or video\-on\-demand \(VOD\)\.
-+ For live content, manifests must contain markers to delineate ad breaks\. This is optional for VOD content, which can use VMAP timeoffsets instead\. 
++ For live content, manifests must contain markers to delineate ad avails\. This is optional for VOD content, which can use VMAP timeoffsets instead\. 
 
   The manifest file must have ad slots marked with one of the following:
   + **\#EXT\-X\-CUE\-OUT / \#EXT\-X\-CUE\-IN** \(more common\) with durations as shown in the following example:
@@ -58,9 +58,9 @@ After you have configured the stream, note the content origin URL prefix for the
 DASH manifests must satisfy the following requirements:
 + Manifests must be accessible on the public internet\.
 + Manifests must be live\.
-+ Manifests must mark periods as ad breaks using either splice insert markers or time signal markers\. You can provide the ad markers in clear XML or in base64\-encoded binary\. For splice insert, the out\-of\-network indicator must be enabled\. For time signal markers, the segmentation type ID, located inside the segmentation UPID, must be a cue\-out value recognized by AWS Elemental MediaTailor\. The ad break starts at the period start and lasts for the SCTE\-35 event duration, if one is specified, or until the next period starts\. 
++ Manifests must mark events as ad avails using either splice insert markers or time signal markers\. You can provide the ad markers in clear XML or in base64\-encoded binary\. For splice insert, the out\-of\-network indicator must be enabled\. For time signal markers, the segmentation type ID, located inside the segmentation UPID, must be a cue\-out value recognized by AWS Elemental MediaTailor\. The ad avail starts at the event start and lasts for the event duration, if one is specified, or until the next event starts\. 
 
-  The following example shows a period designated as an ad break using splice insert markers\. The duration for this break is the event's duration: 
+  The following example shows an event designated as an ad avail using splice insert markers\. The duration for this ad avail is the event's duration: 
 
   ```
     <Period start="PT444806.040S" id="123586" duration="PT15.000S">
@@ -79,7 +79,7 @@ DASH manifests must satisfy the following requirements:
       </AdaptationSet>
     </Period>
   ```
-+ Periods marked as ad breaks must have the same `AdaptationSet` and `Representation` settings as content stream periods\. AWS Elemental MediaTailor uses these settings to transcode the ads to match the content stream, for smooth switching between the two\.
++ Ad avails must have the same `AdaptationSet` and `Representation` settings as content streams\. AWS Elemental MediaTailor uses these settings to transcode the ads to match the content stream, for smooth switching between the two\.
 
 After you configure the stream, note the content origin URL prefix for the DASH manifest\. You need it to create the configuration in AWS Elemental MediaTailor, later in this tutorial\.
 
@@ -126,6 +126,12 @@ If your content origin uses HTTPS, its certificate must be from a well\-known ce
 1. For **Ad decision server**, enter the URL for your ADS\. This is either the URL with variables as described in [Step 3: Configure ADS Request URL and Query Parameters](#getting-started-configure-request), or the static VAST URL that you are using for testing purposes\. The maximum length is 25,000 characters\.
 **Note**  
 If your ADS uses HTTPS, its certificate must be from a well\-known certificate authority\. \(It can't be a self\-signed certificate\.\) The same is true for mezzanine ad URLs returned by the ADS\. Otherwise, MediaTailor fails to retrieve and stitch ads into the manifests from the content origin\.
+
+1. \(Optional as needed for DASH\) For **Location**, choose **DISABLED** if you have CDN routing rules set up for accessing MediaTailor manifests and you are either using client\-side reporting or your players support sticky HTTP redirects\. 
+
+   For more information about the **Location** feature, see [DASH Location Feature](dash-location-feature.md)\.
+
+1. \(Optional\) If your origin server produces single\-period DASH manifests, choose **DASH mpd manifest origin type**, and then choose **SINGLE\_PERIOD**\. By default, MediaTailor handles DASH manifests as multi\-period manifests\. For more information, see [DASH \.mpd Manifests](manifest-dash.md)\.
 
 1. Choose **Create configuration**\.
 
@@ -193,7 +199,7 @@ For more information about configuring key\-value pairs to pass to the ADS, see 
 
 ## \(Optional\) Step 7: Monitor AWS Elemental MediaTailor Activity<a name="monitor-step"></a>
 
-Use Amazon CloudWatch and Amazon CloudWatch Logs to track AWS Elemental MediaTailor activity, such as the counts of requests, errors, and ad breaks filled\. 
+Use Amazon CloudWatch and Amazon CloudWatch Logs to track AWS Elemental MediaTailor activity, such as the counts of requests, errors, and ad avails filled\. 
 
 If this is your first time using CloudWatch with AWS Elemental MediaTailor, create an AWS Identity and Access Management \(IAM\) role to allow communication between the services\.
 

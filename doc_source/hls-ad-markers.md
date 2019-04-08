@@ -1,6 +1,6 @@
 # HLS Ad Markers<a name="hls-ad-markers"></a>
 
-AWS Elemental MediaTailor identifies ad breaks in an HLS manifest by the following ad markers:
+AWS Elemental MediaTailor identifies ad avails in an HLS manifest by the following ad markers:
 
 **EXT\-X\-CUE\-OUT and EXT\-X\-CUE\-IN**  
 This type of ad marker is the most common\. The following examples show options for these cue markers:
@@ -24,12 +24,12 @@ This type of ad marker is the most common\. The following examples show options 
 ```
 
 **EXT\-X\-DATERANGE**  
-With `EXT-X-DATERANGE` ad marker tags, you use `SCTE35-OUT` settings to specify the timing of the ad break\. 
+With `EXT-X-DATERANGE` ad marker tags, you use `SCTE35-OUT` settings to specify the timing of the ad avail\. 
 
 **Note**  
-MediaTailor ignores any `START-DATE` settings that are provided for `EXT-X-DATERANGE` ad markers\. 
+AWS Elemental MediaTailor ignores any `START-DATE` settings that are provided for `EXT-X-DATERANGE` ad markers\. 
 
-You can specify the ad break in one of the following ways:
+You can specify the ad avail in one of the following ways:
 + `EXT-X-DATERANGE` tag with `SCTE35-OUT` and `DURATION` specifications\. 
 
   Example:

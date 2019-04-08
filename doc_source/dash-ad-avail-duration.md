@@ -1,10 +1,10 @@
 # DASH Ad Avail Duration<a name="dash-ad-avail-duration"></a>
 
-During playback, when AWS Elemental MediaTailor encounters a period that is marked for ad replacement, it replaces some or all of the period with ads\. MediaTailor starts ad replacement at the beginning of the period and includes ads as follows: 
-+ If the period specifies a duration for the event, AWS Elemental MediaTailor includes as many ads as it can into the duration without going over\. 
-+ If no duration is provided, MediaTailor includes ads until it reaches an end\-of\-period indicator\. MediaTailor doesn't play ads past the end of the period and, when it encounters a period end, truncates the ad instead of going over\. 
+During playback, when AWS Elemental MediaTailor encounters an ad avail, it replaces some or all of the avail with ads\. MediaTailor starts ad replacement at the beginning of the ad avail and includes ads as follows: 
++ If the ad avail specifies a duration, MediaTailor includes as many ads as it can fit inside the duration boundary, without overwriting content that follows\. 
++ If no duration is provided, MediaTailor includes ads until it reaches the end of the ad avail\. For multi\-period manifests, this is the end of the period\. For single\-period manifests, this is the end of the event\. MediaTailor doesn't play ads past the end of the ad avail and, when it encounters the end, truncates the current ad instead of overwriting the content that follows\. 
 
-**How AWS Elemental MediaTailor looks for the period duration**  
+**How AWS Elemental MediaTailor looks for the ad avail duration**  
 AWS Elemental MediaTailor searches for a duration setting in the following order: 
 
 1. `Event` `duration`
@@ -15,7 +15,7 @@ AWS Elemental MediaTailor searches for a duration setting in the following order
 
 If AWS Elemental MediaTailor doesn't find any of these settings, it manages ad inclusion without a duration\. 
 
-The following example shows a period that is configured with an `Event` `duration`:
+The following example shows an `Event` that has a `duration`:
 
 ```
   <Period start="PT444806.040S" id="123586" duration="PT15.000S">
@@ -31,7 +31,7 @@ The following example shows a period that is configured with an `Event` `duratio
         ...
 ```
 
-The following example shows a period designated for ad replacement with no duration specified\. The `Event` element has no `duration` and the `scte35:SpliceInsert` element doesn't contain a `scte35:BreakDuration` child element:
+The following example shows ad avail with no duration specified\. The `Event` has no `duration` and the `scte35:SpliceInsert` element doesn't contain a `scte35:BreakDuration` child element:
 
 ```
   <Period start="PT444836.720S" id="123597" duration="PT12.280S">

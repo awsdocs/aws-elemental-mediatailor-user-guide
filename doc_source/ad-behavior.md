@@ -2,7 +2,7 @@
 
 This section covers how AWS Elemental MediaTailor manipulates the manifest to include the URLs for ads\. 
 
-AWS Elemental MediaTailor replaces or inserts ads, depending on how the origin server configures the ad breaks and on whether the content is VOD or live\. 
+AWS Elemental MediaTailor replaces or inserts ads, depending on how the origin server configures the ad avails and on whether the content is VOD or live\. 
 + With ad replacement, MediaTailor replaces content segments with ads\. 
 + With ad insertion, MediaTailor inserts ad content where segments don’t exist\.
 

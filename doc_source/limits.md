@@ -20,7 +20,7 @@ The following table describes limits in AWS Elemental MediaTailor that can't be 
 | --- | --- | --- | 
 | Ad decision server \(ADS\) length | 25,000  | The maximum number of characters in an ad decision server \(ADS\) specification\.  | 
 | Ad decision server \(ADS\) redirects | 3 | The maximum depth of redirects that MediaTailor follows in VAST wrapper tags\.  | 
-| Ad decision server \(ADS\) timeout | 1\.5  | The maximum number of seconds that MediaTailor waits before timing out on an open connection to an ad decision server \(ADS\)\. When a connection times out, MediaTailor is unable to fill the ad break with ads due to no response from the ADS\. | 
+| Ad decision server \(ADS\) timeout | 1\.5  | The maximum number of seconds that MediaTailor waits before timing out on an open connection to an ad decision server \(ADS\)\. When a connection times out, MediaTailor is unable to fill the ad avail with ads due to no response from the ADS\. | 
 | Configurations | 500 | The maximum number of configurations that MediaTailor allows\.  | 
 | Content origin length | 512  | The maximum number of characters in a content origin specification\.  | 
 | Content origin server timeout | 2 | The maximum number of seconds that MediaTailor waits before timing out on an open connection to the content origin server when requesting template manifests\. Timeouts generate HTTP 504 \(GatewayTimeoutException\) response errors\.  | 

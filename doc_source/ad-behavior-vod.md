@@ -6,11 +6,11 @@ For ad behavior by marker configuration, see the following sections\.
 
 ## No `XX-OUT/XX-IN` Markers<a name="no-markers"></a>
 
-Although `CUE-OUT/IN` \(or `SCTE-OUT/IN`\) markers are the preferred way of signaling ad breaks in a live manifest, the markers are not required for VOD content\. If the manifest doesn't contain ad markers, MediaTailor makes a single call to the ADS and creates ad breaks based on the response:
-+ If the ADS sends a VAST response, then MediaTailor inserts all ads from the response in an ad break at the start of the manifest\. This is a pre\-roll\.
-+ If the ADS sends a VMAP response, then MediaTailor uses the ad break time offsets to create breaks and insert them throughout the manifest at the specified times \(pre\-roll, mid\-roll, or post\-roll\)\. MediaTailor uses all ads from each ad break in the VMAP response for each ad break in the manifest\.
+Although `CUE-OUT/IN` \(or `SCTE-OUT/IN`\) markers are the preferred way of signaling ad avails in a live manifest, the markers are not required for VOD content\. If the manifest doesn't contain ad markers, MediaTailor makes a single call to the ADS and creates ad avails based on the response:
++ If the ADS sends a VAST response, then MediaTailor inserts all ads from the response in an ad avail at the start of the manifest\. This is a pre\-roll\.
++ If the ADS sends a VMAP response, then MediaTailor uses the ad avail time offsets to create avails and insert them throughout the manifest at the specified times \(pre\-roll, mid\-roll, or post\-roll\)\. MediaTailor uses all ads from each ad avail in the VMAP response for each ad avail in the manifest\.
 **Tip**  
-If you want to create mid\-roll breaks but your ADS doesn't support VMAP, then ensure that there are `CUE-OUT` \(or `SCTE-OUT`\) markers in the manifest\. MediaTailor inserts ads at the markers, as described in the following sections\.
+If you want to create mid\-roll avails but your ADS doesn't support VMAP, then ensure that there are `CUE-OUT` \(or `SCTE-OUT`\) markers in the manifest\. MediaTailor inserts ads at the markers, as described in the following sections\.
 
 ## `XX-OUT/XX-IN` Markers Are Present<a name="markers-present"></a>
 

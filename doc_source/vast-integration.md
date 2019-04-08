@@ -2,7 +2,7 @@
 
 To integrate your ad server with AWS Elemental MediaTailor, your ad server must send XML that conforms to the IAB specifications for the supported versions of VAST and VMAP\. You can use a public VAST validator to ensure that your tags are well\-formed\.
 
-Your ad server's VAST response must contain IAB compliant `TrackingEvents` elements and standard event types, like `impression`\. If you don't include standard tracking events, AWS Elemental MediaTailor rejects the VAST response and doesn't provide an ad for the break\.
+Your ad server's VAST response must contain IAB compliant `TrackingEvents` elements and standard event types, like `impression`\. If you don't include standard tracking events, AWS Elemental MediaTailor rejects the VAST response and doesn't provide an ad for the avail\.
 
 VAST 3\.0 introduced support for ad pods, which is the delivery of a set of sequential linear ads\. If a specific ad in an ad pod is not available, AWS Elemental MediaTailor logs an error on CloudWatch, in the interactions log of the ADS\. It then tries to insert the next ad in the pod\. In this way, MediaTailor iterates through the ads in the pod until it finds one that it can use\.
 
@@ -14,7 +14,7 @@ AWS Elemental MediaTailor proxies the player's `user-agent` and `x-forwarded-for
 
 ## Ad Calls<a name="ad-calls"></a>
 
-AWS Elemental MediaTailor calls your VAST ads URL as defined in your configuration\. It substitutes any player\-specific or session\-specific parameters when making the ad call\. MediaTailor follows up to three levels of VAST wrappers and redirects in the VAST response\. In live streaming scenarios, MediaTailor makes ad calls simultaneously at the ad break start for connected players\. In practice, due to jitter, these ad calls can be spread out over a few seconds\. Make sure that your ad server can handle the number of concurrent connections this type of calling requires\. MediaTailor doesn't currently support pre\-fetching VAST responses\.
+AWS Elemental MediaTailor calls your VAST ads URL as defined in your configuration\. It substitutes any player\-specific or session\-specific parameters when making the ad call\. MediaTailor follows up to three levels of VAST wrappers and redirects in the VAST response\. In live streaming scenarios, MediaTailor makes ad calls simultaneously at the ad avail start for connected players\. In practice, due to jitter, these ad calls can be spread out over a few seconds\. Make sure that your ad server can handle the number of concurrent connections this type of calling requires\. MediaTailor doesn't currently support pre\-fetching VAST responses\.
 
 ## Creative Handling<a name="creative-handling"></a>
 

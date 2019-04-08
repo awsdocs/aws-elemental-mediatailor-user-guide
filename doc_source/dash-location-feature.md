@@ -5,15 +5,15 @@ This section provides information about the location feature for DASH, which is 
 **What is the location feature?**  
 The location feature allows players that don't support sticky HTTP redirects to provide sticky behavior in their manifest update requests\. 
 
-AWS Elemental MediaTailor uses sessionless initialization, and it requires sticky HTTP redirect behavior from its players\. With server\-side reporting, when the player makes a request for a manifest update to MediaTailor, the service issues a 302 temporary redirect, to direct the player to an endpoint for the personalized manifest\. MediaTailor includes a session ID in the response, as a query parameter\. The intent is for the player to follow the URL for the entirety of the session, but players that don't support sticky HTTP redirects drop the redirect and return to the original URL\. When a player returns to the original URL, for each new request, MediaTailor creates a new session rather than staying with the original session\. This can cause the manifest to become corrupt\. 
+AWS Elemental MediaTailor uses sessionless initialization, and it requires sticky HTTP redirect behavior from its players\. With server\-side reporting, when the player makes a request for a manifest update to MediaTailor, the service issues a 302 temporary redirect, to direct the player to an endpoint for the personalized manifest\. MediaTailor includes a session ID in the response, as a query parameter\. The intent is for the player to follow the URL for the entirety of the session, but players that don't support sticky HTTP redirects drop the redirect and return to the original URL\. When a player returns to the original URL, for each new request MediaTailor creates a new session rather than staying with the original session\. This can cause the manifest to become corrupt\. 
 
 The DASH specification provides a solution to this problem in the location feature, which is enabled by default in AWS Elemental MediaTailor configurations\. When this feature is enabled, MediaTailor puts the absolute URL in the manifest `<Location>` tag\. Players that don't support sticky HTTP redirects can use the URL provided in `<Location>` to request updates to the manifest\. 
 
 **Do I need to disable the location feature in my configuration?**  
-The location feature overrides any CDN routing rules that you set up for accessing MediaTailor manifests, so you might need to disable it\. The location feature doesn't affect CDN caching of content or ad segments\. 
+The location feature overrides any CDN routing rules that you set up for accessing AWS Elemental MediaTailor manifests, so you might need to disable it\. The location feature doesn't affect CDN caching of content or ad segments\. 
 
 Find your situation in the following list to determine whether you need to disable the location feature for your configuration and how to handle it:
-+ If you don't have CDN routing rules set up for accessing MediaTailor manifests, leave the location setting enabled\. 
++ If you don't have CDN routing rules set up for accessing AWS Elemental MediaTailor manifests, leave the location setting enabled\. 
 + Otherwise, use the following rules:
   + If you either don't use server\-side reporting or your players all support sticky HTTP redirects, disable the location feature\. For information about how to do this on the console, see [Creating a Configuration](configurations-create.md)\.
   + Otherwise, contact [AWS Support](https://aws.amazon.com/premiumsupport/)\.

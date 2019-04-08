@@ -20,6 +20,8 @@ If your content origin uses HTTPS, its certificate must be from a well\-known ce
 **Note**  
 If your ADS uses HTTPS, its certificate must be from a well\-known certificate authority\. \(It can't be a self\-signed certificate\.\) The same also applies to mezzanine ad URLs returned by the ADS\. Otherwise, AWS Elemental MediaTailor can't retrieve and stitch ads into the manifests from the content origin\.
 
+1. Choose **Additional configuration**\. More configuration settings appear\.
+
 1. For **Slate ad**, enter the URL for a high\-quality MP4 asset to transcode and use to fill in time that's not used by ads\. AWS Elemental MediaTailor shows the slate to fill in gaps in media content\. Configuring the slate is optional for non\-VPAID configurations\. For VPAID, you must configure a slate, which MediaTailor provides in the slots designated for dynamic ad content\. The slate must be a high\-quality MP4 asset that contains both audio and video\. For more information, see [Slate Management](slate-management.md)\.
 **Note**  
 If the server that hosts your slate uses HTTPS, its certificate must be from a well\-known certificate authority\. \(It can't be a self\-signed certificate\.\) Otherwise, AWS Elemental MediaTailor can't retrieve and stitch the slate into the manifests from the content origin\.
@@ -40,13 +42,15 @@ If the server that hosts your slate uses HTTPS, its certificate must be from a w
    https://segments.mediatailor.<region>.amazonaws.com
    ```
 
-   For **CDN ads segment prefix**, enter the name of your CDN prefix in the configuration\.
+   \(Optional\) For **CDN ads segment prefix**, enter the name of your CDN prefix in the configuration\.
 
    For more information about integrating MediaTailor with a CDN, see [CDN Integration](integrating-cdn.md)\.
 
-1. \(Optional as needed for DASH\) For **Location**, choose **DISABLED** if you have CDN routing rules set up for accessing MediaTailor manifests and you are either using client\-side reporting or your players support sticky HTTP redirects\. 
+1. \(Optional as needed for DASH\) For **DASH mpd location**, choose **DISABLED** if you have CDN routing rules set up for accessing MediaTailor manifests and you are either using client\-side reporting or your players support sticky HTTP redirects\. 
 
    For more information about the **Location** feature, see [DASH Location Feature](dash-location-feature.md)\.
+
+1. \(Optional\) For **DASH origin manifest type**, if your origin server produces single\-period DASH manifests, open the dropdown list and choose **SINGLE\_PERIOD**\. By default, MediaTailor handles DASH manifests as multi\-period manifests\. For more information, see [DASH \.mpd Manifests](manifest-dash.md)\.
 
 1. Choose **Create configuration**\.
 

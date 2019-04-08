@@ -13,7 +13,7 @@ scte35_2.m3u8
 scte35_3.m3u8
 ```
 
-The following example shows a media manifest as input to AWS Elemental MediaTailor\. Note the `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags that describe ad break opportunities:
+The following example shows a media manifest as input to AWS Elemental MediaTailor\. Note the `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags that describe ad avail opportunities:
 
 ```
 #EXTM3U
