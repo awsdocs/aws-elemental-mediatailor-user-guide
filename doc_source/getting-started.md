@@ -273,6 +273,6 @@ To avoid extraneous charges, delete all unnecessary configurations\.
    + Choose the **Configuration name** for the configuration that you want to delete\.
    + In the **Configuration name** column, choose the radio button, and then choose **Delete**\.
 
-1.  In the **Delete configuration** confirmation box, enter **Delete**, and then choose **Delete** again\.
+1. In the **Delete configuration** confirmation box, enter **Delete**, and then choose **Delete** again\.
 
    AWS Elemental MediaTailor removes the configuration\.

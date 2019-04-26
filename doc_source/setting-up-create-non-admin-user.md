@@ -1,4 +1,4 @@
-# Creating a Non\-Admin IAM User<a name="attach-iam-policy"></a>
+# Creating a Non\-Admin IAM User<a name="setting-up-create-non-admin-user"></a>
 
 Users in the Administrators group for an account have access to all AWS services and resources in that account\. This section describes how to create users with permissions that are limited to AWS Elemental MediaTailor\.
 

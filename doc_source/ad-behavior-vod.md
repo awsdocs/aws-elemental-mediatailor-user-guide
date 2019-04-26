@@ -4,15 +4,17 @@ AWS Elemental MediaTailor handles ads for VOD content for HLS\. MediaTailor inse
 
 For ad behavior by marker configuration, see the following sections\.
 
-## No `XX-OUT/XX-IN` Markers<a name="no-markers"></a>
+## No Cue Out or Cue In Markers<a name="no-markers"></a>
 
 Although `CUE-OUT/IN` \(or `SCTE-OUT/IN`\) markers are the preferred way of signaling ad avails in a live manifest, the markers are not required for VOD content\. If the manifest doesn't contain ad markers, MediaTailor makes a single call to the ADS and creates ad avails based on the response:
 + If the ADS sends a VAST response, then MediaTailor inserts all ads from the response in an ad avail at the start of the manifest\. This is a pre\-roll\.
-+ If the ADS sends a VMAP response, then MediaTailor uses the ad avail time offsets to create avails and insert them throughout the manifest at the specified times \(pre\-roll, mid\-roll, or post\-roll\)\. MediaTailor uses all ads from each ad avail in the VMAP response for each ad avail in the manifest\.
++ If the ADS sends a VMAP response, then MediaTailor uses the ad avail time offsets to create avails and insert them throughout the manifest at the specified times \(pre\-roll, mid\-roll, or post\-roll\)\. MediaTailor uses all ads from each ad avail in the VMAP response for each ad avail in the manifest\. 
+**Note**  
+When a segment overlaps an insertion point with VMAP for VOD content, MediaTailor rounds down to the nearest insertion point\. 
 **Tip**  
 If you want to create mid\-roll avails but your ADS doesn't support VMAP, then ensure that there are `CUE-OUT` \(or `SCTE-OUT`\) markers in the manifest\. MediaTailor inserts ads at the markers, as described in the following sections\.
 
-## `XX-OUT/XX-IN` Markers Are Present<a name="markers-present"></a>
+## Cue Out and Cue In Markers Are Present<a name="markers-present"></a>
 
 `CUE-OUT/IN` \(or `SCTE-OUT/IN`\) markers allow AWS Elemental MediaTailor to insert ads throughout the manifest\. If the manifest contains markers, and the `CUE-IN` marker immediately follows the CUE\-OUT marker \(there are no segments between them\), this informs MediaTailor that it is an ad insertion request\.
 

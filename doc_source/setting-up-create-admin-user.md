@@ -1,10 +1,10 @@
-# Creating an Admin IAM User<a name="setting-up-create-iam-user"></a>
+# Creating an Admin IAM User<a name="setting-up-create-admin-user"></a>
 
  When you first create an AWS account, you begin with a single sign\-in identity that has complete access to all AWS services and resources in the account\. This identity is called the AWS account *root user* and is accessed by signing in with the email address and password that you used to create the account\. We strongly recommend that you **do not use the root user for your everyday tasks**, even the administrative ones\. Instead, adhere to the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\.
 
 In the following procedure, you use the AWS account root user to create your first IAM user\. You then add this IAM user to an Administrators group, to ensure that you have access to all services and their resources in your account\. The next time that you access your AWS account, sign in with the credentials for this IAM user\.
 
-To create users with limited permissions, see [Creating a Non\-Admin IAM User](attach-iam-policy.md)\.
+To create users with limited permissions, see [Creating a Non\-Admin IAM User](setting-up-create-non-admin-user.md)\.
 
 **To create an IAM user for yourself and add the user to an Administrators group**
 
@@ -38,4 +38,4 @@ We strongly recommend that you adhere to the best practice of using the **Admini
 
 You can use this same process to create more groups and users, and to give your users access to your AWS account resources\. To learn about using policies to restrict users' permissions to specific AWS resources, go to [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Example Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_examples.html)\.
 
-For information about creating users with limited permissions, see [Creating a Non\-Admin IAM User](attach-iam-policy.md)\.
+For information about creating users with limited permissions, see [Creating a Non\-Admin IAM User](setting-up-create-non-admin-user.md)\.
