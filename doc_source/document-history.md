@@ -4,6 +4,7 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New security chapter](security.md) | Added a security chapter to enhance and standardize coverage\. | May 23, 2019 | 
 | [DASH single\-period manifests](manifest-dash.md) | Added support for single\-period DASH manifests from the origin server, with multi\-period manifest output\. | April 4, 2019 | 
 | [Support for SCTE\-35 UPIDs in the ADS URL](variables-session.md) | Added support for including a unique program ID \(UPID\) in the ad decision server \(ADS\) URL\. This allows the ADS to provide program\-level ad targeting within a live linear stream\.  | March 28, 2019 | 
 | [Client\-side reporting supports companion ads](ad-reporting-client-side.md) | For client\-side reporting, the AWS Elemental MediaTailor tracking URL response now includes companion ad metadata\.  | March 28, 2019 | 

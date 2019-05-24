@@ -17,8 +17,31 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
           "Version": "2012-10-17",
           "Statement": [
               {
+                  "Action": [
+                      "mediatailor:*"
+                  ],
                   "Effect": "Allow",
-                  "Action": "mediatailor:*",
+                  "Resource": "*"
+              },
+              {
+                  "Action": [
+                      "ec2:DescribeAvailabilityZones"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+              },
+               {
+                  "Action": [
+                      "cloudwatch:GetMetricStatistics"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+              },
+              {
+                  "Action": [
+                      "iam:PassRole"
+                  ],
+                  "Effect": "Allow",
                   "Resource": "*"
               }
           ]
@@ -40,12 +63,33 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
           "Version": "2012-10-17",
           "Statement": [
               {
-                  "Effect": "Allow",
                   "Action": [
                       "mediatailor:GetPlaybackConfiguration",
                       "mediatailor:ListPlaybackConfigurations",
                       "mediatailor:ListTagsForResource"
                   ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+              },
+              {
+                  "Action": [
+                      "ec2:DescribeAvailabilityZones"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+              },
+               {
+                  "Action": [
+                      "cloudwatch:GetMetricStatistics"
+                  ],
+                  "Effect": "Allow",
+                  "Resource": "*"
+              },
+              {
+                  "Action": [
+                      "iam:PassRole"
+                  ],
+                  "Effect": "Allow",
                   "Resource": "*"
               }
           ]

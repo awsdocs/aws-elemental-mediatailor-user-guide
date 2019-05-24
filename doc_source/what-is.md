@@ -4,7 +4,7 @@ AWS Elemental MediaTailor is a scalable ad insertion service that runs in the AW
 
 AWS Elemental MediaTailor offers important advances over traditional ad\-tracking systems: ads are better monetized, more consistent in video quality and resolution, and easier to manage across multi\-platform environments\. MediaTailor simplifies your ad workflow by allowing all IP\-connected devices to render ads in the same way as they render other content\. The service also offers advanced tracking of ad views, which further increases the monetization of content\.
 
-For live workflows, MediaTailor supports Apple HTTP Live Streaming \(HLS\) and MPEG Dynamic Adaptive Streaming over HTTP \(DASH\)\. For video on demand \(VOD\), MediaTailor supports HLS\. 
+For live workflows, MediaTailor supports Apple HTTP Live Streaming \(HLS\) and MPEG Dynamic Adaptive Streaming over HTTP \(DASH\)\. For video on demand \(VOD\), MediaTailor supports HLS\.
 
 ## Related Services<a name="related-services"></a>
 + **Amazon CloudFront** is a global content delivery network \(CDN\) service that securely delivers data and videos to your viewers\. Use CloudFront to deliver content with the best possible performance\. For more information about CloudFront, see the [Amazon CloudFront website](https://aws.amazon.com/cloudfront/)\.
@@ -34,14 +34,6 @@ A video stream must meet the following requirements to work with AWS Elemental M
 + Use live streaming or video on demand \(VOD\)
 + Be accessible on the public internet and have a public IP address
 + Contain ad markers in one of the formats described in [Step 2: Prepare a Stream](getting-started.md#getting-started-prep-stream)
-
-## Sensitive Information<a name="sensitive-information"></a>
-
-AWS Elemental MediaTailor doesn't require that you supply any customer data\.
-
-Don't put sensitive information, like customer account numbers, credit card information, or passwords, into free\-form fields or query parameters\. This applies to all use of AWS Elemental MediaTailor, including the console, API, SDKs, and the AWS CLI\. Any data that you enter into the service might get picked up for inclusion in diagnostic logs\.
-
-When you provide a URL to an external server, don't include unencrypted credentials information in the URL to validate your request to that server\.
 
 ## Transcoded Ad Management<a name="transcoded-ad-management"></a>
 
