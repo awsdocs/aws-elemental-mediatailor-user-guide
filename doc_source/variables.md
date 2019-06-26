@@ -26,8 +26,7 @@ The query parameters take the following forms:
    The type of call that the player makes to initialize the session determines whether the player \(client\) or MediaTailor \(server\) provides ad\-tracking reporting for the session\. For information about these two options, see [Ad Tracking Reporting in AWS Elemental MediaTailor](ad-reporting.md)\. 
 
    Make one of the following types of calls, depending on whether you want server\- or client\-side ad\-tracking reporting\. In both of the example calls, `userID` is intended for the ADS and `auth_token` is intended for the origin:
-   + \(Option\) Call for server\-side ad\-tracking reporting – Prefix the parameters that you want MediaTailor to send to the ADS with `ads`\. Leave the prefix off for parameters that you want MediaTailor to send to the origin server:   
-**Example**  
+   + \(Option\) Call for server\-side ad\-tracking reporting – Prefix the parameters that you want MediaTailor to send to the ADS with `ads`\. Leave the prefix off for parameters that you want MediaTailor to send to the origin server: 
 
      The following examples show incoming requests for HLS and DASH to AWS Elemental MediaTailor\. MediaTailor uses the `deviceType` in its request to the ADS and the `auth_token` in its request to the origin server\. 
 
@@ -70,24 +69,22 @@ The query parameters take the following forms:
 
 When the player initiates a session, AWS Elemental MediaTailor replaces the variables in the template ADS request URL with the session data and the player's `ads` parameters\. It passes the remaining parameters from the player to the origin server\.
 
-The following examples show the calls to the ADS and origin server from AWS Elemental MediaTailor that correspond to the preceding player's session initialization call examples\. MediaTailor calls the ADS with session data and the player's device type: 
+The following examples show the calls to the ADS and origin server from AWS Elemental MediaTailor that correspond to the preceding player's session initialization call examples: 
++ MediaTailor calls the ADS with session data and the player's device type: 
 
-```
-https://my.ads.server.com/path?correlation=896976764&deviceType=ipad
-```
+  ```
+  https://my.ads.server.com/path?correlation=896976764&deviceType=ipad
+  ```
++ MediaTailor calls the origin server with the player's authorization token\.
+  + HLS example:
 
-MediaTailor calls the origin server with the player's authorization token:
+    ```
+    https://my.origin.server.com/master.m3u8?auth_token=kjhdsaf7gh
+    ```
+  + DASH example:
 
-HLS example:
-
-```
-https://my.origin.server.com/master.m3u8?auth_token=kjhdsaf7gh
-```
-
-DASH example:
-
-```
-https://my.origin.server.com/manifest.mpd?auth_token=kjhdsaf7gh
-```
+    ```
+    https://my.origin.server.com/manifest.mpd?auth_token=kjhdsaf7gh
+    ```
 
 The following sections provide details for configuring session and player data\.

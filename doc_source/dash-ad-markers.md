@@ -51,8 +51,6 @@ The event stream `schemeIdUri` must be set to `urn:scte:scte35:2013:xml`, and th
         </Event>
   ```
 
-  With time signal markers, MediaTailor uses only the duration settings and ignores all other settings\. 
-
 **Base64\-encoded binary**  
 The event stream `schemeIdUri` must be set to `urn:scte:scte35:2014:xml+bin`, and the event must have `scte35:Signal` `scte35:Binary` that contains a base64\-encoded binary\. The decoded binary must provide a `splice_info_section` with the same set of information as the clear XML would provide in a `scte35:SpliceInfoSection` element\. The command type must be either `splice_insert()` or `time_signal()`, and the additional settings must comply with those described previously for clear XML delivery\. 
 

@@ -1,4 +1,4 @@
-# CDN Integration<a name="integrating-cdn"></a>
+# CDN Integration with AWS Elemental MediaTailor<a name="integrating-cdn"></a>
 
 We highly recommend that you use a content distribution network \(CDN\) such as Amazon CloudFront to improve the efficiency of the ad stitching workflow between AWS Elemental MediaTailor and your users\. The benefits of a CDN include content and ad caching, consistent domain names across personalized manifests, and CDN DNS resolution\.
 

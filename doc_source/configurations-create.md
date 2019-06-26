@@ -28,15 +28,9 @@ If the server that hosts your slate uses HTTPS, its certificate must be from a w
 
 1. \(Optional\) The **CDN content segment prefix** enables AWS Elemental MediaTailor to create manifests with URLs to your CDN path for content segments\. Before you do this step, set up a rule in your CDN to pull segments from your origin server\. For **CDN content segment prefix**, enter the CDN prefix path\.
 
-   For more information about integrating MediaTailor with a CDN, see [CDN Integration](integrating-cdn.md)\.
+   For more information about integrating MediaTailor with a CDN, see [CDN Integration with AWS Elemental MediaTailor](integrating-cdn.md)\.
 
-1. \(Optional\) The **CDN ad segment prefix** enables AWS Elemental MediaTailor to create manifests with URLs to your own CDN path for ad segments\. By default, MediaTailor serves ad segments from an internal Amazon CloudFront distribution with default cache settings\. Before you can complete the **CDN ad segment prefix** field, you must set up a rule in your CDN to pull ad segments from the following origin:  
-**Example HLS**  
-
-   ```
-   https://ads.mediatailor.<region>.amazonaws.com
-   ```  
-**Example DASH**  
+1. \(Optional\) The **CDN ad segment prefix** enables AWS Elemental MediaTailor to create manifests with URLs to your own CDN path for ad segments\. By default, MediaTailor serves ad segments from an internal Amazon CloudFront distribution with default cache settings\. Before you can complete the **CDN ad segment prefix** field, you must set up a rule in your CDN to pull ad segments from the following origin:
 
    ```
    https://segments.mediatailor.<region>.amazonaws.com
@@ -44,7 +38,7 @@ If the server that hosts your slate uses HTTPS, its certificate must be from a w
 
    \(Optional\) For **CDN ads segment prefix**, enter the name of your CDN prefix in the configuration\.
 
-   For more information about integrating MediaTailor with a CDN, see [CDN Integration](integrating-cdn.md)\.
+   For more information about integrating MediaTailor with a CDN, see [CDN Integration with AWS Elemental MediaTailor](integrating-cdn.md)\.
 
 1. \(Optional as needed for DASH\) For **DASH mpd location**, choose **DISABLED** if you have CDN routing rules set up for accessing MediaTailor manifests and you are either using client\-side reporting or your players support sticky HTTP redirects\. 
 

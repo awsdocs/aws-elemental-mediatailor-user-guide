@@ -17,7 +17,7 @@ The following table describes important changes to this documentation\.
 | [DASH location support](dash-location-feature.md) | Added support for the MPEG\-DASH `<Location>` tag\. | December 4, 2018 | 
 | [DASH support](manifest-dash.md) | Added support for MPEG\-DASH manifests\. | November 14, 2018 | 
 | [Updated limits tables](limits.md) | Updated limits for configurations and manifest size\. | October 13, 2018 | 
-| [New and updated metrics](monitoring-cloudwatch.md) | Added metrics for ad decision server \(ADS\) and origin timeouts, and updated the ADS and origin error definitions to include timed\-out responses\.  | October 13, 2018 | 
+| [New and updated metrics](monitoring-cloudwatch-metrics.md) | Added metrics for ad decision server \(ADS\) and origin timeouts, and updated the ADS and origin error definitions to include timed\-out responses\.  | October 13, 2018 | 
 | [Better documentation coverage for server\-side and client\-side ad insertion use cases](variables.md) | Expanded description and examples to cover the use of dynamic ad variables for server\-side ad insertion and for client\-side ad insertion\.  | October 1, 2018 | 
 | [New Regions](what-is.md#regions-endpoints) | Added support for the PDX and FRA Regions\. | July 18, 2018 | 
 | [VAST/VPAID](vast.md) | Added information about VAST and VPAID\.  | March 16, 2018 | 

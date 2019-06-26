@@ -2,15 +2,15 @@
 
 This section provides an overview of the options for logging and monitoring in AWS Elemental MediaTailor for security purposes\. For more information about logging and monitoring in MediaTailor see [Monitoring and Troubleshooting AWS Elemental MediaTailor](monitoring.md)\.
 
-Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Elemental MediaConnect and your AWS solutions\. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi\-point failure if one occurs\. AWS provides several tools for monitoring your AWS Elemental MediaConnect resources and responding to potential incidents:
+Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Elemental MediaTailor and your AWS solutions\. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi\-point failure if one occurs\. AWS provides several tools for monitoring your MediaTailor resources and responding to potential incidents:
 
 ## Amazon CloudWatch Alarms<a name="security-log-monitor-cloudwatch-alarms"></a>
 
-Using CloudWatch alarms, you watch a single metric over a time period that you specify\. If the metric exceeds a given threshold, a notification is sent to an Amazon SNS topic or AWS Auto Scaling policy\. CloudWatch alarms do not invoke actions because they are in a particular state\. Rather, the state must have changed and been maintained for a specified number of periods\. For more information, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch](monitoring-cloudwatch.md)\.
+Using CloudWatch alarms, you watch a single metric over a time period that you specify\. If the metric exceeds a given threshold, a notification is sent to an Amazon SNS topic or AWS Auto Scaling policy\. CloudWatch alarms don't invoke actions because they are in a particular state\. Rather, the state must have changed and been maintained for a specified number of periods\. For more information, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch Metrics](monitoring-cloudwatch-metrics.md)\.
 
 ## AWS CloudTrail Logs<a name="security-log-monitor-cloudtrail-logs"></a>
 
-CloudTrail provides a record of actions taken by a user, role, or an AWS service in AWS Elemental MediaConnect\. Using the information collected by CloudTrail, you can determine the request that was made to AWS Elemental MediaConnect, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging AWS Elemental MediaTailor API Calls with AWS CloudTrail](logging-using-cloudtrail.md)\.
+CloudTrail provides a record of actions taken by a user, role, or an AWS service in AWS Elemental MediaTailor\. Using the information collected by CloudTrail, you can determine the request that was made to MediaTailor, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging AWS Elemental MediaTailor API Calls with AWS CloudTrail](logging-using-cloudtrail.md)\.
 
 ## AWS Trusted Advisor<a name="security-log-monitor-trust-advisor"></a>
 

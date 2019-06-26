@@ -22,45 +22,45 @@ If your ADS requires a URL\-encoded value, URL\-encode the value twice on the pl
 
    For example, if the decoded representation of the values sent to the ADS is `param1=value1:&param2=value2:`, then the URL\-encoded representation is `param1=value1%3A&param2=value2%3A`\.
 
-1. In the session initialization call from the player, pass the key\-value pairs to MediaTailor as the value of a single query parameter\. The following example calls provide the example key\-value pairs for server\- and client\-side ad tracking reporting\.  
-**Example Example requests for server\-side ad\-tracking reporting \- using URL\-encoded pairs**  
+1. In the session initialization call from the player, pass the key\-value pairs to MediaTailor as the value of a single query parameter\. The following example calls provide the example key\-value pairs for server\- and client\-side ad tracking reporting\.
+   + Example requests for server\-side ad\-tracking reporting \- using URL\-encoded pairs
 
-   HLS:
+     HLS:
 
-   ```
-   <master>.m3u8?ads.param1=value1%3A&ads.param2=value2%3A
-   ```
+     ```
+     <master>.m3u8?ads.param1=value1%3A&ads.param2=value2%3A
+     ```
 
-   DASH:
+     DASH:
 
-   ```
-   <manifest>.mpd?ads.param1=value1%3A&ads.param2=value2%3A
-   ```  
-**Example Example request for client\-side ad\-tracking reporting \- with no URL\-encoding**  
+     ```
+     <manifest>.mpd?ads.param1=value1%3A&ads.param2=value2%3A
+     ```
+   + Example request for client\-side ad\-tracking reporting \- with no URL\-encoding
 
-   HLS:
+     HLS:
 
-   ```
-   POST <master>.m3u8
-       {
-           "adsParams": {
-              "param1": "value1:",
-              "param2": "value2:"
-          }
-       }
-   ```
+     ```
+     POST <master>.m3u8
+         {
+             "adsParams": {
+                "param1": "value1:",
+                "param2": "value2:"
+            }
+         }
+     ```
 
-   DASH:
+     DASH:
 
-   ```
-   POST <manifest>.mpd
-       {
-           "adsParams": {
-              "param1": "value1:",
-              "param2": "value2:"
-          }
-       }
-   ```
+     ```
+     POST <manifest>.mpd
+         {
+             "adsParams": {
+                "param1": "value1:",
+                "param2": "value2:"
+            }
+         }
+     ```
 
 For server\-side reporting, MediaTailor decodes the parameters when the player request is received\. For client\-side reporting, it doesn't alter the parameters received in the JSON payload\. MediaTailor sends the following request to the ADS:
 

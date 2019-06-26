@@ -35,7 +35,7 @@ You can specify multiple actions using wildcards \(\*\)\. For example, to specif
 
 
 
-For a list of AWS Elemental MediaTailor actions, see [Actions Defined by AWS Elemental MediaTailor](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-actions-as-permissions) in the *IAM User Guide*\.
+For a list of AWS Elemental MediaTailor actions, see [Actions Defined by AWS Elemental MediaTailor](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awselementalmediatailor.html#awselementalmediatailor-actions-as-permissions) in the *IAM User Guide*\.
 
 ### Resources<a name="security-iam-service-with-iam-id-based-policies-resources"></a>
 

@@ -13,12 +13,7 @@ In the CDN, create behaviors and rules that route content segment requests to th
 + \(Optional\) Create one behavior that routes *ad segment* requests to the internal Amazon CloudFront distribution where AWS Elemental MediaTailor stores transcoded ads\. Base this on a rule that includes a phrase to differentiate ad segment requests from content segment requests\. This step is optional because AWS Elemental MediaTailor provides a default configuration\.
 
   AWS Elemental MediaTailor uses the following default Amazon CloudFront distributions for storing ads:  
-**Example HLS**  
-
-  Pattern: `https://ads.mediatailor.<region>.amazonaws.com`
-
-  Example: `https://ads.mediatailor.eu-west-1.amazonaws.com`  
-**Example DASH**  
+**Example Ad Segment Routing**  
 
   Pattern: `https://segments.mediatailor.<region>.amazonaws.com`
 
@@ -48,27 +43,49 @@ Make sure that your CDN forwards all query parameters to AWS Elemental MediaTail
 
 For server\-side reporting, referencing a CDN in front of `/v1/segment` in ad segment requests helps prevent AWS Elemental MediaTailor from sending duplicate ad tracking beacons\. When a player makes a request for a `/v1/segment` ad, MediaTailor issues a 301 redirect to the actual `*.ts` segment\. When MediaTailor sees that `/v1/segment` request, it issues a beacon call to track the view percentage of the ad\. If the same player makes multiple requests for the same `/v1/segment` in one session, and your ADS can't de\-duplicate requests, then MediaTailor issues multiple requests for the same beacon\. Using a CDN to cache these 301 responses ensures that MediaTailor doesn't make duplicate beacon calls for repeated requests\. For this path, you can use a high or default cache because cache\-keys for these segments are unique\.
 
-To take advantage of these benefits, create behaviors in the CDN that route requests to the AWS Elemental MediaTailor configuration endpoint\. Base the behaviors that you create on rules that differentiate requests for master HLS manifests, HLS manifests, DASH manifests, and reporting\. Requests follow these formats:
-+ HLS master manifests: `https://<playback-endpoint>/v1/master/<hashed-account-id>/<origin-id>/<master>.m3u8`  
-**Example**  
+To take advantage of these benefits, create behaviors in the CDN that route requests to the AWS Elemental MediaTailor configuration endpoint\. Base the behaviors that you create on rules that differentiate requests for master HLS manifests, HLS manifests, DASH manifests, and reporting\. 
+
+Requests follow these formats:
++ HLS master manifest:
+
+  ```
+  https://<playback-endpoint>/v1/master/<hashed-account-id>/<origin-id>/<master>.m3u8
+  ```
+
+  Example:
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/master/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/Demo/assetId.m3u8
   ```
-+ HLS manifests: `https://<playback-endpoint>/v1/manifest/<hashed-account-id>/<session-id>/<manifestNumber>.m3u8`  
-**Example**  
++ HLS manifest:
+
+  ```
+  https://<playback-endpoint>/v1/manifest/<hashed-account-id>/<session-id>/<manifestNumber>.m3u8
+  ```
+
+  Example:
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/manifest/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/c240ea66-9b07-4770-8ef9-7d16d916b407/0.m3u8
   ```
-+ DASH manifests: `https://<playback-endpoint>/v1/dash/<hashed-account-id>/<session-id>/<assetName>.mpd`  
-**Example**  
++ DASH manifest:
+
+  ```
+  https://<playback-endpoint>/v1/dash/<hashed-account-id>/<session-id>/<assetName>.mpd
+  ```
+
+  Example:
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/dash/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/c240ea66-9b07-4770-8ef9-7d16d916b407/0.mpd
   ```
-+ Ad reporting requests for server\-side reporting: `https://<playback-endpoint>/v1/segment/<origin-id>/<session-id>/<manifestNumber>/<HLSSequenceNum>`  
-**Example**  
++ Ad reporting request for server\-side reporting:
+
+  ```
+  https://<playback-endpoint>/v1/segment/<origin-id>/<session-id>/<manifestNumber>/<HLSSequenceNum>
+  ```
+
+  Example:
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/segment/Demo/240ea66-9b07-4770-8ef9-7d16d916b407/0/440384
@@ -76,6 +93,6 @@ To take advantage of these benefits, create behaviors in the CDN that route requ
 
 In the CDN, create a behavior that routes manifest requests to the AWS Elemental MediaTailor configuration endpoint\. Base the behavior on a rule that includes a phrase to differentiate the manifest request from segment requests\.
 
-**Example Examples**  
+**Example Routing**  
 + Player requests to `https://CDN_Hostname/some/path/asset.m3u8` are routed to the AWS Elemental MediaTailor path `https://mediatailor.us-west-2.amazonaws.com/v1/session/configuration/endpoint` based on the keyword `*.m3u8` in the request\.
 + Player requests to `https://CDN_Hostname/some/path/asset.mpd` are routed to the AWS Elemental MediaTailor path `https://mediatailor.us-west-2.amazonaws.com/v1/dash/configuration/endpoint` based on the keyword `*.mpd` in the request\.
