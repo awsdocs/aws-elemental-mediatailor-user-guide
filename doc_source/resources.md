@@ -5,7 +5,7 @@ The following table lists related resources that you will find useful as you wor
 
 | Resource | Description | 
 | --- | --- | 
-| [SCTE Standard: SCTE 35](https://www.scte.org/SCTEDocs/Standards/SCTE%2035%202019.pdf) | The SCTE standard document for SCTE35\.  | 
+| [SCTE Standard: SCTE 35](https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf) | The SCTE standard document for SCTE35\.  | 
 | [Classes and Workshops](https://aws.amazon.com/training/course-descriptions/) | Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\. | 
 | [AWS Developer Tools](https://aws.amazon.com/tools/) | Links to developer tools, SDKs, IDE tool kits, and command line tools for developing and managing AWS applications\. | 
 | [AWS Whitepapers](https://aws.amazon.com/whitepapers/) | Links to a comprehensive list of technical AWS whitepapers, covering topics such as architecture, security, and economics and authored by AWS Solutions Architects or other technical experts\. | 
