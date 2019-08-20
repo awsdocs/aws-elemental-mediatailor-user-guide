@@ -12,7 +12,7 @@ You can provide ad markers in clear XML or in base64\-encoded binary:
 The event stream `schemeIdUri` must be set to `urn:scte:scte35:2013:xml`, and the event must have `scte35:SpliceInfoSection` markers containing one of the following: 
 + `scte35:SpliceInsert` with `outOfNetworkIndicator` set to `true`
 
-  The following example shows this option, with the required markers in bold: 
+  The following example shows this option, with the required markers in bold\. 
 
   ```
     <Period start="PT444806.040S" id="123586" duration="PT15.000S">
@@ -33,7 +33,7 @@ The event stream `schemeIdUri` must be set to `urn:scte:scte35:2013:xml`, and th
   + 0x34 \(provider placement opportunity start\)
   + 0x36 \(distributor placement opportunity start\)
 
-  The following example shows this option, with the required markers in bold\. The `segmentationTypeId` in this example is set to 52, equivalent to 0x34: 
+  The following example shows this option, with the required markers in bold\. The `segmentationTypeId` in this example is set to 52, equivalent to 0x34\. 
 
   ```
     <Period start="PT346530.250S" id="178443" duration="PT61.561S">
@@ -54,7 +54,7 @@ The event stream `schemeIdUri` must be set to `urn:scte:scte35:2013:xml`, and th
 **Base64\-encoded binary**  
 The event stream `schemeIdUri` must be set to `urn:scte:scte35:2014:xml+bin`, and the event must have `scte35:Signal` `scte35:Binary` that contains a base64\-encoded binary\. The decoded binary must provide a `splice_info_section` with the same set of information as the clear XML would provide in a `scte35:SpliceInfoSection` element\. The command type must be either `splice_insert()` or `time_signal()`, and the additional settings must comply with those described previously for clear XML delivery\. 
 
-The following example shows this option, with the required markers in bold:
+The following example shows this option, with the required markers in bold\.
 
 ```
   <Period start="PT444806.040S" id="123586" duration="PT15.000S">
@@ -71,7 +71,7 @@ The following example shows this option, with the required markers in bold:
       </Event>
 ```
 
-The following is the decoded binary for the first event listed in the preceding example\. The setting for `splice_command_type` is 5, which indicates `splice_insert` : 
+The following is the decoded binary for the first event listed in the preceding example\. The setting for `splice_command_type` is 5, which indicates `splice_insert`\. 
 
 ```
 {

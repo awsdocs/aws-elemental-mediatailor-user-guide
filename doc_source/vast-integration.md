@@ -23,7 +23,7 @@ When AWS Elemental MediaTailor receives the ADS VAST response, for each creative
 **Creative Indexing**  
 AWS Elemental MediaTailor uniquely indexes each creative by the value of the `id` attribute provided in the `<Creative>` element\. If a creative's ID is not specified, MediaTailor uses the media file URL for the index\.
 
-The following example declaration shows the creative ID:
+The following example declaration shows the creative ID\.
 
 ```
 <Creatives>

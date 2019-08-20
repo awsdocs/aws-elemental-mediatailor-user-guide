@@ -33,13 +33,13 @@ HLS manifests must satisfy the following requirements:
 + For live content, manifests must contain markers to delineate ad avails\. This is optional for VOD content, which can use VMAP timeoffsets instead\. 
 
   The manifest file must have ad slots marked with one of the following:
-  + **\#EXT\-X\-CUE\-OUT / \#EXT\-X\-CUE\-IN** \(more common\) with durations as shown in the following example:
+  + **\#EXT\-X\-CUE\-OUT / \#EXT\-X\-CUE\-IN** \(more common\) with durations as shown in the following example\.
 
     ```
     #EXT-X-CUE-OUT:60.00
     #EXT-X-CUE-IN
     ```
-  + **\#EXT\-X\-DATERANGE** \(less common\) with durations as shown in the following example:
+  + **\#EXT\-X\-DATERANGE** \(less common\) with durations as shown in the following example\.
 
     ```
     #EXT-X-DATERANGE:ID="",START-DATE="",DURATION=30.000,SCTE35-OUT=0xF
@@ -60,7 +60,7 @@ DASH manifests must satisfy the following requirements:
 + Manifests must be live\.
 + Manifests must mark events as ad avails using either splice insert markers or time signal markers\. You can provide the ad markers in clear XML or in base64\-encoded binary\. For splice insert, the out\-of\-network indicator must be enabled\. For time signal markers, the segmentation type ID, located inside the segmentation UPID, must be a cue\-out value recognized by AWS Elemental MediaTailor\. The ad avail starts at the event start and lasts for the event duration, if one is specified, or until the next event starts\. 
 
-  The following example shows an event designated as an ad avail using splice insert markers\. The duration for this ad avail is the event's duration: 
+  The following example shows an event designated as an ad avail using splice insert markers\. The duration for this ad avail is the event's duration\. 
 
   ```
     <Period start="PT444806.040S" id="123586" duration="PT15.000S">
@@ -140,32 +140,54 @@ If your ADS uses HTTPS, its certificate must be from a well\-known certificate a
 ## Step 5: Test the Configuration<a name="getting-started-test-config"></a>
 
 After you save the configuration, test the stream using a URL in the appropriate format for your streaming protocol:
-+ HLS: `playback-endpoint/v1/master/hashed-account-id/origin-id/master.m3u8`
-+ DASH: `playback-endpoint/v1/dash/hashed-account-id/origin-id/manifest.mpd`
++ Example: HLS
+
+  ```
+  playback-endpoint/v1/master/hashed-account-id/origin-id/master.m3u8
+  ```
++ Example: DASH
+
+  ```
+  playback-endpoint/v1/dash/hashed-account-id/origin-id/manifest.mpd
+  ```
 
 Where:
-+ `playback-endpoint` is the unique playback endpoint that AWS Elemental MediaTailor generated when the configuration was created\. For example:
++ `playback-endpoint` is the unique playback endpoint that AWS Elemental MediaTailor generated when the configuration was created\. 
+
+  Example
 
   ```
   https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com
   ```
-+ `hashed-account-id` is your AWS account ID\. For example:
++ `hashed-account-id` is your AWS account ID\. 
+
+  Example
 
   ```
   AKIAIOSFODNN7EXAMPLE
   ```
-+ `origin-id` is the name that you gave when creating the configuration\. For example:
++ `origin-id` is the name that you gave when creating the configuration\. 
+
+  Example
 
   ```
   myOrigin
   ```
 + `master.m3u8` or `manifest.mpd` is the name of the manifest from the test stream plus its file extension\. Define this so that you get a fully identified manifest when you append this to the video content source that you configured in [Step 4: Create a Configuration](#getting-started-add-mapping)\. 
 
-Using the values from the preceding examples, the full URLs are the following:
-+ HLS: `https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/master/AKIAIOSFODNN7EXAMPLE/myOrigin/master.m3u8`
-+ DASH: `https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/dash/AKIAIOSFODNN7EXAMPLE/myOrigin/manifest.mpd`
+Using the values from the preceding examples, the full URLs are the following\.
++ Example: HLS
 
-You can test the stream using one of the following methods:
+  ```
+  https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/master/AKIAIOSFODNN7EXAMPLE/myOrigin/master.m3u8
+  ```
++ Example: DASH
+
+  ```
+  https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/dash/AKIAIOSFODNN7EXAMPLE/myOrigin/manifest.mpd
+  ```
+
+You can test the stream using one of the following methods\.
 + As shown in the preceding example, enter the URL in a standalone player\.
 + Test the stream in your own player environment\.
 
@@ -174,13 +196,13 @@ You can test the stream using one of the following methods:
 Configure the downstream player or CDN to send playback requests to the configuration's playback endpoint provided from AWS Elemental MediaTailor\. Any player\-defined dynamic variables that you used in the ADS request URL in [Step 3: Configure ADS Request URL and Query Parameters](#getting-started-configure-request) must be defined in the manifest request from the player\.
 
 **Example**  
-If your template ADS URL is the following:  
+Assume your template ADS URL is the following\.  
 
 ```
 https://my.ads.com/ad?output=vast&content_id=12345678&playerSession=[session.id]&cust_params=[player_params.cust_params]
 ```
 Then define `[player_params.cust_params]` in the player request by prefacing the key\-value pair with `ads.`\. AWS Elemental MediaTailor passes parameters that aren't preceded with `ads.` to the origin server instead of the ADS\.  
-The player request URL is some variation of the following HLS and DASH examples:   
+The player request URL is some variation of the following HLS and DASH examples\.   
 
 ```
 https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/master/AKIAIOSFODNN7EXAMPLE/myOrigin/master.m3u8?ads.cust_params=viewerinfo
@@ -189,7 +211,7 @@ https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/
 ```
 https://bdaaeb4bd9114c088964e4063f849065.mediatailor.us-east-1.amazonaws.com/v1/dash/AKIAIOSFODNN7EXAMPLE/myOrigin/manifest.mpd?ads.cust_params=viewerinfo
 ```
-When AWS Elemental MediaTailor receives the player request, it defines the player variables based on the information in the request\. The resulting ADS request URL is some variation of this:   
+When AWS Elemental MediaTailor receives the player request, it defines the player variables based on the information in the request\. The resulting ADS request URL is some variation of this\.   
 
 ```
 https://my.ads.com/ad?output=vast&content_id=12345678&playerSession=<filled_in_session_id>&cust_params=viewerinfo
@@ -231,7 +253,7 @@ If this is your first time using CloudWatch with AWS Elemental MediaTailor, crea
 
    1. Choose **Edit trust relationship**\.
 
-   1. In the policy document, change the principal to the AWS Elemental MediaTailor service\. It should look like this:
+   1. In the policy document, change the principal to the AWS Elemental MediaTailor service\. It should look like this\.
 
       ```
       "Principal": {
@@ -239,7 +261,7 @@ If this is your first time using CloudWatch with AWS Elemental MediaTailor, crea
       },
       ```
 
-      The entire policy should read as follows:
+      The entire policy should read as follows\.
 
       ```
       {

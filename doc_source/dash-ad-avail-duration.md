@@ -15,7 +15,7 @@ AWS Elemental MediaTailor searches for a duration setting in the following order
 
 If AWS Elemental MediaTailor doesn't find any of these settings, it manages ad inclusion without a duration\. 
 
-The following example shows an `Event` that has a `duration`:
+The following example shows an `Event` that has a `duration`\.
 
 ```
   <Period start="PT444806.040S" id="123586" duration="PT15.000S">
@@ -31,7 +31,7 @@ The following example shows an `Event` that has a `duration`:
         ...
 ```
 
-The following example shows ad avail with no duration specified\. The `Event` has no `duration` and the `scte35:SpliceInsert` element doesn't contain a `scte35:BreakDuration` child element:
+The following example shows ad avail with no duration specified\. The `Event` has no `duration` and the `scte35:SpliceInsert` element doesn't contain a `scte35:BreakDuration` child element\.
 
 ```
   <Period start="PT444836.720S" id="123597" duration="PT12.280S">

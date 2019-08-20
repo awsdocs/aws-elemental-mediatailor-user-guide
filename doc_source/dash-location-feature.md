@@ -22,21 +22,21 @@ Find your situation in the following list to determine whether you need to disab
 You need to use the location feature for players that don't support sticky HTTP redirects, for example, Shaka\. Use the URL provided in the `<Location>` tag for all of your manifest update requests\. 
 
 **Example**  
-Example URLs and example `<Location>` tag:
+Example URLs and example `<Location>` tag\.
 +   
-**Example Initial request URL**  
+**Example Example: Initial request URL**  
 
   ```
   https://b00f3e55c5cb4c1ea6dee499964bea92.mediatailor.us-east-1.amazonaws.com/v1/dash/5ca4c1892b1f213a1247fad47b3e34c454a7d490/testLocationTag/index.mpd
   ```
 +   
-**Example Example redirected 302 response**  
+**Example Example: Redirected 302 response**  
 
   ```
   /v1/dash/5ca4c1892b1f213a1247fad47b3e34c454a7d490/testLocationTag/index.mpd?aws.sessionId=0e5d9b45-ae97-49eb-901b-893d043e0aa6
   ```
 +   
-**Example Location tag in a manifest**  
+**Example Example: Location tag in a manifest**  
 
   ```
   <Location>https://b00f3e55c5cb4c1ea6dee499964bea92.mediatailor.us-east-1.amazonaws.com/v1/dash/5ca4c1892b1f213a1247fad47b3e34c454a7d490/testLocationTag/index.mpd?aws.sessionId=0e5d9b45-ae97-49eb-901b-893d043e0aa6</Location>

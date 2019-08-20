@@ -22,7 +22,7 @@ The `CUE-OUT` markers should have no duration \(or a duration of 0\) specified, 
 
 For post\-rolls, `CUE-OUT/IN` markers must precede the last content segment\. This is because the HLS spec requires tag decorators to be explicitly declared before a segment\. 
 
-For example, for the following declaration: 
+For example, consider the following declaration\. 
 
 ```
 #EXT-X-CUE-OUT: 0
@@ -32,7 +32,7 @@ Videocontent.ts
 #EXT-X-ENDLIST
 ```
 
-AWS Elemental MediaTailor inserts a post\-roll like the following:
+AWS Elemental MediaTailor inserts a post\-roll like the following\.
 
 ```
 #EXTINF:4.000,
@@ -49,7 +49,7 @@ Adsegment3.ts
 
 You can't use multiple `CUE-OUT/IN` tags in succession to mimic ad pod behavior\. This is because `CUE-OUT/IN` tags must be explicitly attached to a segment\. 
 
-For example, the following declaration is invalid:
+For example, the following declaration is invalid\.
 
 ```
 #EXT-X-CUE-OUT: 0
@@ -62,7 +62,7 @@ For example, the following declaration is invalid:
 Videocontent.ts
 ```
 
-The following declaration is valid:
+The following declaration is valid\.
 
 ```
 #EXT-X-CUE-OUT: 0
@@ -79,7 +79,7 @@ Somecontent2.ts
 Videocontent.ts
 ```
 
-The preceding declaration results in an output like the following: 
+The preceding declaration results in an output like the following\. 
 
 ```
 Ad 1

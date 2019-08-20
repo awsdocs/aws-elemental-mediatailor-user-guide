@@ -2,7 +2,7 @@
 
 MediaTailor supports media segments in `<SegmentTemplate>` that are defined using `<SegmentTimeline>` and the `media` attribute\. You can specify the media segment list in the `media` attribute using either the `$Number$` identifier or the `$Time$` identifier\.
 
- The following example shows a `SegmentTemplate` with a `media` attribute setting that uses the `$Number$` identifier:
+ The following example shows a `SegmentTemplate` with a `media` attribute setting that uses the `$Number$` identifier\.
 
 ```
         <SegmentTemplate initialization="index_subtitles_4_0_init.mp4?m=1532451703" media="index_subtitles_4_0_$Number$.mp4?m=1532451703" presentationTimeOffset="1062336677920" startNumber="2349899" timescale="90000">
@@ -13,7 +13,7 @@ MediaTailor supports media segments in `<SegmentTemplate>` that are defined usin
         </SegmentTemplate>
 ```
 
- The following example shows a `SegmentTemplate` with a `media` attribute setting that uses the `$Time$` identifier:
+ The following example shows a `SegmentTemplate` with a `media` attribute setting that uses the `$Time$` identifier\.
 
 ```
         <SegmentTemplate initialization="asset_720p_8000K_9_init.mp4" media="asset_720p_8000K_9_$Time$.mp4" startNumber="1" timescale="90000">

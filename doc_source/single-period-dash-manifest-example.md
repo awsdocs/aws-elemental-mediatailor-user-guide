@@ -3,7 +3,7 @@
 This example shows how AWS Elemental MediaTailor handles a manifest from an origin server that produces single\-period manifests\. You can indicate that your origin server produces single\-period manifests in your MediaTailor configuration settings\. MediaTailor produces multi\-period DASH manifests, for both multi\-period and single\-period input manifests\. 
 
 **DASH single\-period origin manifest example for Base64\-encoded binary**  
-The following example shows the input period's `<EventStream>`, with Base64\-encoded binary ad avail events: 
+The following example shows the input period's `<EventStream>`, with Base64\-encoded binary ad avail events\. 
 
 ```
     <Period id="1" start="PT0S">

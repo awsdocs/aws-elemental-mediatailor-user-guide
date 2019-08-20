@@ -14,7 +14,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + Provide parameters that MediaTailor should pass to the ADS inside an `adsParams` object\. These parameters correspond to `[player_params.param]` settings in the ADS template URL of the MediaTailor configuration\. 
    + Provide parameters that you want MediaTailor to send to the origin server as top\-level objects\. 
 
-   HLS example:
+   Example: HLS
 
    ```
    POST master.m3u8
@@ -26,7 +26,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
        }
    ```
 
-   DASH example:
+   Example: DASH
 
    ```
    POST manifest.mpd
@@ -40,10 +40,10 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
 
    For more information about providing dynamic ad variables, see [Dynamic Ad Variables in AWS Elemental MediaTailor](variables.md)\. 
 
-1. From the player, use your constructed JSON to initialize a new MediaTailor playback session\. Format your request like the following: 
+1. From the player, use your constructed JSON to initialize a new MediaTailor playback session\. Format your request like the following\. 
 
    ```
-   POST <mediatailorURL>/v1/session/<hashed-account-ID>/<originID>/<assetID>
+   POST <mediatailorURL>/v1/session/<hashed-account-id>/<origin-id>/<asset-id>
        {
           "adsParams": {
               "param1": "value1",
@@ -58,23 +58,23 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    AWS Elemental MediaTailor responds to the request with two relative URLs, one for the manifest and one for the tracking endpoint: 
    + Manifest – used to retrieve content manifests and ad segments
 
-     HLS example:
+     Example: HLS
 
      ```
-     /v1/master/<hashed-account-id>/<originID>/<assetID>?aws.sessionID=<session>
+     /v1/master/<hashed-account-id>/<origin-id>/<asset-id>?aws.sessionId=<session>
      ```
 
-     DASH example: 
+     Example: DASH
 
      ```
-     /v1/dash/<hashed-account-id>/<originID>/<assetID>?aws.sessionID=<session>
+     /v1/dash/<hashed-account-id>/<origin-id>/<asset-id>?aws.sessionId=<session>
      ```
    + Tracking – used to poll for upcoming ad avails
 
-     Example: 
+     Example 
 
      ```
-     /v1/tracking/<hashed-account-id>/<originID>/<assetID>/<session>
+     /v1/tracking/<hashed-account-id>/<origin-id>/<asset-id>/<session>
      ```
 
 1. Construct the full manifest and tracking URLs by prefixing the relative URLs from MediaTailor with *<mediatailorURL>*\. 
@@ -82,7 +82,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
 1. Program the player to periodically poll the tracking URL and manage ad avails accordingly\. When an ad is coming, the response from AWS Elemental MediaTailor to the player's polling request contains a JSON object that specifies the time offsets for the ad avails\. The offsets are relative to when the player initiated the session\. You can use them when programming specific behaviors in the player, such as preventing the viewer from skipping past the ads\. The response also includes duration, timing, and identification information\. 
 
    The response from MediaTailor can include the following values:
-   + `adID`: For HLS, the sequence number associated with the beginning of the ad\. For DASH, the period ID of the ad\.
+   + `adId`: For HLS, the sequence number associated with the beginning of the ad\. For DASH, the period ID of the ad\.
    + `adParameters`: String of ad parameters from VAST VPAID, which AWS Elemental MediaTailor passes to the player\.
    + `apiFramework`: Set this to `VPAID` to tell the player that this is a VPAID ad\.
    + `availId`: For HLS, the sequence number associated with the start of the ad avail\. For DASH, the period ID of the ad avail, which is usually the period ID of the content that is to be replaced with an ad\.
@@ -97,15 +97,15 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `height`: Height of the video asset\.
    + `maintainAspectRatio`: Indicates whether to maintain the aspect ratio while scaling\.
    + `mediaFilesList`: Specifies video and other assets that the player needs for the ad avail\.
-   + `mediaFileUri`: URI that points to either an executable asset or video asset\. Example: `https://myad.com/ad/ad134/vpaid.js`\. 
+   + `mediaFileUri`: URI that points to either an executable asset or video asset\. Example\. `https://myad.com/ad/ad134/vpaid.js`\. 
    + `mediaType`: Typically either `JavaScript` or `Flash` for executable assets\. 
-   + `mezzanine`: The mezzanine MP4 asset, specified if the VPAID ad includes one\. Example: `https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4`\.
+   + `mezzanine`: The mezzanine MP4 asset, specified if the VPAID ad includes one\. Example\. `https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4`\.
    + `scalable`: Indicates whether to scale the video to other dimensions\.
    + `startTime`: Time position in ISO 8601 seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad avail and for each ad and beacon\.
    + `startTimeInSeconds`: Time position in seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad avail and for each ad and beacon\.
    + `width`: Width of the video asset\.
 
-   The following example responses indicate that an ad is coming:
+   The following example responses indicate that an ad is coming\.
 
    ```
    {

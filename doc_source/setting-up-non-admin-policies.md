@@ -10,7 +10,7 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
 
    1. Choose **Create policy**\.
 
-   1. Choose the **JSON** tab and paste the following policy:
+   1. Choose the **JSON** tab and paste the following policy\.
 
       ```
       {
@@ -56,7 +56,7 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
 
    1. Choose **Create policy**\.
 
-   1. Choose the **JSON** tab and paste the following read\-only policy:
+   1. Choose the **JSON** tab and paste the following read\-only policy\.
 
       ```
       {

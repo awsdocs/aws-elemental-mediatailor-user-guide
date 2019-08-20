@@ -4,15 +4,15 @@ AWS Elemental MediaTailor defaults to server\-side reporting\. With server\-side
 
 **To perform server\-side ad reporting**
 + From the player, initialize a new MediaTailor playback session using a request in one of the following formats, according to your protocol:
-  + HLS format
+  + Example: HLS format
 
     ```
-    GET <mediatailorURL>/v1/master/<hashed-account-ID>/<originID>/<assetID>?ads.<key-value-pairs-for-ads>&<key-value-pairs-for-origin-server>
+    GET <mediatailorURL>/v1/master/<hashed-account-id>/<origin-id>/<asset-id>?ads.<key-value-pairs-for-ads>&<key-value-pairs-for-origin-server>
     ```
-  + DASH format
+  + Example: DASH format
 
     ```
-    GET <mediatailorURL>/v1/dash/<hashed-account-ID>/<originID>/<assetID>?ads.<key-value-pairs-for-ads>&<key-value-pairs-for-origin-server>
+    GET <mediatailorURL>/v1/dash/<hashed-account-id>/<origin-id>/<asset-id>?ads.<key-value-pairs-for-ads>&<key-value-pairs-for-origin-server>
     ```
 
   The key\-value pairs are the dynamic targeting parameters for ad tracking\. For information about adding parameters to the request, see [Dynamic Ad Variables in AWS Elemental MediaTailor](variables.md)\.

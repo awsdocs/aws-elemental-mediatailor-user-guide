@@ -30,7 +30,7 @@ If the server that hosts your slate uses HTTPS, its certificate must be from a w
 
    For more information about integrating MediaTailor with a CDN, see [CDN Integration with AWS Elemental MediaTailor](integrating-cdn.md)\.
 
-1. \(Optional\) The **CDN ad segment prefix** enables AWS Elemental MediaTailor to create manifests with URLs to your own CDN path for ad segments\. By default, MediaTailor serves ad segments from an internal Amazon CloudFront distribution with default cache settings\. Before you can complete the **CDN ad segment prefix** field, you must set up a rule in your CDN to pull ad segments from the following origin:
+1. \(Optional\) The **CDN ad segment prefix** enables AWS Elemental MediaTailor to create manifests with URLs to your own CDN path for ad segments\. By default, MediaTailor serves ad segments from an internal Amazon CloudFront distribution with default cache settings\. Before you can complete the **CDN ad segment prefix** field, you must set up a rule in your CDN to pull ad segments from the following origin, like in the following example\.
 
    ```
    https://segments.mediatailor.<region>.amazonaws.com

@@ -18,7 +18,7 @@ The `Action` element of an IAM identity\-based policy describes the specific act
 
 Policy actions in AWS Elemental MediaTailor prefix the action with `mediatailor:`\. For example, to grant someone permission to run the MediaTailor `ListTagsForResource` API operation, you include the `mediatailor:ListTagsForResource` action in their policy\. Policy statements must include either an `Action` or `NotAction` element\. MediaTailor defines its own set of actions that describe tasks that you can perform with this service\.
 
-To specify multiple actions in a single statement, separate them with commas as follows:
+To specify multiple actions in a single statement, separate them with commas as follows\.
 
 ```
 "Action": [

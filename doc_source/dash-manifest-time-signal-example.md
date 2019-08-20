@@ -1,7 +1,7 @@
 # DASH Manifest Time Signal Example<a name="dash-manifest-time-signal-example"></a>
 
 **DASH origin manifest example for time signal**  
-The following example shows an ad avail in a manifest received by DASH from the content origin\. This example shows the `scte35:TimeSignal` markers:
+The following example shows an ad avail in a manifest received by DASH from the content origin\. The following example shows the `scte35:TimeSignal` markers\.
 
 ```
   <Period start="PT346530.250S" id="178443" duration="PT61.561S">
@@ -52,7 +52,7 @@ The following example shows an ad avail in a manifest received by DASH from the 
 **DASH personalized response example for time signal**  
 AWS Elemental MediaTailor personalizes the ad avails with advertising specifications\. The personalizations reflect the viewer data that is received from the player and the advertising campaigns that are currently underway\. 
 
-The following example shows an ad avail after AWS Elemental MediaTailor personalizes it: 
+The following example shows an ad avail after AWS Elemental MediaTailor personalizes it\. 
 
 ```
   <Period id="178443_1" start="PT96H15M30.25S">

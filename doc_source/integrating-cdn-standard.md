@@ -7,9 +7,9 @@ The following steps show how to integrate AWS Elemental MediaTailor with your co
 In the CDN, create behaviors and rules that route content segment requests to the origin server and ad segment requests to AWS Elemental MediaTailor, as follows:
 + Create one behavior that routes *content segment* requests to the *origin server*\. Base this on a rule that uses a phrase to differentiate content segment requests from ad segment requests\.
 
-  HLS example: The CDN could route HLS player requests to `https://CDN_Hostname/subdir/content.ts` to the origin server path `http://origin.com/contentpath/subdir/content.ts` based on the keyword `subdir` in the request\. 
+  For example, the CDN could route HLS player requests to `https://CDN_Hostname/subdir/content.ts` to the origin server path `http://origin.com/contentpath/subdir/content.ts` based on the keyword `subdir` in the request\. 
 
-  DASH example: The CDN could route DASH player requests to `https://CDN_Hostname/subdir/content.mp4` to the origin server path `http://origin.com/contentpath/subdir/content.mp4` based on the keyword `subdir` in the request\. 
+  For example, the CDN could route DASH player requests to `https://CDN_Hostname/subdir/content.mp4` to the origin server path `http://origin.com/contentpath/subdir/content.mp4` based on the keyword `subdir` in the request\. 
 + \(Optional\) Create one behavior that routes *ad segment* requests to the internal Amazon CloudFront distribution where AWS Elemental MediaTailor stores transcoded ads\. Base this on a rule that includes a phrase to differentiate ad segment requests from content segment requests\. This step is optional because AWS Elemental MediaTailor provides a default configuration\.
 
   AWS Elemental MediaTailor uses the following default Amazon CloudFront distributions for storing ads:  
@@ -24,7 +24,7 @@ In the CDN, create behaviors and rules that route content segment requests to th
 Create an AWS Elemental MediaTailor configuration that maps the domains of the CDN routing behaviors to the origin server and to the ad storage location\. Enter the domain names in the configuration as follows:
 + For **CDN content segment prefix**, enter the CDN domain from the behavior that you created to route content requests to the origin server\. In the manifest, MediaTailor replaces the content segment URL prefix with the CDN domain\.
 
-  For example, for the following settings: 
+  For example, consider the following settings\. 
   + **Video content source** in the MediaTailor configuration is `http://origin.com/contentpath/` 
   + **CDN content segment prefix** is `https://CDN_Hostname/`
 
@@ -46,46 +46,46 @@ For server\-side reporting, referencing a CDN in front of `/v1/segment` in ad se
 To take advantage of these benefits, create behaviors in the CDN that route requests to the AWS Elemental MediaTailor configuration endpoint\. Base the behaviors that you create on rules that differentiate requests for master HLS manifests, HLS manifests, DASH manifests, and reporting\. 
 
 Requests follow these formats:
-+ HLS master manifest:
++ HLS master manifest format
 
   ```
   https://<playback-endpoint>/v1/master/<hashed-account-id>/<origin-id>/<master>.m3u8
   ```
 
-  Example:
+  Example
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/master/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/Demo/assetId.m3u8
   ```
-+ HLS manifest:
++ HLS manifest format
 
   ```
   https://<playback-endpoint>/v1/manifest/<hashed-account-id>/<session-id>/<manifestNumber>.m3u8
   ```
 
-  Example:
+  Example
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/manifest/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/c240ea66-9b07-4770-8ef9-7d16d916b407/0.m3u8
   ```
-+ DASH manifest:
++ DASH manifest format
 
   ```
   https://<playback-endpoint>/v1/dash/<hashed-account-id>/<session-id>/<assetName>.mpd
   ```
 
-  Example:
+  Example
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/dash/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/c240ea66-9b07-4770-8ef9-7d16d916b407/0.mpd
   ```
-+ Ad reporting request for server\-side reporting:
++ Format for ad reporting request for server\-side reporting
 
   ```
   https://<playback-endpoint>/v1/segment/<origin-id>/<session-id>/<manifestNumber>/<HLSSequenceNum>
   ```
 
-  Example:
+  Example
 
   ```
   https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/segment/Demo/240ea66-9b07-4770-8ef9-7d16d916b407/0/440384

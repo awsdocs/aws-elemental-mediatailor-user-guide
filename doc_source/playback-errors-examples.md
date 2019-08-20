@@ -2,7 +2,7 @@
 
 This section lists some examples of the playback errors that you might see in command line interactions with AWS Elemental MediaTailor\. 
 
-The following example shows the result when a timeout occurs between AWS Elemental MediaTailor and either the ad decision server \(ADS\) or the origin server:
+The following example shows the result when a timeout occurs between AWS Elemental MediaTailor and either the ad decision server \(ADS\) or the origin server\.
 
 ```
 ~[]> curl -vvv https://111122223333444455556666123456789012.mediatailor.us-west-2.amazonaws.com/v1/master/123456789012/Multiperiod_DASH_Demo/index.mpd

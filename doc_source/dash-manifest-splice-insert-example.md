@@ -1,7 +1,7 @@
 # DASH Manifest Splice Insert Example<a name="dash-manifest-splice-insert-example"></a>
 
 **DASH origin manifest example for splice insert**  
-The following example from an MPD manifest shows an ad avail in a manifest received by DASH from the content origin\. This example uses the `scte35:SpliceInsert` markers with `outOfNetworkIndicator` set to `true`:
+The following example from an MPD manifest shows an ad avail in a manifest received by DASH from the content origin\. This example uses the `scte35:SpliceInsert` markers with `outOfNetworkIndicator` set to `true`\.
 
 ```
    <Period start="PT173402.036S" id="46041">
@@ -79,7 +79,7 @@ The following example from an MPD manifest shows an ad avail in a manifest recei
 **DASH personalized response example for splice insert**  
 AWS Elemental MediaTailor personalizes the ad avails with advertising specifications\. The personalizations reflect the viewer data that is received from the player and the advertising campaigns that are currently underway\. 
 
-The following example shows an ad avail after MediaTailor personalizes it: 
+The following example shows an ad avail after MediaTailor personalizes it\. 
 
 ```
   <Period id="46041_1" start="PT48H10M2.036S">
