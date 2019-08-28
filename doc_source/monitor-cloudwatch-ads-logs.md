@@ -13,7 +13,7 @@ To access the logs, you need permissions to access Amazon CloudWatch\. For instr
 
 1. In the navigation pane, under **Logs**, choose **Insights**\.
 
-1. In the search bar, enter `ads_inter`, and then from the dropdown list select `MidasMMSService/ads_interaction_log`\.
+1. In the search bar, enter **ads\_inter**, and then from the dropdown list select `MediaTailor/AdDecisionServerInteractions`\.
 
 1. \(Optional\) Adjust the time period that you want to study\. 
 

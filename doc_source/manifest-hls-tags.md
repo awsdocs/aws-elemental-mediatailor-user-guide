@@ -1,14 +1,25 @@
 # HLS Manifest Tag Handling<a name="manifest-hls-tags"></a>
 
-This section describes how AWS Elemental MediaTailor manages tags in the personalized output manifest\. MediaTailor outputs all unknown and custom tags into the personalized output manifest except for the ad marker tags listed in [HLS Ad Markers](hls-ad-markers.md)\. 
+This section describes how AWS Elemental MediaTailor manages tags in the personalized output manifest\.
 
-AWS Elemental MediaTailor requires HLS `EXT-X-VERSION` `3` or later as the input manifest\.
+## EXT\-X\-CUE Tags<a name="manifest-hls-tags-cue"></a>
 
-**EXT\-X\-CUE Tags**  
-To identify ad creative boundaries, AWS Elemental MediaTailor converts `EXT-X-CUE-OUT`, `EXT-X-CUE-OUT-CONT`, and `EXT-X-CUE-IN` tags from the input manifest to `EXT-X-DISCONTINUITY` tags in the output manifest\. MediaTailor inserts an `EXT-X-DISCONTINUITY` tag at the start and end of every ad, including the following boundaries:
-+ Where content transitions to an ad
+MediaTailor replaces `EXT-X-CUE-OUT`, `EXT-X-CUE-OUT-CONT`, and `EXT-X-CUE-IN` tags in the input manifest with `EXT-X-DISCONTINUITY` tags in the output manifest\. The `DISCONTINUITY` tags mark the following boundaries:
++ Where the main content transitions to an ad
 + Where one ad transitions to another ad
-+ Where an ad transitions back to content
++ Where an ad transitions back to the main content
 
-**EXT\-X\-KEY Value**  
-When the origin server enables encryption or digital rights management \(DRM\) on the content stream, the manifest includes `EXT-X-KEY` tags\. Ads aren't encrypted, so AWS Elemental MediaTailor sets the `EXT-X-KEY` tag to `NONE` for ad avails\. When playback returns to the content stream, MediaTailor re\-enables the `EXT-X-KEY` tag\.
+## EXT\-X\-DATERANGE Tags<a name="manifest-hls-tags-daterange"></a>
+
+MediaTailor passes through `EXT-X-DATERANGE` tags from the input manifest to the output manifest\. MediaTailor also inserts `EXT-X-DISCONTINUITY` tags that correspond to the `DATERANGE` tags\. The `DISCONTINUITY` tags mark the following boundaries:
++ Where the main content transitions to an ad
++ Where one ad transitions to another ad
++ Where an ad transitions back to the main content
+
+## EXT\-X\-KEY Tags<a name="manifest-hls-tags-key"></a>
+
+MediaTailor passes through `EXT-X-KEY` tags from the input manifest\. These tags indicate that the main content is encrypted\. Since ads aren't encrypted, MediaTailor inserts `EXT-X-KEY:METHOD=NONE` at the start of an ad avail\. When playback returns to the main content, MediaTailor re\-enables encryption by inserting the `EXT-X-KEY` tag with the `METHOD` value defined as the encryption type\.
+
+## Unrecognized Tags<a name="manifest-hls-tags-unknown"></a>
+
+MediaTailor passes through all unknown and custom tags from the input manifest to the output manifest\.

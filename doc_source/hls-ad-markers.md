@@ -1,8 +1,9 @@
-# HLS Ad Markers<a name="hls-ad-markers"></a>
+# HLS Supported Ad Markers<a name="hls-ad-markers"></a>
 
-AWS Elemental MediaTailor identifies ad avails in an HLS manifest by the following ad markers:
+AWS Elemental MediaTailor identifies ad avail boundaries in an HLS manifest ad markers in the input manifest\. The following sections describe what markers MediaTailor uses\.
 
-**EXT\-X\-CUE\-OUT and EXT\-X\-CUE\-IN**  
+## EXT\-X\-CUE\-OUT and EXT\-X\-CUE\-IN<a name="hls-ad-markers-cue"></a>
+
 This type of ad marker is the most common\. The following examples show options for these cue markers\.
 
 ```
@@ -23,11 +24,12 @@ This type of ad marker is the most common\. The following examples show options 
 #EXT-X-CUE-IN
 ```
 
-**EXT\-X\-DATERANGE**  
-With `EXT-X-DATERANGE` ad marker tags, you use `SCTE35-OUT` settings to specify the timing of the ad avail\. 
+## EXT\-X\-DATERANGE<a name="hls-ad-markers-range"></a>
+
+With `EXT-X-DATERANGE` ad marker tags, you use `SCTE35-OUT` attributes to specify the timing of the ad avail\. 
 
 **Note**  
-AWS Elemental MediaTailor ignores any `START-DATE` settings that are provided for `EXT-X-DATERANGE` ad markers\. 
+AWS Elemental MediaTailor ignores any `START-DATE` attributes that are provided for `EXT-X-DATERANGE` ad markers\. 
 
 You can specify the ad avail in one of the following ways:
 + `EXT-X-DATERANGE` tag with `SCTE35-OUT` and `DURATION` specifications\. 
@@ -56,7 +58,8 @@ You can specify the ad avail in one of the following ways:
   #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
   ```
 
-**EXT\-X\-SPLICEPOINT\-SCTE35**  
+## EXT\-X\-SPLICEPOINT\-SCTE35<a name="hls-ad-markers-splice"></a>
+
 You append the `EXT-X-SPLICEPOINT-SCTE35` ad marker tag with a SCTE\-35 payload in base64\-encoded binary\. The decoded binary must provide a SCTE\-35 `splice_info_section` containing the cue\-out marker `0x34`, for provider placement opportunity start, and the cue\-in marker `0x35`, for provider placement opportunity end\. 
 
 The following example shows the splice point specification with base64\-encoded binary payloads that specify the cue\-out and cue\-in markers\. 

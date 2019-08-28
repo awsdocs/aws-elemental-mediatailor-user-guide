@@ -30,6 +30,7 @@ Configure your origin server to produce manifests for HLS or DASH that are compa
 HLS manifests must satisfy the following requirements:
 + Manifests must be accessible on the public internet\.
 + Manifests must be live or video\-on\-demand \(VOD\)\.
++ Manifests must have an `EXT-X-VERSION` of `3` or higher\.
 + For live content, manifests must contain markers to delineate ad avails\. This is optional for VOD content, which can use VMAP timeoffsets instead\. 
 
   The manifest file must have ad slots marked with one of the following:
