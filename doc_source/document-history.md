@@ -4,6 +4,7 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support for live pre\-roll ads](configurations-create.md) | Added support for inserting pre\-roll ads at the beginning of a live stream\. | September 11, 2019 | 
 | [Analyzing ADS Logs in Amazon CloudWatch Logs Insights](monitor-cloudwatch-ads-logs.md) | Added information for using the AWS Elemental MediaTailor ADS logs and CloudWatch Logs Insights to analyze your MediaTailor sessions\. | August 13, 2019 | 
 | [New security chapter](security.md) | Added a security chapter to enhance and standardize coverage\. | May 23, 2019 | 
 | [DASH single\-period manifests](manifest-dash.md) | Added support for single\-period DASH manifests from the origin server, with multi\-period manifest output\. | April 4, 2019 | 

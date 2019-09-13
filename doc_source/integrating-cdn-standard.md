@@ -71,13 +71,13 @@ Requests follow these formats:
 + DASH manifest format
 
   ```
-  https://<playback-endpoint>/v1/dash/<hashed-account-id>/<session-id>/<assetName>.mpd
+  https://<playback-endpoint>/v1/dash/<hashed-account-id>/<origin-id>/<assetName>.mpd
   ```
 
   Example
 
   ```
-  https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/dash/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/c240ea66-9b07-4770-8ef9-7d16d916b407/0.mpd
+  https://a57b77e98569478b83c10881a22b7a24.mediatailor.us-east-1.amazonaws.com/v1/dash/a1bc06b59e9a570b3b6b886a763d15814a86f0bb/Demo/0.mpd
   ```
 + Format for ad reporting request for server\-side reporting
 

@@ -58,7 +58,7 @@ After you have configured the stream, note the content origin URL prefix for the
 
 DASH manifests must satisfy the following requirements:
 + Manifests must be accessible on the public internet\.
-+ Manifests must be live\.
++ Manifests must be live or video on demand \(VOD\)\.
 + Manifests must mark events as ad avails using either splice insert markers or time signal markers\. You can provide the ad markers in clear XML or in base64\-encoded binary\. For splice insert, the out\-of\-network indicator must be enabled\. For time signal markers, the segmentation type ID, located inside the segmentation UPID, must be a cue\-out value recognized by AWS Elemental MediaTailor\. The ad avail starts at the event start and lasts for the event duration, if one is specified, or until the next event starts\. 
 
   The following example shows an event designated as an ad avail using splice insert markers\. The duration for this ad avail is the event's duration\. 

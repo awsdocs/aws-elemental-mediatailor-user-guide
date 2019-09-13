@@ -1,8 +1,8 @@
 # Live Content Ad Behavior<a name="ad-behavior-live"></a>
 
-In live streams, AWS Elemental MediaTailor always performs ad replacement, preserving the total time between the cue\-out and cue\-in markers of an ad avail as closely as possible\. The cue out can optionally indicate the duration of the ad avail\. Every cue\-out indicator must have a matching cue\-in indicator in the live workflow\. 
+In live streams, AWS Elemental MediaTailor always performs ad replacement, preserving the total time between the `CUE-OUT` and `CUE-IN` ad markers as closely as possible\. The `CUE-OUT` can optionally include the `DURATION` attribute, which indicates the duration of the ad avail\. Every `CUE-OUT` indicator must have a matching `CUE-IN` indicator in live workflows\. 
 
-AWS Elemental MediaTailor performs ad replacement for live content for HLS and DASH\. For information on how MediaTailor determines cue\-out, cue\-in, and duration of an ad avail, see [HLS Supported Ad Markers](hls-ad-markers.md) and [DASH Ad Markers](dash-ad-markers.md)\. 
+MediaTailor performs ad replacement for HLS and DASH live content\. For information on how MediaTailor calculates ad avail placement and timing, see [HLS Supported Ad Markers](hls-ad-markers.md) and [DASH Ad Markers](dash-ad-markers.md)\. 
 
 ## Ad Selection and Replacement<a name="ad-behavior-live-ad-selection"></a>
 

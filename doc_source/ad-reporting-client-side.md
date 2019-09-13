@@ -84,11 +84,14 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    The response from MediaTailor can include the following values:
    + `adId`: For HLS, the sequence number associated with the beginning of the ad\. For DASH, the period ID of the ad\.
    + `adParameters`: String of ad parameters from VAST VPAID, which AWS Elemental MediaTailor passes to the player\.
+   + `adSystem`: The name for the system that serves the ad\.
+   + `adTitle`: The title for the ad\.
    + `apiFramework`: Set this to `VPAID` to tell the player that this is a VPAID ad\.
    + `availId`: For HLS, the sequence number associated with the start of the ad avail\. For DASH, the period ID of the ad avail, which is usually the period ID of the content that is to be replaced with an ad\.
    + `beaconUrls`: Where to send each ad beacon\.
    + `bitrate`: Bitrate of the video asset\. This is not typically included for an executable asset\.
    + `companionAds`: One or more companion ad content specifications, each of which specifies a resource file to use\. Companion ads accompany the ad avail, and are used to provide content like a frame around the ad or a banner to display near the video\. 
+   + `creativeId`: The `Id` attribute of the `Creative` tag for the ad\.
    + `delivery`: This indicates the protocol used, and can be set to either `progressive` or `streaming`\.
    + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID Handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
    + `durationInSeconds`: Length in seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\.
@@ -103,6 +106,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `scalable`: Indicates whether to scale the video to other dimensions\.
    + `startTime`: Time position in ISO 8601 seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad avail and for each ad and beacon\.
    + `startTimeInSeconds`: Time position in seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad avail and for each ad and beacon\.
+   + `vastAdId`: The `Id` attribute of the `Ad` tag\.
    + `width`: Width of the video asset\.
 
    The following example responses indicate that an ad is coming\.

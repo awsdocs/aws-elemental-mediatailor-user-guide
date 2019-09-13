@@ -1,8 +1,8 @@
-# How AWS Elemental MediaTailor Works<a name="what-is-flow"></a>
+# How MediaTailor Works<a name="what-is-flow"></a>
 
-AWS Elemental MediaTailor serves personalized content to viewers while maintaining broadcast quality\-of\-service in over\-the\-top \(OTT\) applications\. 
+MediaTailor serves personalized content to viewers while maintaining broadcast quality\-of\-service in over\-the\-top \(OTT\) applications\. 
 
-Here is the general AWS Elemental MediaTailor processing flow:
+Here is the general MediaTailor processing flow:
 
 1. A player or content distribution network \(CDN\) such as Amazon CloudFront sends a request to MediaTailor for HLS or DASH content\. The request contains parameters from the player that includes information about the viewer that is used for ad customization\. The format of the request varies depending on whether you use server\-side or client\-side reporting to track how much of an ad the viewer watches\. 
 
@@ -20,13 +20,13 @@ Here is the general AWS Elemental MediaTailor processing flow:
 
 ## Mixed Content Requests<a name="mixed-content-requests"></a>
 
-Content requests are mixed when some requests are sent over HTTPS, while others are sent over HTTP\. Player requests for manifests and ad segments from AWS Elemental MediaTailor are always sent over HTTPS\. If the origin server accepts only HTTP requests, playback might fail at the player\. To avoid playback issues, do one of the following:
+Content requests are mixed when some requests are sent over HTTPS, while others are sent over HTTP\. Player requests for manifests and ad segments from MediaTailor are always sent over HTTPS\. If the origin server accepts only HTTP requests, playback might fail at the player\. To avoid playback issues, do one of the following:
 + Use an origin server that supports HTTPS requests\.
 + Use a content distribution network \(CDN\) to enforce HTTPS requests\. For more information, see [Using HTTPS in Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html)\. 
 
 ## Manifest Response Latency<a name="latency-note"></a>
 
-A certain amount of latency is normal for AWS Elemental MediaTailor responses to manifests\. Latency occurs mainly for these three reasons:
+A certain amount of latency is normal for MediaTailor responses to manifests\. Latency occurs mainly for these three reasons:
 + Manifest processing latency – time it takes for MediaTailor to look up entries in databases, and to compute and produce manifests\. Latency is usually less than 100 milliseconds\.
 + ADS latency – time it takes for the ADS to respond to the MediaTailor request\. Latency is variable, but MediaTailor times out if the ADS hasn't sent a response in 1\.5 seconds or less\.
 + Origin server latency – time it takes for the origin server to respond to the MediaTailor request\. Latency is variable, but MediaTailor times out if the origin server hasn't sent a response in 2 seconds or less\.
