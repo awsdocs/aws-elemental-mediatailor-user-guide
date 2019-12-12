@@ -52,6 +52,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Deleting a Configuration](configurations-delete.md)
 + [CDN Integration with AWS Elemental MediaTailor](integrating-cdn.md)
    + [Integrating AWS Elemental MediaTailor and a CDN](integrating-cdn-standard.md)
+   + [How AWS Elemental MediaTailor Handles BaseURLs for DASH](baseurls-for-dash.md)
+   + [CDN Best Practices with AWS Elemental MediaTailor](cdn-bp.md)
 + [VAST in AWS Elemental MediaTailor](vast.md)
    + [VAST Integration](vast-integration.md)
    + [VPAID Handling](vpaid.md)

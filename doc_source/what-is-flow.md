@@ -9,8 +9,8 @@ Here is the general MediaTailor processing flow:
    For information about how the requests differ between the two reporting methods, see [Ad Tracking Reporting in AWS Elemental MediaTailor](ad-reporting.md)\. For information about configuring the ad targeting parameters, see [Dynamic Ad Variables in AWS Elemental MediaTailor](variables.md)\.
 
 1. Based on the request, MediaTailor retrieves the content manifest and ad specifications as follows:
-   + MediaTailor sends a manifest request to its origin server, typically AWS Elemental MediaPackage\. The origin server returns a fully formed template manifest with ad markers, so that MediaTailor knows where to perform ad insertion or replacement\.
-   + MediaTailor sends a request that includes the viewer information to its ADS\. The ADS chooses ads based on the viewer information and current ad campaigns\. It returns the ad URLs in a VAST or VMAP response\.
+   + MediaTailor sends a manifest request to your origin server, typically AWS Elemental MediaPackage\. The origin server returns a fully formed template manifest with ad markers, so that MediaTailor knows where to perform ad insertion or replacement\.
+   + MediaTailor sends ad requests that include the viewer information to your ADS\. MediaTailor sends one request for pre\-roll ad avails, and one for other ad avails \(as applicable\)\. The ADS chooses ads based on the viewer information and current ad campaigns\. It returns the ad URLs in a VAST or VMAP response\.
 
 1. MediaTailor manipulates the manifest to include the URLs for the appropriate ads from the VAST or VMAP response\. For the logic behind how ads are inserted, see [Ad Behavior in AWS Elemental MediaTailor](ad-behavior.md)\.
 

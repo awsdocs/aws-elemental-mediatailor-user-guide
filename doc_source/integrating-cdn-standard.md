@@ -4,7 +4,7 @@ The following steps show how to integrate AWS Elemental MediaTailor with your co
 
 ## Step 1: \(CDN\) Create Routing Behaviors<a name="integrating-cdn-standard-cdn-routing"></a>
 
-In the CDN, create behaviors and rules that route content segment requests to the origin server and ad segment requests to AWS Elemental MediaTailor, as follows:
+In the CDN, create behaviors and rules that route playback requests to MediaTailor\. Use the following rules for all segment requests \(content, normal ad avails, and pre\-roll ad avails\):
 + Create one behavior that routes *content segment* requests to the *origin server*\. Base this on a rule that uses a phrase to differentiate content segment requests from ad segment requests\.
 
   For example, the CDN could route HLS player requests to `https://CDN_Hostname/subdir/content.ts` to the origin server path `http://origin.com/contentpath/subdir/content.ts` based on the keyword `subdir` in the request\. 
@@ -41,7 +41,7 @@ For manifests, referencing a CDN in front of the manifest specification lets you
 
 Make sure that your CDN forwards all query parameters to AWS Elemental MediaTailor\. MediaTailor relies on the query parameters to fulfill your VAST requests for personalized ads\. 
 
-For server\-side reporting, referencing a CDN in front of `/v1/segment` in ad segment requests helps prevent AWS Elemental MediaTailor from sending duplicate ad tracking beacons\. When a player makes a request for a `/v1/segment` ad, MediaTailor issues a 301 redirect to the actual `*.ts` segment\. When MediaTailor sees that `/v1/segment` request, it issues a beacon call to track the view percentage of the ad\. If the same player makes multiple requests for the same `/v1/segment` in one session, and your ADS can't de\-duplicate requests, then MediaTailor issues multiple requests for the same beacon\. Using a CDN to cache these 301 responses ensures that MediaTailor doesn't make duplicate beacon calls for repeated requests\. For this path, you can use a high or default cache because cache\-keys for these segments are unique\.
+For server\-side reporting, referencing a CDN in front of `/v1/segment` in ad segment requests helps prevent AWS Elemental MediaTailor from sending duplicate ad tracking beacons\. When a player makes a request for a `/v1/segment` ad, MediaTailor issues a 301 redirect to the actual `*.ts` segment\. When MediaTailor sees that `/v1/segment` request, it issues a beacon call to track the view percentage of the ad\. If the same player makes multiple requests for the same `/v1/segment` in one session, and your ad decision server \(ADS\) can't de\-duplicate requests, then MediaTailor issues multiple requests for the same beacon\. Using a CDN to cache these 301 responses ensures that MediaTailor doesn't make duplicate beacon calls for repeated requests\. For this path, you can use a high or default cache because cache\-keys for these segments are unique\.
 
 To take advantage of these benefits, create behaviors in the CDN that route requests to the AWS Elemental MediaTailor configuration endpoint\. Base the behaviors that you create on rules that differentiate requests for master HLS manifests, HLS manifests, DASH manifests, and reporting\. 
 

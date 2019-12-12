@@ -337,8 +337,6 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
     }
   },
 
-  "__COMMENT_oneOf": "The oneOf section defines subtypes for our events. Subtypes can have different rules, including which fields are required. For more information, see https://json-schema.org/understanding-json-schema/reference/combining.html#oneof ",
-
   "oneOf": [
     { "$ref": "#/definitions/eventMakingAdsRequest" },
     { "$ref": "#/definitions/eventVastResponse" },
@@ -378,7 +376,6 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
 
     "eventVastResponse": {
       "$id": "#/definitions/eventVastResponse",
-      "_comment": "NOTE: the vastResponse property should ideally be marked as a required field for this event, but unfortunately, in the case of an empty vast response, we currently emit an EMPTY_VAST_RESPONSE followed by a VAST_RESPONSE, and the vastResponse property is not present in the latter. We need to fix this so that we don't emit both of those events in the empty response case, and update this schema to flag vastResponse as required for VAST_RESPONSE.",
       "required": [
         "eventType"
       ],
@@ -424,7 +421,6 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
       "required": [
         "eventType"
       ],
-      "_comment": "We should really have a more descriptive error field for these events",
       "properties": {
         "eventType": {
           "type": "string",
@@ -467,7 +463,6 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
       "required": [
         "eventType"
       ],
-      "_comment": "TODO: Flesh this out as we implement it",
       "properties": {
         "eventType": {
           "type": "string",
@@ -494,7 +489,6 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
       "required": [
         "eventType"
       ],
-      "_comment": "TODO: we should have a field for the exception message or something",
       "properties": {
         "eventType": {
           "type": "string",
@@ -535,7 +529,6 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
       "required": [
         "eventType"
       ],
-      "_comment": "We should have a field with an error message here",
       "properties": {
         "eventType": {
           "type": "string",

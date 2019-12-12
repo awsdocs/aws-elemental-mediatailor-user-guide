@@ -4,6 +4,8 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [CDN best practices](cdn-bp.md) | Added a section about content distribution network \(CDN\) best practices for personalized manifests\.  | December 13, 2019 | 
+| [Document live pre\-roll behaviors](ad-behavior-live.md#ad-behavior-preroll) | Added *Pre\-Roll Ad Insertion* section to describe how live pre\-roll ads work with AWS Elemental MediaTailor\. | November 26, 2019 | 
 | [Support for live pre\-roll ads](configurations-create.md) | Added support for inserting pre\-roll ads at the beginning of a live stream\. | September 11, 2019 | 
 | [Analyzing ADS Logs in Amazon CloudWatch Logs Insights](monitor-cloudwatch-ads-logs.md) | Added information for using the AWS Elemental MediaTailor ADS logs and CloudWatch Logs Insights to analyze your MediaTailor sessions\. | August 13, 2019 | 
 | [New security chapter](security.md) | Added a security chapter to enhance and standardize coverage\. | May 23, 2019 | 

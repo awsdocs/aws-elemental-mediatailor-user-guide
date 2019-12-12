@@ -3,7 +3,9 @@
 With client\-side reporting, AWS Elemental MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. 
 
 Client\-side reporting enables functionality like the following: 
-+ Trick play for VOD, where players display visual feedback during fast forward and rewind\. 
++ Scrubbing behavior, where a viewer can scrub through the video by moving the cursor on the playback bar\.
+**Note**  
+MediaTailor does not support *trick play* for DASH live or VOD content\. This means that viewers won't see visual feedback during fast forward and rewind\.
 + Advanced playback behaviors that require player development, like no skip\-forward and countdown timers on ad avails\.
 
 Use client\-side reporting for VPAID functionality\. For more information, see [VPAID Handling](vpaid.md)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
@@ -79,7 +81,9 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
 
 1. Construct the full manifest and tracking URLs by prefixing the relative URLs from MediaTailor with *<mediatailorURL>*\. 
 
-1. Program the player to periodically poll the tracking URL and manage ad avails accordingly\. When an ad is coming, the response from AWS Elemental MediaTailor to the player's polling request contains a JSON object that specifies the time offsets for the ad avails\. The offsets are relative to when the player initiated the session\. You can use them when programming specific behaviors in the player, such as preventing the viewer from skipping past the ads\. The response also includes duration, timing, and identification information\. 
+1. Program the player to poll the tracking URL periodically and manage ad avails accordingly\. Poll frequently enough to satisfy your reporting requirements\. If you don't have set requirements, poll at least once per manifest duration\. For example, if the manifest is a 10\-minute rolling window, poll the tracking URL every 5 minutes\. MediaTailor keeps mid\-roll tracking data until all corresponding segments are outside the manifest window\.
+
+   When an ad is coming, the response from AWS Elemental MediaTailor to the player's polling request contains a JSON object that specifies the time offsets for the ad avails\. The offsets are relative to when the player initiated the session\. You can use them when programming specific behaviors in the player, such as preventing the viewer from skipping past the ads\. The response also includes duration, timing, and identification information\. 
 
    The response from MediaTailor can include the following values:
    + `adId`: For HLS, the sequence number associated with the beginning of the ad\. For DASH, the period ID of the ad\.
