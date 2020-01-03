@@ -1,7 +1,7 @@
 # AWS Elemental MediaTailor User Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -33,15 +33,17 @@ Amazon's trademarks and trade dress may not be used in
    + [HLS .m3u8 Manifests](manifest-hls.md)
       + [HLS Supported Ad Markers](hls-ad-markers.md)
       + [HLS Manifest Tag Handling](manifest-hls-tags.md)
-      + [HLS Live Manifest Examples](manifest-hls-example.md)
+      + [HLS Manifest Examples](manifest-hls-example.md)
    + [DASH .mpd Manifests](manifest-dash.md)
       + [DASH Ad Markers](dash-ad-markers.md)
       + [DASH Ad Avail Duration](dash-ad-avail-duration.md)
       + [DASH Manifest Segment Numbering](dash-manifest-segment-numbering.md)
       + [DASH Manifest Examples](dash-manifest-examples.md)
-         + [DASH Manifest Splice Insert Example](dash-manifest-splice-insert-example.md)
-         + [DASH Manifest Time Signal Example](dash-manifest-time-signal-example.md)
-         + [DASH Manifest Base64-encoded Binary Example with Single-Period Input](single-period-dash-manifest-example.md)
+         + [Live DASH Manifest Examples](dash-manifest-live.md)
+            + [DASH Manifest Splice Insert Example](dash-manifest-splice-insert-example.md)
+            + [DASH Manifest Time Signal Example](dash-manifest-time-signal-example.md)
+            + [DASH Manifest Base64-encoded Binary Example with Single-Period Input](single-period-dash-manifest-example.md)
+         + [VOD DASH Manifest Examples](dash-manifest-vod.md)
       + [DASH Location Feature](dash-location-feature.md)
 + [Working with Configurations in AWS Elemental MediaTailor](configurations.md)
    + [Creating a Configuration](configurations-create.md)
@@ -91,7 +93,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Querying the ADS Logs](querying-the-ads-logs.md)
       + [ADS Log JSON Schema](ads-log-json-schema.md)
    + [Logging AWS Elemental MediaTailor API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
-+ [Limits in AWS Elemental MediaTailor](limits.md)
++ [Quotas in AWS Elemental MediaTailor](limits.md)
 + [AWS Elemental MediaTailor Resources](resources.md)
 + [Document History for AWS Elemental MediaTailor](document-history.md)
 + [AWS Glossary](glossary.md)

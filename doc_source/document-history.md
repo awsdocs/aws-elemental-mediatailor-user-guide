@@ -4,6 +4,9 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [DASH VOD manifests](manifest-dash.md) | Added support for video on demand \(VOD\) DASH manifests from the origin server, with multi\-period manifest output\. | December 23, 2019 | 
+| [Console support for transcode profile name](configurations-create.md) | Added description for transcode profile name in the configuration\. | December 23, 2019 | 
+| [Updated limits tables](limits.md) | Updated limits for ADS redirects and ADS timeouts\. | December 18, 2019 | 
 | [CDN best practices](cdn-bp.md) | Added a section about content distribution network \(CDN\) best practices for personalized manifests\.  | December 13, 2019 | 
 | [Document live pre\-roll behaviors](ad-behavior-live.md#ad-behavior-preroll) | Added *Pre\-Roll Ad Insertion* section to describe how live pre\-roll ads work with AWS Elemental MediaTailor\. | November 26, 2019 | 
 | [Support for live pre\-roll ads](configurations-create.md) | Added support for inserting pre\-roll ads at the beginning of a live stream\. | September 11, 2019 | 

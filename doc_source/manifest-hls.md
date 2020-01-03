@@ -7,4 +7,4 @@ The following sections provide more information about how MediaTailor handles HL
 **Topics**
 + [HLS Supported Ad Markers](hls-ad-markers.md)
 + [HLS Manifest Tag Handling](manifest-hls-tags.md)
-+ [HLS Live Manifest Examples](manifest-hls-example.md)
++ [HLS Manifest Examples](manifest-hls-example.md)

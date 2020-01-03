@@ -6,6 +6,9 @@ Choose **Additional configuration** to complete optional fields, described here\
 Enter the URL for a high\-quality MP4 asset to transcode and use to fill in time that's not used by ads\. AWS Elemental MediaTailor shows the slate to fill in gaps in media content\. Configuring the slate is optional for non\-VPAID configurations\. For VPAID, you must configure a slate, which MediaTailor provides in the slots designated for dynamic ad content\. The slate must be a high\-quality MP4 asset that contains both audio and video\. For more information, see [Slate Management](slate-management.md)\.  
 If the server that hosts your slate uses HTTPS, its certificate must be from a well\-known certificate authority\. \(It can't be a self\-signed certificate\.\) Otherwise, AWS Elemental MediaTailor can't retrieve and stitch the slate into the manifests from the content origin\.
 
+**Transcode Profile Name**  
+The name that associates this configuration with a custom transcode profile\. This name overrides the dynamic transcoding defaults of MediaTailor\. Complete this field only if you have already set\-up custom profiles with the help of AWS Support\.
+
 **Live pre\-roll ad decision server**  
 To insert ads at the start of a live stream before the main content starts playback, enter the URL for the ad pre\-roll from the ad decision server \(ADS\)\. This is either the URL with variables as described in [Step 3: Configure ADS Request URL and Query Parameters](getting-started.md#getting-started-configure-request), or the static VAST URL that you are using for testing purposes\. The maximum length is 25,000 characters\.  
 If your ADS uses HTTPS, its certificate must be from a well\-known certificate authority\. \(It can't be a self\-signed certificate\.\) The same also applies to mezzanine ad URLs returned by the ADS\. Otherwise, AWS Elemental MediaTailor can't retrieve and stitch ads into the manifests from the content origin\.

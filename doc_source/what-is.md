@@ -39,4 +39,4 @@ A video stream must meet the following requirements to work with MediaTailor:
 
 MediaTailor manages transcoded ads on your behalf with no additional charge\. When you play an ad in a video stream, it might get copied to another AWS Region\.
 
-If you need to delete your transcoded ad assets for any reason, file a case with AWS Support\. On the navigation bar of the console, choose **Support**, and then choose **Support Center**\. Create a case, and choose the category of **Service Limit Increase**\.
+If you need to delete your transcoded ad assets for any reason, file a case with AWS Support\. On the navigation bar of the console, choose **Support**, and then choose **Support Center**\. In the Support Center, create a case\.
