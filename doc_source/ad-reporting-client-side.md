@@ -1,4 +1,4 @@
-# Client\-side Reporting<a name="ad-reporting-client-side"></a>
+# Client\-side reporting<a name="ad-reporting-client-side"></a>
 
 With client\-side reporting, AWS Elemental MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. 
 
@@ -8,7 +8,7 @@ Client\-side reporting enables functionality like the following:
 MediaTailor does not support *trick play* for DASH live or VOD content\. This means that viewers won't see visual feedback during fast forward and rewind\.
 + Advanced playback behaviors that require player development, like no skip\-forward and countdown timers on ad avails\.
 
-Use client\-side reporting for VPAID functionality\. For more information, see [VPAID Handling](vpaid.md)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
+Use client\-side reporting for VPAID functionality\. For more information, see [VPAID handling](vpaid.md)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
 
 **To perform client\-side ad reporting**
 
@@ -40,7 +40,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
        }
    ```
 
-   For more information about providing dynamic ad variables, see [Dynamic Ad Variables in AWS Elemental MediaTailor](variables.md)\. 
+   For more information about providing dynamic ad variables, see [Dynamic ad variables in AWS Elemental MediaTailor](variables.md)\. 
 
 1. From the player, use your constructed JSON to initialize a new MediaTailor playback session\. Format your request like the following\. 
 
@@ -76,7 +76,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
      Example 
 
      ```
-     /v1/tracking/<hashed-account-id>/<origin-id>/<asset-id>/<session>
+     /v1/tracking/<hashed-account-id>/<origin-id>/<session>
      ```
 
 1. Construct the full manifest and tracking URLs by prefixing the relative URLs from MediaTailor with *<mediatailorURL>*\. 
@@ -90,6 +90,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `adParameters`: String of ad parameters from VAST VPAID, which AWS Elemental MediaTailor passes to the player\.
    + `adSystem`: The name for the system that serves the ad\.
    + `adTitle`: The title for the ad\.
+   + `adVerifications`: Contains the resources and metadata required to execute third\-party measurement code in order to verify creative playback\. For more information about the `adVerifications` element, see the [VAST 4\.2 specification, section 3\.16\.](https://iabtechlab.com/wp-content/uploads/2019/06/VAST_4.2_final_june26.pdf)
    + `apiFramework`: Set this to `VPAID` to tell the player that this is a VPAID ad\.
    + `availId`: For HLS, the sequence number associated with the start of the ad avail\. For DASH, the period ID of the ad avail, which is usually the period ID of the content that is to be replaced with an ad\.
    + `beaconUrls`: Where to send each ad beacon\.
@@ -97,10 +98,11 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `companionAds`: One or more companion ad content specifications, each of which specifies a resource file to use\. Companion ads accompany the ad avail, and are used to provide content like a frame around the ad or a banner to display near the video\. 
    + `creativeId`: The `Id` attribute of the `Creative` tag for the ad\.
    + `delivery`: This indicates the protocol used, and can be set to either `progressive` or `streaming`\.
-   + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID Handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
+   + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
    + `durationInSeconds`: Length in seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\.
    + `eventId`: For HLS, the sequence number that is associated with the beacon\. For DASH, the `ptsTime` of the start of the ad\.
    + `eventType`: Type of beacon\.
+   + `extensions`: Ad servers can use `extensions` for custom extensions of VAST\. For more information about the `extensions` element, see the [VAST 4\.2 specification, section 3\.18\.](https://iabtechlab.com/wp-content/uploads/2019/06/VAST_4.2_final_june26.pdf)
    + `height`: Height of the video asset\.
    + `maintainAspectRatio`: Indicates whether to maintain the aspect ratio while scaling\.
    + `mediaFilesList`: Specifies video and other assets that the player needs for the ad avail\.
@@ -108,6 +110,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `mediaType`: Typically either `JavaScript` or `Flash` for executable assets\. 
    + `mezzanine`: The mezzanine MP4 asset, specified if the VPAID ad includes one\. Example\. `https://gcdn.2mdn.net/videoplayback/id/itag/ck2/file/file.mp4`\.
    + `scalable`: Indicates whether to scale the video to other dimensions\.
+   + `skipoffset`: The time value that identifies when skip controls are made available to the end user\.
    + `startTime`: Time position in ISO 8601 seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad avail and for each ad and beacon\.
    + `startTimeInSeconds`: Time position in seconds format, relative to the beginning of the playback session\. The response includes start times for the entire ad avail and for each ad and beacon\.
    + `vastAdId`: The `Id` attribute of the `Ad` tag\.
@@ -280,12 +283,31 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
              {
                "adId": "3348173",
                "adParameters": null,
-               "duration": "PT12.700001178S",
-               "durationInSeconds": 12.7,
-               "mediaFiles": null,
-               "startTime": "PT1M56.060003037S",
-               "startTimeInSeconds": 116.06,
-               "trackingEvents": [],
+               "adVerifications": [
+                   {
+                   "vendor": "vendor1",
+                   "javascriptResource": [{
+                       "apiFramework": "omid",
+                       "browserOptional": "true",
+                       "uri": "https://verificationcompany1.com/verification_script1.js"
+                   }],
+                   "verificationParameters": ""
+                   },
+                   {
+                   "vendor": "vendor2",
+                   "executableResource": [{
+                       "apiFramework": "omid",
+                       "type": "exe",
+                       "uri": "https://verificationcompany.com/untrusted.exe"
+                   }],
+                   "trackingEvents": [
+                       {
+                       "event": "verificationNotExecuted",
+                       "uri": "https://verificationcompany/comdkvkasfakj"
+                       }
+                   ]
+                   }
+               ],
                "companionAds": [
                  {
                      "sequence": "",
@@ -316,6 +338,20 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
                      ]
                  }
                ]
+               "extensions": [
+                   {
+                   "extension": {
+                       "type": "",
+                       "content": ""
+                   }
+                   }
+               ],
+               "duration": "PT12.700001178S",
+               "durationInSeconds": 12.7,
+               "mediaFiles": null,
+               "startTime": "PT1M56.060003037S",
+               "startTimeInSeconds": 116.06,
+               "trackingEvents": [],
              }
            ],
            "availId": "3348173",

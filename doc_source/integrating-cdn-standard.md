@@ -2,7 +2,7 @@
 
 The following steps show how to integrate AWS Elemental MediaTailor with your content distribution network \(CDN\)\. Depending on the CDN that you use, some terminology might differ from what is used in these steps\.
 
-## Step 1: \(CDN\) Create Routing Behaviors<a name="integrating-cdn-standard-cdn-routing"></a>
+## Step 1: \(CDN\) create routing behaviors<a name="integrating-cdn-standard-cdn-routing"></a>
 
 In the CDN, create behaviors and rules that route playback requests to MediaTailor\. Use the following rules for all segment requests \(content, normal ad avails, and pre\-roll ad avails\):
 + Create one behavior that routes *content segment* requests to the *origin server*\. Base this on a rule that uses a phrase to differentiate content segment requests from ad segment requests\.
@@ -13,13 +13,13 @@ In the CDN, create behaviors and rules that route playback requests to MediaTail
 + \(Optional\) Create one behavior that routes *ad segment* requests to the internal Amazon CloudFront distribution where AWS Elemental MediaTailor stores transcoded ads\. Base this on a rule that includes a phrase to differentiate ad segment requests from content segment requests\. This step is optional because AWS Elemental MediaTailor provides a default configuration\.
 
   AWS Elemental MediaTailor uses the following default Amazon CloudFront distributions for storing ads:  
-**Example Ad Segment Routing**  
+**Example Ad segment routing**  
 
   Pattern: `https://segments.mediatailor.<region>.amazonaws.com`
 
   Example: `https://segments.mediatailor.eu-west-1.amazonaws.com`
 
-## Step 2: \(AWS Elemental MediaTailor\) Create a Configuration with CDN Mapping<a name="integrating-cdn-standard-config"></a>
+## Step 2: \(AWS Elemental MediaTailor\) create a configuration with CDN mapping<a name="integrating-cdn-standard-config"></a>
 
 Create an AWS Elemental MediaTailor configuration that maps the domains of the CDN routing behaviors to the origin server and to the ad storage location\. Enter the domain names in the configuration as follows:
 + For **CDN content segment prefix**, enter the CDN domain from the behavior that you created to route content requests to the origin server\. In the manifest, MediaTailor replaces the content segment URL prefix with the CDN domain\.
@@ -33,7 +33,7 @@ Create an AWS Elemental MediaTailor configuration that maps the domains of the C
   For DASH, if the full content file path is `http://origin.com/contentpath/subdir/content.mp4`, the content segment in the manifest served by MediaTailor is `https://CDN_Hostname/subdir/content.mp4`\.
 + For **CDN ad segment prefix**, enter the name of the CDN behavior that you created to route ad requests through your CDN\. In the manifest, MediaTailor replaces the Amazon CloudFront distribution with the behavior name\.
 
-## Step 3: \(CDN\) Set up CDN for Manifest and Reporting Requests<a name="integrating-cdn-standard-cache"></a>
+## Step 3: \(CDN\) set up CDN for manifest and reporting requests<a name="integrating-cdn-standard-cache"></a>
 
 Using a CDN for manifest and reporting requests gives you more functionality in your workflow\.
 

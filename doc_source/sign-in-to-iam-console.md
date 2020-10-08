@@ -1,4 +1,4 @@
-# Step 1: Sign In To the IAM Console<a name="sign-in-to-iam-console"></a>
+# Step 1: Sign in to the IAM console<a name="sign-in-to-iam-console"></a>
 
 Sign in to the IAM console to manage policies and users\.
 

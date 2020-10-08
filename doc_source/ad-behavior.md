@@ -1,14 +1,13 @@
-# Ad Behavior in AWS Elemental MediaTailor<a name="ad-behavior"></a>
+# Ad behavior in AWS Elemental MediaTailor<a name="ad-behavior"></a>
 
-This section covers how AWS Elemental MediaTailor manipulates the manifest to include the URLs for ads\. 
+AWS Elemental MediaTailor replaces or inserts ads depending on how the origin server configures the ad breaks, and whether the content is video on demand \(VOD\) or live\.
++ With **ad replacement**, MediaTailor replaces content segments with ads\. 
++ With **ad insertion**, MediaTailor inserts ad content where segments don't exist\.
 
-AWS Elemental MediaTailor replaces or inserts ads, depending on how the origin server configures the ad avails and on whether the content is VOD or live\. 
-+ With ad replacement, MediaTailor replaces content segments with ads\. 
-+ With ad insertion, MediaTailor inserts ad content where segments don’t exist\.
-
- AWS Elemental MediaTailor also uses configured slates to fill gaps in ads and to manage VPAID ad handling\. 
+ AWS Elemental MediaTailor also uses configured slates to fill gaps in ad breaks and to manage VPAID ad handling, as well as optional bumpers\.
 
 **Topics**
-+ [VOD Content Ad Behavior](ad-behavior-vod.md)
-+ [Live Content Ad Behavior](ad-behavior-live.md)
-+ [Slate Management](slate-management.md)
++ [VOD content ad behavior](ad-behavior-vod.md)
++ [Live content ad behavior](ad-behavior-live.md)
++ [Bumpers](bumpers.md)
++ [Slate management](slate-management.md)

@@ -1,4 +1,4 @@
-# Playback Error Examples<a name="playback-errors-examples"></a>
+# Playback error examples<a name="playback-errors-examples"></a>
 
 This section lists some examples of the playback errors that you might see in command line interactions with AWS Elemental MediaTailor\. 
 

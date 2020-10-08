@@ -1,4 +1,4 @@
-# DASH Manifest Base64\-encoded Binary Example with Single\-Period Input<a name="single-period-dash-manifest-example"></a>
+# DASH manifest Base64\-encoded binary example with single\-period input<a name="single-period-dash-manifest-example"></a>
 
 This example shows how AWS Elemental MediaTailor handles a manifest from an origin server that produces single\-period manifests\. You can indicate that your origin server produces single\-period manifests in your MediaTailor configuration settings\. MediaTailor produces multi\-period DASH manifests, for both multi\-period and single\-period input manifests\. 
 

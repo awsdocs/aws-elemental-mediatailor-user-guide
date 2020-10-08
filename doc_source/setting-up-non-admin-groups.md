@@ -1,6 +1,6 @@
-# Step 3: Create User Groups<a name="setting-up-non-admin-groups"></a>
+# Step 3: Create user groups<a name="setting-up-non-admin-groups"></a>
 
-Create a user group for each of the policies that you created in [Step 2: Create Policies](setting-up-non-admin-policies.md)\. This way, when you create additional users you can add the users to a group rather than attaching individual policies to each user\. 
+Create a user group for each of the policies that you created in [Step 2: Create policies](setting-up-non-admin-policies.md)\. This way, when you create additional users you can add the users to a group rather than attaching individual policies to each user\. 
 
 **To create groups for users who need access to AWS Elemental MediaTailor**
 

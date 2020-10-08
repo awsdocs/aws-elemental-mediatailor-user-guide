@@ -1,13 +1,13 @@
-# Dynamic Ad Variables in AWS Elemental MediaTailor<a name="variables"></a>
+# Dynamic ad variables in AWS Elemental MediaTailor<a name="variables"></a>
 
 The AWS Elemental MediaTailor request to the ad decision server \(ADS\) includes information about the current viewing session, which helps the ADS choose the best ads to provide in its response\. When you configure your ADS request, you specify the query parameters to use to convey the information\. 
 
 The query parameters take the following forms:
-+ **Static values** – values that don't change from one session to the next\. For example, the response type that MediaTailor expects from the ADS\.
-+ **Session data** – dynamic values that are provided by MediaTailor for each session, for example, the session ID\. For details, see [Session Data](variables-session.md)\. 
-+ **Player data** – dynamic values that are provided by the player for each session\. These describe the content viewer and help the ADS to determine which ads MediaTailor should stitch into the stream\. For details, see [Player Data](variables-player.md)\.
++ **Static values** – Values that don't change from one session to the next\. For example, the response type that MediaTailor expects from the ADS\.
++ **Session data** – Dynamic values that are provided by MediaTailor for each session, for example, the session ID\. For details, see [Session data](variables-session.md)\. 
++ **Player data** – Dynamic values that are provided by the player for each session\. These describe the content viewer and help the ADS to determine which ads MediaTailor should stitch into the stream\. For details, see [Player data](variables-player.md)\.
 
-## Passing Parameters to the ADS<a name="passing-paramters-to-the-ads"></a>
+## Passing parameters to the ADS<a name="passing-paramters-to-the-ads"></a>
 
 **To pass session and player information to the ADS**
 
@@ -23,7 +23,7 @@ The query parameters take the following forms:
 
 1. On the player, configure the session initiation request for AWS Elemental MediaTailor to provide parameters for the player data\. Include your parameters in the session initiation request, and omit them from subsequent requests for the session\. 
 
-   The type of call that the player makes to initialize the session determines whether the player \(client\) or MediaTailor \(server\) provides ad\-tracking reporting for the session\. For information about these two options, see [Ad Tracking Reporting in AWS Elemental MediaTailor](ad-reporting.md)\. 
+   The type of call that the player makes to initialize the session determines whether the player \(client\) or MediaTailor \(server\) provides ad\-tracking reporting for the session\. For information about these two options, see [Ad tracking reporting in AWS Elemental MediaTailor](ad-reporting.md)\. 
 
    Make one of the following types of calls, depending on whether you want server\- or client\-side ad\-tracking reporting\. In both of the example calls, `userID` is intended for the ADS and `auth_token` is intended for the origin:
    + \(Option\) Call for server\-side ad\-tracking reporting – Prefix the parameters that you want MediaTailor to send to the ADS with `ads`\. Leave the prefix off for parameters that you want MediaTailor to send to the origin server: 

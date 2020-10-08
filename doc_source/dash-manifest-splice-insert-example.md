@@ -1,4 +1,4 @@
-# DASH Manifest Splice Insert Example<a name="dash-manifest-splice-insert-example"></a>
+# DASH manifest splice insert example<a name="dash-manifest-splice-insert-example"></a>
 
 **DASH origin manifest example for splice insert**  
 The following example from an MPD manifest shows an ad avail in a manifest received by DASH from the content origin\. This example uses the `scte35:SpliceInsert` markers with `outOfNetworkIndicator` set to `true`\.

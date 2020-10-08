@@ -1,4 +1,4 @@
-# Alternate Audio and Subtitles<a name="manifest-audio-captions"></a>
+# Alternate audio and subtitles<a name="manifest-audio-captions"></a>
 
 AWS Elemental MediaTailor supports input and output of multiple audio and WebVTT subtitle tracks\. 
 

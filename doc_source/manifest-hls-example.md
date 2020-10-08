@@ -1,8 +1,8 @@
-# HLS Manifest Examples<a name="manifest-hls-example"></a>
+# HLS manifest examples<a name="manifest-hls-example"></a>
 
 The following sections provide examples of HLS origin manifests and personalized manifests\.
 
-## HLS Origin Manifest Examples<a name="manifest-hls-ex-origin"></a>
+## HLS origin manifest examples<a name="manifest-hls-ex-origin"></a>
 
 The following example shows an HLS master manifest that AWS Elemental MediaTailor received by HLS from the content origin\.
 
@@ -59,7 +59,7 @@ index_1_8779967.ts?m=1566416212
 index_1_8779968.ts?m=1566416212
 ```
 
-## HLS Personalized Manifest Examples<a name="manifest-hls-ex-personalized"></a>
+## HLS personalized manifest examples<a name="manifest-hls-ex-personalized"></a>
 
 The following example shows an HLS master manifest that AWS Elemental MediaTailor personalized\.
 

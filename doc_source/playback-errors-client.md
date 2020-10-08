@@ -1,4 +1,4 @@
-# Client Playback Errors Returned by AWS Elemental MediaTailor<a name="playback-errors-client"></a>
+# Client playback errors returned by AWS Elemental MediaTailor<a name="playback-errors-client"></a>
 
 General guidance: 
 + You can find detailed information for most errors in the headers and body of the response\.
@@ -7,7 +7,7 @@ General guidance:
 The following table lists the client error codes that are returned by the manifest manipulation activities of AWS Elemental MediaTailor, probable causes, and actions you can take to resolve them\.
 
 
-| Code  | Exception Name  | Meaning | What To Do | 
+| Code  | Exception name  | Meaning | What to do | 
 | --- | --- | --- | --- | 
 | 400 | BadRequestException | MediaTailor is unable to service the request due to one or more errors in formatting or content\. A parameter might be improperly formatted, or the request might contain an invalid playback configuration or session ID\. | Check that your request is properly formatted and contains accurate information\. Make sure that the playback endpoint setting on the player matches the ManifestEndpointPrefix setting returned by GetPlaybackConfiguration\. Retry your request\.  | 
 | 403 | AccessDeniedException | The host header provided in the request doesn't match the manifest endpoint prefix that is configured in the MediaTailor playback URL\. Your CDN might be misconfigured\.  | Check your CDN settings and make sure that you are using the correct manifest endpoint prefix for MediaTailor\. Retry your request\.  | 

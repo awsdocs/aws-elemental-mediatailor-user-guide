@@ -1,4 +1,4 @@
-# VOD DASH Manifest Examples<a name="dash-manifest-vod"></a>
+# VOD DASH manifest examples<a name="dash-manifest-vod"></a>
 
 **DASH VOD origin manifest**  
 The following example from an MPD manifest shows an ad avail in a video on demand \(VOD\) manifest received by DASH from the content origin\. This example uses the `scte35:SpliceInsert` markers with `outOfNetworkIndicator` set to `true`\.

@@ -9,9 +9,9 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using AWS Elemental MediaTailor\. The following topics show you how to configure MediaTailor to meet your security and compliance objectives\. You also learn how to use other AWS services to monitor and secure your MediaTailor resources\. 
 
 **Topics**
-+ [Data Protection in AWS Elemental MediaTailor](data-protection.md)
-+ [Identity and Access Management for AWS Elemental MediaTailor](security-iam.md)
-+ [Logging and Monitoring in AWS Elemental MediaTailor](security-log-monitor.md)
-+ [Compliance Validation for AWS Elemental MediaTailor](servicename-compliance.md)
++ [Data protection in AWS Elemental MediaTailor](data-protection.md)
++ [IAM for AWS Elemental MediaTailor](security-iam.md)
++ [Logging and monitoring in AWS Elemental MediaTailor](security-log-monitor.md)
++ [Compliance validation for AWS Elemental MediaTailor](servicename-compliance.md)
 + [Resilience in AWS Elemental MediaTailor](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS Elemental MediaTailor](network-isolation.md)
++ [Infrastructure security in AWS Elemental MediaTailor](network-isolation.md)

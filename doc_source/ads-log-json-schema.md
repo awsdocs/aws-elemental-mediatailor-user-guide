@@ -1,4 +1,4 @@
-# ADS Log JSON Schema<a name="ads-log-json-schema"></a>
+# ADS log JSON schema<a name="ads-log-json-schema"></a>
 
 The following lists the JSON schema for the AWS Elemental MediaTailor ADS log\.
 

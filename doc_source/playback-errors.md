@@ -1,4 +1,4 @@
-# Playback Errors Returned by AWS Elemental MediaTailor<a name="playback-errors"></a>
+# Playback errors returned by AWS Elemental MediaTailor<a name="playback-errors"></a>
 
 This section provides information about the HTTP error codes that you might receive while testing your player software and during the normal processing of player requests\. 
 
@@ -12,6 +12,6 @@ AWS Elemental MediaTailor returns two classes of errors:
 + **Server errors** – errors that are usually caused by a problem with MediaTailor or one of its dependencies, like the ad decision server \(ADS\) or the origin server\. These errors have an HTTP `5xx` response code\.
 
 **Topics**
-+ [Client Playback Errors Returned by AWS Elemental MediaTailor](playback-errors-client.md)
-+ [Server Playback Errors Returned by AWS Elemental MediaTailor](playback-errors-server.md)
-+ [Playback Error Examples](playback-errors-examples.md)
++ [Client playback errors returned by AWS Elemental MediaTailor](playback-errors-client.md)
++ [Server playback errors returned by AWS Elemental MediaTailor](playback-errors-server.md)
++ [Playback error examples](playback-errors-examples.md)

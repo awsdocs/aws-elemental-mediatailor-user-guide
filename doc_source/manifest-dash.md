@@ -1,4 +1,4 @@
-# DASH \.mpd Manifests<a name="manifest-dash"></a>
+# DASH \.mpd manifests<a name="manifest-dash"></a>
 
 AWS Elemental MediaTailor supports `.mpd` live and video on demand \(VOD\) manifests that follow the guidelines for the DASH dynamic profile\. MediaTailor accepts multi\-period and single\-period DASH\-compliant manifest inputs, and delivers multi\-period DASH\-compliant manifest outputs\. 
 
@@ -16,8 +16,8 @@ As a best practice, give the ad avails the same `AdaptationSet` and `Representat
 The following sections provide more information about how MediaTailor handles DASH manifests\.
 
 **Topics**
-+ [DASH Ad Markers](dash-ad-markers.md)
-+ [DASH Ad Avail Duration](dash-ad-avail-duration.md)
-+ [DASH Manifest Segment Numbering](dash-manifest-segment-numbering.md)
-+ [DASH Manifest Examples](dash-manifest-examples.md)
-+ [DASH Location Feature](dash-location-feature.md)
++ [DASH ad markers](dash-ad-markers.md)
++ [DASH ad avail duration](dash-ad-avail-duration.md)
++ [DASH manifest segment numbering](dash-manifest-segment-numbering.md)
++ [DASH manifest examples](dash-manifest-examples.md)
++ [DASH location feature](dash-location-feature.md)

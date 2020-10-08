@@ -1,4 +1,4 @@
-# Infrastructure Security in AWS Elemental MediaTailor<a name="network-isolation"></a>
+# Infrastructure security in AWS Elemental MediaTailor<a name="network-isolation"></a>
 
 As a managed service, AWS Elemental MediaTailor is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper\.
 

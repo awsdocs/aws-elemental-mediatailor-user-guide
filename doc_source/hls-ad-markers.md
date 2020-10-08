@@ -1,8 +1,31 @@
-# HLS Supported Ad Markers<a name="hls-ad-markers"></a>
+# HLS supported ad markers<a name="hls-ad-markers"></a>
 
 AWS Elemental MediaTailor identifies ad avail boundaries in an HLS manifest ad markers in the input manifest\. The following sections describe what markers MediaTailor uses\.
 
-## EXT\-X\-CUE\-OUT and EXT\-X\-CUE\-IN<a name="hls-ad-markers-cue"></a>
+## EXT\-x\-ASSET<a name="hls-ad-markers-asset"></a>
+
+The `EXT-X-ASSET` tag contains metadata that's used by the ad decision server \(ADS\) to personalize content for the viewer\. `EXT-X-ASSET` parameters are comma\-separated key\-value pairs\.
+
+To use this tag, you must meet the following requirements:
++ You must URL\-encode the `EXT-X-ASSET` *values* in the origin manifest\. The following example shows the `EXT-X-ASSET` tag with keys and URL\-encoded values\.
+
+  ```
+          #EXT-X-ASSET:GENRE=CV,CAID=12345678,EPISODE="Episode%20Name%20Date",SEASON="Season%20Name%20and%20Number",SERIES="Series%2520Name"
+  ```
++ You must include the dynamic `[asset.]` variable and the *keys* in your MediaTailor ADS configuration\. The following example shows an MediaTailor ADS configuration using the dynamic `[asset.]` variable and keys\.
+
+  ```
+          https://myads.com/stub?c=[asset.GENRE]&g=[asset.CAID]&e=[asset.EPISODE]&s=[asset.SEASON]&k=[asset.SERIES]
+  ```
+
+**Example VAST request**  
+The following example shows a VAST `GET` request to an ADS\.
+
+```
+        https://myads.com/stub?c=CV&g=12345678&e=Episode%20Name%20Date&s=Season%20Name%20and%20Number&k=Series%2520Name
+```
+
+## EXT\-x\-CUE\-OUT and EXT\-x\-CUE\-IN<a name="hls-ad-markers-cue"></a>
 
 This type of ad marker is the most common\. The following examples show options for these cue markers\.
 
@@ -13,7 +36,7 @@ This type of ad marker is the most common\. The following examples show options 
 ```
 
 ```
-#EXT-X-CUE-OUT:30.000 
+#EXT-X-CUE-OUT:30.000
 ...
 #EXT-X-CUE-IN
 ```
@@ -24,7 +47,7 @@ This type of ad marker is the most common\. The following examples show options 
 #EXT-X-CUE-IN
 ```
 
-## EXT\-X\-DATERANGE<a name="hls-ad-markers-range"></a>
+## EXT\-x\-DATERANGE<a name="hls-ad-markers-range"></a>
 
 With `EXT-X-DATERANGE` ad marker tags, you use `SCTE35-OUT` attributes to specify the timing of the ad avail\. 
 
@@ -58,7 +81,7 @@ You can specify the ad avail in one of the following ways:
   #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
   ```
 
-## EXT\-X\-SPLICEPOINT\-SCTE35<a name="hls-ad-markers-splice"></a>
+## EXT\-x\-SPLICEPOINT\-SCTE35<a name="hls-ad-markers-splice"></a>
 
 You append the `EXT-X-SPLICEPOINT-SCTE35` ad marker tag with a SCTE\-35 payload in base64\-encoded binary\. The decoded binary must provide a SCTE\-35 `splice_info_section` containing the cue\-out marker `0x34`, for provider placement opportunity start, and the cue\-in marker `0x35`, for provider placement opportunity end\. 
 

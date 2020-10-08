@@ -1,4 +1,4 @@
-# How AWS Elemental MediaTailor Handles BaseURLs for DASH<a name="baseurls-for-dash"></a>
+# How AWS Elemental MediaTailor handles BaseURLs for DASH<a name="baseurls-for-dash"></a>
 
 With server\-side ad insertion, the content segments and ad segments come from different locations\. In your DASH manifests, AWS Elemental MediaTailor manages URL settings based on your content distribution network \(CDN\) configuration and the URLs specified in the manifest\. MediaTailor uses the rules in the following list to manage the `BaseURL` settings in your DASH manifests for your content segments and ad segments\. 
 

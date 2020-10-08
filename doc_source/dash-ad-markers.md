@@ -1,10 +1,10 @@
-# DASH Ad Markers<a name="dash-ad-markers"></a>
+# DASH ad markers<a name="dash-ad-markers"></a>
 
 AWS Elemental MediaTailor identifies ad avails in a DASH manifest by splice insert and time signal cue\-out markers, as follows: 
 + In a multi\-period DASH manifest, a `Period` is considered an ad avail when the first `Event` in its event stream contains splice insert or time signal cue\-out markers\. In multi\-period DASH, MediaTailor ignores all but the first event in a period\.
 + In a single\-period DASH manifest, an `Event` is considered an ad avail when it contains splice insert or time signal cue\-out markers\.
 
-By default, AWS Elemental MediaTailor manages DASH manifests as multi\-period manifests\. You can change your configuration to handle single\-period DASH manifests from your origin server\. For information, see [Creating a Configuration](configurations-create.md)\.
+By default, AWS Elemental MediaTailor manages DASH manifests as multi\-period manifests\. You can change your configuration to handle single\-period DASH manifests from your origin server\. For information, see [Creating a configuration](configurations-create.md)\.
 
 You can provide ad markers in clear XML or in base64\-encoded binary:
 
@@ -43,9 +43,9 @@ The event stream `schemeIdUri` must be set to `urn:scte:scte35:2013:xml`, and th
             <scte35:TimeSignal>
               <scte35:SpliceTime ptsTime="3442857000"/>
             </scte35:TimeSignal>
-            <scte35:SegmentationDescriptor segmentationEventId="1414668" segmentationEventCancelIndicator="false" segmentationDuration="8100000">
+            <scte35:SegmentationDescriptor segmentationEventId="1414668" segmentationEventCancelIndicator="false" segmentationDuration="8100000" segmentationTypeId="52" segmentNum="0" segmentsExpected="0">
               <scte35:DeliveryRestrictions webDeliveryAllowedFlag="false" noRegionalBlackoutFlag="false" archiveAllowedFlag="false" deviceRestrictions="3"/>
-              <scte35:SegmentationUpid segmentationUpidType="12" segmentationUpidLength="2" segmentationTypeId="52" segmentNum="0" segmentsExpected="0">0100</scte35:SegmentationUpid>
+              <scte35:SegmentationUpid segmentationUpidType="12" segmentationUpidLength="2">0100</scte35:SegmentationUpid>
             </scte35:SegmentationDescriptor>
           </scte35:SpliceInfoSection>
         </Event>

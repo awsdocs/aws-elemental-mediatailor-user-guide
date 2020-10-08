@@ -1,4 +1,4 @@
-# CDN Best Practices with AWS Elemental MediaTailor<a name="cdn-bp"></a>
+# CDN best practices with AWS Elemental MediaTailor<a name="cdn-bp"></a>
 
 We highly recommend that you use a content distribution network \(CDN\) to cache content and ad segments, but personalized manifest responses must *not* be cached or shared between viewers\. Use the following settings for manifest traffic in your CDN to make the most of the service:
 + Set all **time to live \(TTL\)** settings to **0**\. This includes the maximum, minimum, and default TTL\.

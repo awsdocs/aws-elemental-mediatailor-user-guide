@@ -1,4 +1,4 @@
-# Data Protection in AWS Elemental MediaTailor<a name="data-protection"></a>
+# Data protection in AWS Elemental MediaTailor<a name="data-protection"></a>
 
 AWS Elemental MediaTailor doesn't encrypt or decrypt data in its management of content manifests or in its communication with servers, CDNs, or players\. MediaTailor doesn't require that you supply any customer data or other sensitive information\.
 

@@ -1,4 +1,4 @@
-# Step 2: Create Policies<a name="setting-up-non-admin-policies"></a>
+# Step 2: Create policies<a name="setting-up-non-admin-policies"></a>
 
 Create two policies for AWS Elemental MediaTailor: one to provide read/write access, and one to provide read\-only access\. 
 

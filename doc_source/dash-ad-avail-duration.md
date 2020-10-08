@@ -1,4 +1,4 @@
-# DASH Ad Avail Duration<a name="dash-ad-avail-duration"></a>
+# DASH ad avail duration<a name="dash-ad-avail-duration"></a>
 
 During playback, when AWS Elemental MediaTailor encounters an ad avail, it replaces some or all of the avail with ads\. MediaTailor starts ad replacement at the beginning of the ad avail and includes ads as follows: 
 + If the ad avail specifies a duration, MediaTailor includes as many ads as it can fit inside the duration boundary, without overwriting content that follows\. 

@@ -1,4 +1,4 @@
-# DASH Manifest Time Signal Example<a name="dash-manifest-time-signal-example"></a>
+# DASH manifest time signal example<a name="dash-manifest-time-signal-example"></a>
 
 **DASH origin manifest example for time signal**  
 The following example shows an ad avail in a manifest received by DASH from the content origin\. The following example shows the `scte35:TimeSignal` markers\.

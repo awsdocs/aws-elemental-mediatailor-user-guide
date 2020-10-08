@@ -1,4 +1,4 @@
-# Creating a Configuration<a name="configurations-create"></a>
+# Creating a configuration<a name="configurations-create"></a>
 
 Create a configuration to start receiving content streams and to provide an access point for downstream playback devices to request content\.
 
@@ -10,16 +10,16 @@ When you're creating a configuration, do not put sensitive identifying informati
 
 1. Open the MediaTailor console at [https://console\.aws\.amazon\.com/mediatailor/](https://console.aws.amazon.com/mediatailor/)\.
 
-1. On the **Configurations** page, choose **Create configuration**\.
+1. On the **Configurations** page, choose **Create configuration**\. 
 
 1. Complete the configuration and additional configuration fields as described in the following topics:
-   + [Main Configuration Fields](configurations-create-main.md)
-   + [Additional Configuration Fields](configurations-create-addl.md)
+   +  [Required settings](configurations-create-main.md) 
+   +  [Optional configuration settings](configurations-create-addl.md) 
 
-1. Choose **Create configuration**\.
+1. Choose **Create configuration**\. 
 
    AWS Elemental MediaTailor displays the new configuration in the table on the **Configurations** page\.
 
 1. \(Optional, but recommended\) You can use the configuration playback URLs to set up a CDN with AWS Elemental MediaTailor for manifests and reporting\.
 
-   For information about setting up a CDN for manifest and reporting requests, see [Integrating AWS Elemental MediaTailor and a CDN](integrating-cdn-standard.md)\.
+   For information about setting up a CDN for manifest and reporting requests, see [Integrating AWS Elemental MediaTailor and a CDN](integrating-cdn-standard.md) \.

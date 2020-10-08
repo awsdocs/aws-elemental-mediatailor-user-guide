@@ -1,4 +1,4 @@
-# Ad Transcoding<a name="manifest-transcoding"></a>
+# Ad transcoding<a name="manifest-transcoding"></a>
 
 When AWS Elemental MediaTailor stitches in the ads that are specified by the ad decision server \(ADS\) in the VAST response, it checks whether the ads have already been transcoded: 
 + If an ad has been transcoded, MediaTailor uses the ad in the ad avail\. 

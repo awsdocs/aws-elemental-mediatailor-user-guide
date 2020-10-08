@@ -1,4 +1,4 @@
-# Advanced Usage<a name="variables-advanced-usage"></a>
+# Advanced usage<a name="variables-advanced-usage"></a>
 
 You can customize the ADS request in many ways with player and session data\. The only requirement is to include the ADS hostname\.
 

@@ -1,8 +1,10 @@
-# Viewing a Configuration<a name="configurations-view"></a>
+# Viewing a configuration<a name="configurations-view"></a>
 
 You can view the configuration's current settings\.
 
-**To view a configuration**
+ 
+
+ **To view a configuration ** 
 
 1. Open the MediaTailor console at [https://console\.aws\.amazon\.com/mediatailor/](https://console.aws.amazon.com/mediatailor/)\.
 
