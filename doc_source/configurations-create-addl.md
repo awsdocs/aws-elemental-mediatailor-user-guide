@@ -27,10 +27,10 @@ For information about how pre\-roll works, see [Pre\-Roll ads](ad-behavior-live.
 **Live pre\-roll maximum allowed duration**  
 When you're inserting ads at the start of a live stream, enter the maximum allowed duration for the pre\-roll ad avail\. MediaTailor won't go over this duration when inserting ads\. If the response from the ADS contains more ads than will fit in this duration, MediaTailor fills the avail with as many ads as possible, without going over the duration\. For more details about how MediaTailor fills avails, see [Live content ad behavior](ad-behavior-live.md) \.
 
-**Avail Suppression Mode**  
+**Avail suppression mode**  
 Sets the mode for avail suppression, also known as ad suppression\. By default, ad suppression is off and all ad breaks are filled by MediaTailor with ads or slate\. When the mode is set to `BEHIND_LIVE_EDGE`, ad suppression is active and MediaTailor won't fill ad breaks on or behind the avail suppression value time in the manifest lookback window\.
 
-**Avail Suppression Value**  
+**Avail suppression value**  
 The avail suppression value is a live edge offset time in `HH:MM:SS`\. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window\.
 
 ## Advanced settings<a name="configurations-advanced-settings"></a>
@@ -57,5 +57,8 @@ If your origin server produces single\-period DASH manifests, open the dropdown 
 \(Optional as needed for DASH\) Choose **DISABLED** if you have CDN routing rules set up for accessing MediaTailor manifests and you are either using client\-side reporting or your players support sticky HTTP redirects\.   
 For more information about the **Location** feature, see [DASH location feature](dash-location-feature.md)\.
 
-**Transcode Profile Name**  
+**Transcode profile name**  
 The name that associates this configuration with a custom transcode profile\. This name overrides the dynamic transcoding defaults of MediaTailor\. Complete this field only if you have already set\-up custom profiles with the help of AWS Support\.
+
+**Ad marker passthrough**  
+For HLS, enables or disables ad marker passthrough\. When ad marker passthrough is enabled, MediaTailor passes through `EXT-X-CUE-IN`, `EXT-X-CUE-OUT`, and `EXT-X-SPLICEPOINT-SCTE35` ad markers from the origin manifest to the MediaTailor personalized manifest\. No logic is applied to the ad marker values; they are passed from the origin manifest to the personalized manifest as\-is\. For example, if `EXT-X-CUE-OUT` has a value of `60` in the origin manifest, but no ads are placed, MediaTailor won't change the value to `0` in the personalized manifest\.

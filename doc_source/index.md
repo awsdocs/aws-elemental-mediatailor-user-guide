@@ -32,6 +32,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Alternate audio and subtitles](manifest-audio-captions.md)
    + [HLS .m3u8 manifests](manifest-hls.md)
       + [HLS supported ad markers](hls-ad-markers.md)
+      + [Ad marker passthrough](ad-marker-passthrough.md)
       + [HLS manifest tag handling](manifest-hls-tags.md)
       + [HLS manifest examples](manifest-hls-example.md)
    + [DASH .mpd manifests](manifest-dash.md)

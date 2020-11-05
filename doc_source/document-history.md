@@ -4,6 +4,8 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New ad marker passthrough topic](ad-marker-passthrough.md) | Ad marker passthrough is now available for HLS manifests\. | October 29, 2020 | 
+| [Updated configuration advanced settings](configurations-create-addl.md) | Ad marker passthrough is a new playback configuration advanced setting\. | October 14, 2020 | 
 | [New debug log mode](debug-log-mode.md) | New topic on the DEBUG log mode\. | August 14, 2020 | 
 | [Clarification around EXT\-X\-CUE\-OUT duration attribute for bumpers](bumpers.md) | Updated the bumpers requirements so that for HLS the `duration` attribute is required for each `EXT-X-CUE-OUT` tag\. | August 5, 2020 | 
 | [New bumpers topic](bumpers.md) | Added a new bumpers topic | July 27, 2020 | 
