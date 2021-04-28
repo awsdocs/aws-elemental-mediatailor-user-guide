@@ -10,19 +10,19 @@ To use this tag, you must meet the following requirements:
 + You must URL\-encode the `EXT-X-ASSET` *values* in the origin manifest\. The following example shows the `EXT-X-ASSET` tag with keys and URL\-encoded values\.
 
   ```
-          #EXT-X-ASSET:GENRE=CV,CAID=12345678,EPISODE="Episode%20Name%20Date",SEASON="Season%20Name%20and%20Number",SERIES="Series%2520Name"
+              #EXT-X-ASSET:GENRE=CV,CAID=12345678,EPISODE="Episode%20Name%20Date",SEASON="Season%20Name%20and%20Number",SERIES="Series%2520Name"
   ```
 + You must include the dynamic `[asset.]` variable and the *keys* in your MediaTailor ADS configuration\. The following example shows an MediaTailor ADS configuration using the dynamic `[asset.]` variable and keys\.
 
   ```
-          https://myads.com/stub?c=[asset.GENRE]&g=[asset.CAID]&e=[asset.EPISODE]&s=[asset.SEASON]&k=[asset.SERIES]
+              https://myads.com/stub?c=[asset.GENRE]&g=[asset.CAID]&e=[asset.EPISODE]&s=[asset.SEASON]&k=[asset.SERIES]
   ```
 
 **Example VAST request**  
 The following example shows a VAST `GET` request to an ADS\.
 
 ```
-        https://myads.com/stub?c=CV&g=12345678&e=Episode%20Name%20Date&s=Season%20Name%20and%20Number&k=Series%2520Name
+            https://myads.com/stub?c=CV&g=12345678&e=Episode%20Name%20Date&s=Season%20Name%20and%20Number&k=Series%2520Name
 ```
 
 ## EXT\-x\-CUE\-OUT and EXT\-x\-CUE\-IN<a name="hls-ad-markers-cue"></a>
@@ -31,20 +31,20 @@ This type of ad marker is the most common\. The following examples show options 
 
 ```
 #EXT-X-CUE-OUT:DURATION=120
-...
-#EXT-X-CUE-IN
+    ...
+    #EXT-X-CUE-IN
 ```
 
 ```
 #EXT-X-CUE-OUT:30.000
-...
-#EXT-X-CUE-IN
+    ...
+    #EXT-X-CUE-IN
 ```
 
 ```
 #EXT-X-CUE-OUT
-...
-#EXT-X-CUE-IN
+    ...
+    #EXT-X-CUE-IN
 ```
 
 ## EXT\-x\-DATERANGE<a name="hls-ad-markers-range"></a>
@@ -68,8 +68,8 @@ You can specify the ad avail in one of the following ways:
 
   ```
   #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-OUT=0xF
-  ...
-  #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
+      ...
+      #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
   ```
 + A combination of the prior options\. You specify an `EXT-X-DATERANGE` tag with `SCTE35-OUT` and `DURATION` specifications followed by an `EXT-X-DATERANGE` tag with a `SCTE35-IN` specification\. In this case, MediaTailor uses the earliest cue\-in setting from the two specifications\.
 
@@ -77,8 +77,8 @@ You can specify the ad avail in one of the following ways:
 
   ```
   #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",DURATION=60.000,SCTE35-OUT=0xF
-  ...
-  #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
+      ...
+      #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
   ```
 
 ## EXT\-x\-SPLICEPOINT\-SCTE35<a name="hls-ad-markers-splice"></a>
@@ -88,7 +88,7 @@ You append the `EXT-X-SPLICEPOINT-SCTE35` ad marker tag with a SCTE\-35 payload 
 The following example shows the splice point specification with base64\-encoded binary payloads that specify the cue\-out and cue\-in markers\. 
 
 ```
-#EXT-X-SPLICEPOINT-SCTE35:/DA9AAAAAAAAAP/wBQb+uYbZqwAnAiVDVUVJAAAKqX//AAEjW4AMEU1EU05CMDAxMTMyMjE5M19ONAAAmXz5JA==
-...
-#EXT-X-SPLICEPOINT-SCTE35:/DA4AAAAAAAAAP/wBQb+tTeaawAiAiBDVUVJAAAKqH+/DBFNRFNOQjAwMTEzMjIxOTJfTjUAAIiGK1s=
+    #EXT-X-SPLICEPOINT-SCTE35:/DA9AAAAAAAAAP/wBQb+uYbZqwAnAiVDVUVJAAAKqX//AAEjW4AMEU1EU05CMDAxMTMyMjE5M19ONAAAmXz5JA==
+    ...
+    #EXT-X-SPLICEPOINT-SCTE35:/DA4AAAAAAAAAP/wBQb+tTeaawAiAiBDVUVJAAAKqH+/DBFNRFNOQjAwMTEzMjIxOTJfTjUAAIiGK1s=
 ```

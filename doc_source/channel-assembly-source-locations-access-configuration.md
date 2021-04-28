@@ -1,0 +1,9 @@
+# Using access authentication<a name="channel-assembly-source-locations-access-configuration"></a>
+
+You can configure access authentication for your source location\. Currently, MediaTailor supports **AWS Signature Version 4 \(SigV4\)** authentication for Amazon S3 hosted virtual\-style access\. If you enable SigV4, MediaTailor will use SigV4 authentication method in order to retrieve content manifests from your source location\. For information about SigV4 authentication, see [Authenticating Requests \(AWS Signature Version 4\)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)\.
+
+ If you activate SigV4 for authentication for your source location, you must meet these requirements: 
++ You must allow MediaTailor to access your S3 bucket by granting **mediatailor\.amazonaws\.com** principal access in IAM\. For information about configuring access in IAM, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
++ The **mediatailor\.amazonaws\.com** service principal must have permissions to read all top level manifests referenced by the VOD source package configurations\.
++ The caller of the API must have **s3:GetObject** IAM permissions to read all top level manifests referenced by your MediaTailor VOD source package configurations\.
++ Your MediaTailor source location base URL must follow the S3 virtual hosted\-style request URL format\. For example, https://*bucket\-name*\.s3\.*Region*\.amazonaws\.com/*key\-name*\. For information about Amazon S3 hosted virtual\-style access, see [Virtual Hosted\-Style Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#virtual-hosted-style-access)\.

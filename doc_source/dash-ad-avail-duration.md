@@ -19,29 +19,29 @@ The following example shows an `Event` that has a `duration`\.
 
 ```
   <Period start="PT444806.040S" id="123586" duration="PT15.000S">
-    <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2013:xml">
-      <Event duration="1350000">
-        <scte35:SpliceInfoSection protocolVersion="0" ptsAdjustment="180832" tier="4095">
-          <scte35:SpliceInsert spliceEventId="4026531855" spliceEventCancelIndicator="false" outOfNetworkIndicator="true" spliceImmediateFlag="false" uniqueProgramId="1" availNum="1" availsExpected="1">
-            <scte35:Program><scte35:SpliceTime ptsTime="5672624400"/></scte35:Program>
-            <scte35:BreakDuration autoReturn="true" duration="1350000"/>
-          </scte35:SpliceInsert>
-        </scte35:SpliceInfoSection>
-      </Event>
-        ...
+          <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2013:xml">
+            <Event duration="1350000">
+              <scte35:SpliceInfoSection protocolVersion="0" ptsAdjustment="180832" tier="4095">
+                <scte35:SpliceInsert spliceEventId="4026531855" spliceEventCancelIndicator="false" outOfNetworkIndicator="true" spliceImmediateFlag="false" uniqueProgramId="1" availNum="1" availsExpected="1">
+                  <scte35:Program><scte35:SpliceTime ptsTime="5672624400"/></scte35:Program>
+                  <scte35:BreakDuration autoReturn="true" duration="1350000"/>
+                </scte35:SpliceInsert>
+              </scte35:SpliceInfoSection>
+            </Event>
+              ...
 ```
 
 The following example shows ad avail with no duration specified\. The `Event` has no `duration` and the `scte35:SpliceInsert` element doesn't contain a `scte35:BreakDuration` child element\.
 
 ```
   <Period start="PT444836.720S" id="123597" duration="PT12.280S">
-    <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2013:xml">
-      <Event>
-        <scte35:SpliceInfoSection protocolVersion="0" ptsAdjustment="180832" tier="4095">
-          <scte35:SpliceInsert spliceEventId="4026531856" spliceEventCancelIndicator="false" outOfNetworkIndicator="true" spliceImmediateFlag="false" uniqueProgramId="1" availNum="1" availsExpected="1">
-            <scte35:Program><scte35:SpliceTime ptsTime="5675385600"/></scte35:Program>
-          </scte35:SpliceInsert>
-        </scte35:SpliceInfoSection>
-      </Event>
-      ...
+          <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2013:xml">
+            <Event>
+              <scte35:SpliceInfoSection protocolVersion="0" ptsAdjustment="180832" tier="4095">
+                <scte35:SpliceInsert spliceEventId="4026531856" spliceEventCancelIndicator="false" outOfNetworkIndicator="true" spliceImmediateFlag="false" uniqueProgramId="1" availNum="1" availsExpected="1">
+                  <scte35:Program><scte35:SpliceTime ptsTime="5675385600"/></scte35:Program>
+                </scte35:SpliceInsert>
+              </scte35:SpliceInfoSection>
+            </Event>
+            ...
 ```

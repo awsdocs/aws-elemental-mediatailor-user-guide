@@ -1,6 +1,6 @@
 # Viewing a configuration<a name="configurations-view"></a>
 
-You can view the configuration's current settings\.
+To view a configuration, use the following procedure\.
 
  
 

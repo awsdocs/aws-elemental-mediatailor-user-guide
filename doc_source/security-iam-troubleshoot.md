@@ -45,7 +45,7 @@ To allow others to access AWS Elemental MediaTailor, you must create an IAM enti
 
 To get started right away, see [Creating Your First IAM Delegated User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html) in the *IAM User Guide*\.
 
-See also [Creating a non\-admin IAM user](setting-up-create-non-admin-user.md)\.
+See also [Creating a non\-admin IAM user](setting-up.md#setting-up-create-non-admin-user)\.
 
 ## I want to allow people outside of my AWS account to access my AWS Elemental MediaTailor resources<a name="security-iam-troubleshoot-cross-account-access"></a>
 

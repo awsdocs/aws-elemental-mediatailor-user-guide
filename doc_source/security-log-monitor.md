@@ -1,6 +1,6 @@
 # Logging and monitoring in AWS Elemental MediaTailor<a name="security-log-monitor"></a>
 
-This section provides an overview of the options for logging and monitoring in AWS Elemental MediaTailor for security purposes\. For more information about logging and monitoring in MediaTailor see [Monitoring and troubleshooting AWS Elemental MediaTailor](monitoring.md)\.
+This section provides an overview of the options for logging and monitoring in AWS Elemental MediaTailor for security purposes\. For more information about logging and monitoring in MediaTailor see [Monitoring and tagging](monitoring.md)\.
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Elemental MediaTailor and your AWS solutions\. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi\-point failure if one occurs\. AWS provides several tools for monitoring your MediaTailor resources and responding to potential incidents:
 
