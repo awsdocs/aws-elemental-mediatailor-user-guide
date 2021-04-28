@@ -11,8 +11,11 @@ The following sections provide more information about tags for AWS Elemental Med
 
 ## Supported resources in AWS Elemental MediaTailor<a name="supported-resources"></a>
 
-The following resource in AWS Elemental MediaTailor supports tagging:
+The following resources in AWS Elemental MediaTailor supports tagging:
++ Channels
 + Configurations
++ SourceLocations
++ VodSources
 
 ## Tag restrictions<a name="tagging-restrictions"></a>
 

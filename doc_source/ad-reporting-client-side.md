@@ -1,14 +1,12 @@
-# Client\-side reporting<a name="ad-reporting-client-side"></a>
+# Client\-side tracking<a name="ad-reporting-client-side"></a>
 
 With client\-side reporting, AWS Elemental MediaTailor proxies the ad tracking URL to the client player\. The player then performs all ad\-tracking activities\. 
 
 Client\-side reporting enables functionality like the following: 
 + Scrubbing behavior, where a viewer can scrub through the video by moving the cursor on the playback bar\.
-**Note**  
-MediaTailor does not support *trick play* for DASH live or VOD content\. This means that viewers won't see visual feedback during fast forward and rewind\.
 + Advanced playback behaviors that require player development, like no skip\-forward and countdown timers on ad avails\.
 
-Use client\-side reporting for VPAID functionality\. For more information, see [VPAID handling](vpaid.md)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
+Use client\-side reporting for VPAID functionality\. For more information, see [VPAID requirements](vast.md#vpaid)\. The client\-side reporting response includes additional metadata about the VPAID creative\.
 
 **To perform client\-side ad reporting**
 
@@ -24,7 +22,6 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
            "adsParams": {
               "deviceType": "ipad"
           }
-          "auth_token": "kjhdsaf7gh"
        }
    ```
 
@@ -36,11 +33,10 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
            "adsParams": {
               "deviceType": "ipad"
           }
-          "auth_token": "kjhdsaf7gh"
        }
    ```
 
-   For more information about providing dynamic ad variables, see [Dynamic ad variables in AWS Elemental MediaTailor](variables.md)\. 
+   For more information about providing dynamic ad variables, see [Using dynamic ad variables in AWS Elemental MediaTailor](variables.md)\. 
 
 1. From the player, use your constructed JSON to initialize a new MediaTailor playback session\. Format your request like the following\. 
 
@@ -52,8 +48,6 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
               "param2": "value2",
               "param3": "value3"
           }
-          "originServerParam1": "originValue1",
-          "originServerParam2": "originValue2"
        }
    ```
 
@@ -98,7 +92,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
    + `companionAds`: One or more companion ad content specifications, each of which specifies a resource file to use\. Companion ads accompany the ad avail, and are used to provide content like a frame around the ad or a banner to display near the video\. 
    + `creativeId`: The `Id` attribute of the `Creative` tag for the ad\.
    + `delivery`: This indicates the protocol used, and can be set to either `progressive` or `streaming`\.
-   + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID handling](vpaid.md), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
+   + `duration`: Length in ISO 8601 seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\. For [VPAID requirements](vast.md#vpaid), the duration conveyed is the MP4 slate duration\. This duration typically is slightly larger than the XML duration conveyed in VAST due to transcoder and segment duration configurations\. You can interpret this as the maximum amount of time that you have available to fill with a VPAID ad without incurring drift\.
    + `durationInSeconds`: Length in seconds format\. The response includes durations for the entire ad avail and for each ad and beacon \(though beacon durations are always zero\)\.
    + `eventId`: For HLS, the sequence number that is associated with the beacon\. For DASH, the `ptsTime` of the start of the ad\.
    + `eventType`: Type of beacon\.

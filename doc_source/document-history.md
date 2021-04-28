@@ -4,21 +4,31 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support for additional UPID types](variables-session.md) | MediaTailor now supports ADS Information \(0xE\) and User Defined \(0x1\) segmentation UPID types\. | April 15, 2021 | 
+| [New segmentation UPID dynamic variables](variables-session.md) | There are three new dynamic variables: `scte.segmentation_upid.assetId`, `scte.segmentation_upid.cueData.key`, and `scte.segmentation_upid.cueData.value`\. These variables are used in conjunction with the MPU segmentation UPID type \(0xC\) for podbuster workflows\. | April 15, 2021 | 
+| [New channel assembly service description](what-is.md) | Added information about the new channel assembly service\. | March 11, 2021 | 
+| [New MediaTailor channel assembly service documentation](channel-assembly.md) | Channel assembly is a new manifest\-only service that allows you to create linear streaming channels using your existing video on demand \(VOD\) content\. | March 11, 2021 | 
+| [Added channel assembly quotas](quotas.md) | Added quotas for the new MediaTailor channel assembly service\. | March 11, 2021 | 
+| [New channel assembly terms](what-is-terms.md) | Added terms that correspond to the new channel assembly service\. | March 10, 2021 | 
+| [Channel assembly tagging support](tagging.md) | Added support for tagging of channel assembly resources in AWS Elemental MediaTailor\. Channels, SourceLocations, and VodSources support tagging\. | March 9, 2021 | 
+| [New dynamic variables topic](variables-domains.md) | MediaTailor now supports dynamic domain variables\. | February 25, 2021 | 
+| [Added optional configuration alias settings](configurations-create.md#configurations-create-addl) | Use configuration aliases alongside domain variables to dynamically configure domains during session initialization\. | February 25, 2021 | 
+| [New scte\.segmentation\_upid dynamic ad variable](variables-session.md) | Added support for the `scte.segmentation_upid` session data dynamic ad variable\. | December 5, 2020 | 
 | [New ad marker passthrough topic](ad-marker-passthrough.md) | Ad marker passthrough is now available for HLS manifests\. | October 29, 2020 | 
-| [Updated configuration advanced settings](configurations-create-addl.md) | Ad marker passthrough is a new playback configuration advanced setting\. | October 14, 2020 | 
+| [Updated configuration advanced settings](configurations-create.md#configurations-create-addl) | Ad marker passthrough is a new playback configuration advanced setting\. | October 14, 2020 | 
 | [New debug log mode](debug-log-mode.md) | New topic on the DEBUG log mode\. | August 14, 2020 | 
 | [Clarification around EXT\-X\-CUE\-OUT duration attribute for bumpers](bumpers.md) | Updated the bumpers requirements so that for HLS the `duration` attribute is required for each `EXT-X-CUE-OUT` tag\. | August 5, 2020 | 
 | [New bumpers topic](bumpers.md) | Added a new bumpers topic | July 27, 2020 | 
-| [Ad Suppression is available for DASH](ad-behavior-live.md#ad-suppression) | Ad suppression is now available for DASH\. Removed the "HLS\-only" restriction from the ad suppression topic\. | June 3, 2020 | 
-| [Update console\-specific names](configurations-create-addl.md) | Updated console\-specific names to reflect a newer version of the console UI\. | May 1, 2020 | 
+| [Ad Suppression is available for DASH](ad-suppression.md) | Ad suppression is now available for DASH\. Removed the "HLS\-only" restriction from the ad suppression topic\. | June 3, 2020 | 
+| [Update console\-specific names](configurations-create.md#configurations-create-addl) | Updated console\-specific names to reflect a newer version of the console UI\. | May 1, 2020 | 
 | [New avail\.index dynamic ad variable](variables-session.md) | Added support for the new `avail.index` session data dynamic ad variable\. | March 13, 2020 | 
 | [New AdVerifications and Extensions elements](ad-reporting-client-side.md) | For client\-side reporting, the `AdVerifications` and `Extensions` elements are supported\. | March 10, 2020 | 
-| [Personalization threshold configuration](configurations-create-addl.md) | Added support for the personalization threshold optional configuration\. | February 14, 2020 | 
+| [Personalization threshold configuration](configurations-create.md#configurations-create-addl) | Added support for the personalization threshold optional configuration\. | February 14, 2020 | 
 | [DASH VOD manifests](manifest-dash.md) | Added support for video on demand \(VOD\) DASH manifests from the origin server, with multi\-period manifest output\. | December 23, 2019 | 
 | [Console support for transcode profile name](configurations-create.md) | Added description for transcode profile name in the configuration\. | December 23, 2019 | 
 | [Updated limits tables](quotas.md) | Updated limits for ADS redirects and ADS timeouts\. | December 18, 2019 | 
 | [CDN best practices](cdn-bp.md) | Added a section about content distribution network \(CDN\) best practices for personalized manifests\.  | December 13, 2019 | 
-| [Document live pre\-roll behaviors](ad-behavior-live.md#ad-behavior-preroll) | Added *Pre\-Roll Ad Insertion* section to describe how live pre\-roll ads work with AWS Elemental MediaTailor\. | November 26, 2019 | 
+| [Document live pre\-roll behaviors](ad-behavior-preroll.md) | Added *Pre\-Roll Ad Insertion* section to describe how live pre\-roll ads work with AWS Elemental MediaTailor\. | November 26, 2019 | 
 | [Support for live pre\-roll ads](configurations-create.md) | Added support for inserting pre\-roll ads at the beginning of a live stream\. | September 11, 2019 | 
 | [Analyzing ADS logs in Amazon CloudWatch Logs insights](monitor-cloudwatch-ads-logs.md) | Added information for using the AWS Elemental MediaTailor ADS logs and CloudWatch Logs Insights to analyze your MediaTailor sessions\. | August 13, 2019 | 
 | [New security chapter](security.md) | Added a security chapter to enhance and standardize coverage\. | May 23, 2019 | 

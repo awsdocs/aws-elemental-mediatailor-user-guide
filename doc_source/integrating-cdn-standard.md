@@ -1,4 +1,4 @@
-# Integrating AWS Elemental MediaTailor and a CDN<a name="integrating-cdn-standard"></a>
+# Integrating a CDN<a name="integrating-cdn-standard"></a>
 
 The following steps show how to integrate AWS Elemental MediaTailor with your content distribution network \(CDN\)\. Depending on the CDN that you use, some terminology might differ from what is used in these steps\.
 

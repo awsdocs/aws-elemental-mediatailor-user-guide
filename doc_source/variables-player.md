@@ -1,4 +1,4 @@
-# Player data<a name="variables-player"></a>
+# Using player variables<a name="variables-player"></a>
 
 To configure AWS Elemental MediaTailor to send data received from the player to the ADS, in the template ADS URL, specify `player_params.<query_parameter_name>` variables\. For example, if the player sends a query parameter named `user_id` in its request to MediaTailor, to pass that data in the ADS request, include `[player_params.user_id]` in the ADS URL configuration\. 
 

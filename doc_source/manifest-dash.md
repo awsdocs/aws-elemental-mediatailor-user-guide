@@ -1,4 +1,4 @@
-# DASH \.mpd manifests<a name="manifest-dash"></a>
+# Integrating an MPEG\-DASH source<a name="manifest-dash"></a>
 
 AWS Elemental MediaTailor supports `.mpd` live and video on demand \(VOD\) manifests that follow the guidelines for the DASH dynamic profile\. MediaTailor accepts multi\-period and single\-period DASH\-compliant manifest inputs, and delivers multi\-period DASH\-compliant manifest outputs\. 
 

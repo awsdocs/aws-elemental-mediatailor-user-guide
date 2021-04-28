@@ -1,11 +1,21 @@
-# Dynamic ad variables in AWS Elemental MediaTailor<a name="variables"></a>
+# Using dynamic ad variables in AWS Elemental MediaTailor<a name="variables"></a>
 
-The AWS Elemental MediaTailor request to the ad decision server \(ADS\) includes information about the current viewing session, which helps the ADS choose the best ads to provide in its response\. When you configure your ADS request, you specify the query parameters to use to convey the information\. 
+The AWS Elemental MediaTailor request to the ad decision server \(ADS\) includes information about the current viewing session, which helps the ADS choose the best ads to provide in its response\. When you configure the ADS template in your MediaTailor configuration, you can include dynamic variables, also known as macros\. Dynamic variables are replaceable strings\.
 
-The query parameters take the following forms:
+Dynamic variables can take the following forms:
 + **Static values** – Values that don't change from one session to the next\. For example, the response type that MediaTailor expects from the ADS\.
-+ **Session data** – Dynamic values that are provided by MediaTailor for each session, for example, the session ID\. For details, see [Session data](variables-session.md)\. 
-+ **Player data** – Dynamic values that are provided by the player for each session\. These describe the content viewer and help the ADS to determine which ads MediaTailor should stitch into the stream\. For details, see [Player data](variables-player.md)\.
++ **Domain variables** – Dynamic variables that can be used for URL domains, such as the **my\-ads\-server\.com** part of the URL http://my\-ads\-server\.com\. For details, see [Using domain variables](variables-domains.md)\.
++ **Session data** – Dynamic values that are provided by MediaTailor for each session, for example, the session ID\. For details, see [Using session variables](variables-session.md)\. 
++ **Player data** – Dynamic values that are provided by the player for each session\. These describe the content viewer and help the ADS to determine which ads MediaTailor should stitch into the stream\. For details, see [Using player variables](variables-player.md)\.
+
+ For more information about using dynamic domain, session, and player variables, select the applicable topic\. 
+
+**Topics**
++ [Passing parameters to the ADS](#passing-paramters-to-the-ads)
++ [Advanced usage](#variables-advanced-usage)
++ [Using domain variables](variables-domains.md)
++ [Using session variables](variables-session.md)
++ [Using player variables](variables-player.md)
 
 ## Passing parameters to the ADS<a name="passing-paramters-to-the-ads"></a>
 
@@ -23,7 +33,7 @@ The query parameters take the following forms:
 
 1. On the player, configure the session initiation request for AWS Elemental MediaTailor to provide parameters for the player data\. Include your parameters in the session initiation request, and omit them from subsequent requests for the session\. 
 
-   The type of call that the player makes to initialize the session determines whether the player \(client\) or MediaTailor \(server\) provides ad\-tracking reporting for the session\. For information about these two options, see [Ad tracking reporting in AWS Elemental MediaTailor](ad-reporting.md)\. 
+   The type of call that the player makes to initialize the session determines whether the player \(client\) or MediaTailor \(server\) provides ad\-tracking reporting for the session\. For information about these two options, see [Reporting ad tracking data ](ad-reporting.md)\. 
 
    Make one of the following types of calls, depending on whether you want server\- or client\-side ad\-tracking reporting\. In both of the example calls, `userID` is intended for the ADS and `auth_token` is intended for the origin:
    + \(Option\) Call for server\-side ad\-tracking reporting – Prefix the parameters that you want MediaTailor to send to the ADS with `ads`\. Leave the prefix off for parameters that you want MediaTailor to send to the origin server: 
@@ -88,3 +98,24 @@ The following examples show the calls to the ADS and origin server from AWS Elem
     ```
 
 The following sections provide details for configuring session and player data\.
+
+## Advanced usage<a name="variables-advanced-usage"></a>
+
+You can customize the ADS request in many ways with player and session data\. The only requirement is to include the ADS hostname\.
+
+The following examples show some of the ways that you can customize your request:
++ Concatenate player parameters and session parameters to create new parameters\. Example: 
+
+  ```
+  https://my.ads.com?key1=[player_params.value1][session.id]
+  ```
++ Use a player parameter as part of a path element\. Example:
+
+  ```
+  https://my.ads.com/[player_params.path]?key=value
+  ```
++ Use player parameters to pass both path elements and the keys themselves, rather than just values\. Example: 
+
+  ```
+  https://my.ads.com/[player_params.path]?[player_params.key1]=[player_params.value1]
+  ```
