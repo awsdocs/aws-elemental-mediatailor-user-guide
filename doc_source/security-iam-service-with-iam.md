@@ -49,7 +49,7 @@ AWS Elemental MediaTailor doesn't provide service\-specific condition keys, but 
 
 
 
-To view examples of AWS Elemental MediaTailor identity\-based policies, see [AWS Elemental MediaTailor identity\-based policy examples](security-iam-id-based-policy-examples.md)\.
+To view examples of AWS Elemental MediaTailor identity\-based policies, see [Identity\-based policy examples](security-iam-id-based-policy-examples.md)\.
 
 ## AWS Elemental MediaTailor resource\-based policies<a name="security-iam-service-with-iam-resource-based-policies"></a>
 
@@ -73,9 +73,7 @@ AWS Elemental MediaTailor supports using temporary credentials\.
 
 ### Service\-linked roles<a name="security-iam-service-with-iam-roles-service-linked"></a>
 
-[Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view but not edit the permissions for service\-linked roles\.
-
-AWS Elemental MediaTailor doesn't support service\-linked roles\. 
+[Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view but not edit the permissions for service\-linked roles\. For information about using service\-linked roles with MediaTailor, see [Using service\-linked roles for MediaTailor](using-service-linked-roles.md)\.
 
 ### Service roles<a name="security-iam-service-with-iam-roles-service"></a>
 

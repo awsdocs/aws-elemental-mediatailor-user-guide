@@ -10,7 +10,7 @@ This documentation helps you understand how to apply the shared responsibility m
 
 **Topics**
 + [Data protection in AWS Elemental MediaTailor](data-protection.md)
-+ [IAM for AWS Elemental MediaTailor](security-iam.md)
++ [Identity and access management](security-iam.md)
 + [Logging and monitoring in AWS Elemental MediaTailor](security-log-monitor.md)
 + [Compliance validation for AWS Elemental MediaTailor](servicename-compliance.md)
 + [Resilience in AWS Elemental MediaTailor](disaster-recovery-resiliency.md)

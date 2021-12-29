@@ -46,15 +46,23 @@ You can optionally configure ** configuration aliases**, ** personalization deta
 
 ### Configuration aliases<a name="configurations-configuration-aliases"></a>
 
-The following are optional configuration aliases that you can configure in the MediaTailor console, or via the AWS CLI, or MediaTailor API\.
+The following are optional configuration aliases that you can configure in the MediaTailor console, or via the MediaTailor API\.
 
 **Player parameter variable**  
 Add one or more player parameter variables to use for dynamic domain configuration during session initialization\.  
 For more information about using player parameter variables to dynamically configure domains, see [Using domain variables](variables-domains.md)\.
 
+### Log configuration<a name="configurations-log-configurations"></a>
+
+The following are log configuration settings\.
+
+**Percent enabled**  
+Sets the percentage of playback configuration session logs that MediaTailor writes to CloudWatch Logs\. For example, if your playback configuration has 1000 sessions, and you set percent enabled to **60**, MediaTailor writes 600 session logs to CloudWatch Logs\.  
+ When you enable this option, MediaTailor automatically creates a service\-linked role that allows MediaTailor to write and manage session logs in your CloudWatch Logs account\. For more information, see [Using service\-linked roles for MediaTailor](using-service-linked-roles.md)\. 
+
 ### Personalization details<a name="configurations-personalization-details"></a>
 
-The following are optional personalization detail settings that you can configure in the MediaTailor console, or via the AWS CLI, or MediaTailor API\.
+The following are personalization details that you can configure in the MediaTailor console or via the MediaTailor API\.
 
 **Slate ad**  
 Enter the URL for a high\-quality MP4 asset to transcode and use to fill in time that's not used by ads\. AWS Elemental MediaTailor shows the slate to fill in gaps in media content\. Configuring the slate is optional for non\-VPAID configurations\. For VPAID, you must configure a slate, which MediaTailor provides in the slots designated for dynamic ad content\. The slate must be a high\-quality MP4 asset that contains both audio and video\. For more information, see [Inserting slate](slate-management.md) \.  

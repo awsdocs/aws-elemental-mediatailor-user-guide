@@ -12,7 +12,7 @@
 
 1. 
 **Important**  
-If you modify the program list for a program that is scheduled within the next 10 minutes, the edit won't become apparent until the next loop\.
+For looping channels, if you modify the program list for a program that is scheduled within the next 10 minutes, the edit won't become apparent until the next loop\.
 
    Under **Program details**, enter details about your program:
    + **Name**: This is the name of the program that you add to your channel\.
@@ -27,9 +27,16 @@ If you modify the program list for a program that is scheduled within the next 1
 
      If you choose **Search by name**, search for your VOD source by name\.
 
-1. Under **Playback configuration**, define how and when a program is inserted in your channel's schedule:
-   + **Transition type**: This value is fixed at **Relative**\. **Relative** transition types indicate that the program occurs relative to other programs within a program list\. This setting does not apply if this is the first program in your channel's schedule\. 
-   + **Relative position**: Choose where in the program list to append the program\. You can select **Before program** or **After program**\. This setting does not apply if this is the first program in your channel's schedule\.
+1. Under **Playback configuration**, define when a program plays in your channel's schedule:
+   + **Transition type**: Defines the transitions from program to program in the schedule\.
+     + **Relative** \- The program plays either before or after another program in the schedule\.
+     + **Absolute** \- The program plays at a specific wall clock time\. MediaTailor makes a best effort to play the program at the clock time that you specify\. We start playback of the program on a common segment boundary between the preceding program or slate\. This option is only available for channels configured to use the [linear playback mode](channel-assembly-creating-channels.md#linear-playback-mode)\.
+**Note**  
+Be aware of the following behavior for absolute transition types:  
+If the preceding program in the schedule has a duration that extends beyond the wall clock time, MediaTailor truncates the preceding program on the common segment boundary closest to the wall clock time\.
+If there are gaps between programs in the schedule, MediaTailor plays [filler slate](channel-assembly-creating-channels.md#filler-slate)\. If the duration of the slate is less than the duration of the gap, MediaTailor loops the slate\.
+   + **Program start time** \- For absolute transition types, the wall clock time when the program is scheduled to play\. If you are adding this program to a running linear channel, you must enter a start time that's 15 minutes or later from the current time\.
+   + **Relative position**: Choose where to insert the program into schedule relative to another program\. You can select **Before program** or **After program**\. This setting does not apply if this is the first program in your channel's schedule\.
    + **Relative program**: The name of the program to be used to insert the new program before or after\. This setting does not apply if this is the first program in your channel's schedule\.
 
      If you choose **Select an existing program**, select the program name from a predefined list of the next 100 programs played by the channel in the **Use existing program** drop\-down menu\.
@@ -38,7 +45,7 @@ If you modify the program list for a program that is scheduled within the next 1
 
     If you'd like to add ad breaks to your program, continue to the next step\. 
 
-1. <a name="channel-assembly-programs-ad-breaks"></a>Select **Add ad break**\. Under **Ad breaks**, configure the settings for the ad break:
+1. Select **Add ad break**\. Under **Ad breaks**, configure the settings for the ad break:<a name="channel-assembly-programs-ad-breaks"></a>
    + **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this tutorial\.
    + **VOD source name**: Choose **Select an existing VOD source** and choose the VOD source you're using for slate that you added earlier in this tutorial\. The duration of the slate determines the duration of the ad break\.
    + For **Offset in milliseconds**: This value determines the ad break start time in milliseconds, as an offset relative to the beginning of the program\. You can enter any value that's less than the duration of the VOD source, and within 100ms of a segment boundary, otherwise the ad break will be skipped\. For example, if you enter **0**, this creates a pre\-roll ad break that plays before the program begins\.

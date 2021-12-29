@@ -1,6 +1,6 @@
-# Debug log mode<a name="debug-log-mode"></a>
+# Generating debug logs<a name="debug-log-mode"></a>
 
-Use debug logs to troubleshoot playback session issues\. To generate debug logs, set the log mode to debug in the player's request to MediaTailor\. For server\-side reporting, set the log mode in the *playback request*\. For client\-side reporting, set the log mode in the *session initialization request*\. 
+Use debug logs to troubleshoot MediaTailor ad insertion playback session issues\. To generate debug logs, set the log mode to debug in the player's request to MediaTailor\. For server\-side reporting, set the log mode in the *playback request*\. For client\-side reporting, set the log mode in the *session initialization request*\. 
 
 When the log mode is set to debug, MediaTailor writes the debug log data to CloudWatch Logs\. The debug logs provide information about the following events\. For a complete list of the data produced in the debug logs, see [Debug log fields](https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html#debug-log-mode-fields)\.
 + **Origin interaction** – Details about MediaTailor's interaction with the origin server\. For example, the origin manifest response, manifest type, and origin URL\.

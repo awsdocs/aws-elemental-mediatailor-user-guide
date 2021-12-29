@@ -6,5 +6,5 @@ A source location represents the origin server where your source content is stor
 
 **Topics**
 + [Creating a source location](channel-assembly-creating-source-locations.md)
-+ [Using access authentication](channel-assembly-source-locations-access-configuration.md)
++ [Configuring authentication for your source location](channel-assembly-source-locations-access-configuration.md)
 + [Working with VOD sources](channel-assembly-working-vod-sources.md)

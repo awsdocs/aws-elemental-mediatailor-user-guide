@@ -4,6 +4,16 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New IAM managed policy policy topic](security-iam-awsmanpol.md) | Added two new managed policies for MediaTailor\. | November 24, 2021 | 
+| [New `AWSElementalMediaTailorReadOnly` managed policy](security-iam-awsmanpol.md#security-iam-awsmanpol-updates) | Added a new AWS managed policy that grants permissions that allows read\-only access to MediaTailor resources\. | November 10, 2021 | 
+| [New `AWSElementalMediaTailorFullAccess` managed policy](security-iam-awsmanpol.md#security-iam-awsmanpol-updates) | Added a new AWS managed policy that allows full access to MediaTailor resources\. | November 10, 2021 | 
+| [New confused deputy topic](cross-service-confused-deputy-prevention.md) | Added a topic that explains how to prevent the confused deputy problem\. | November 4, 2021 | 
+| [Prefetching ads topic](prefetching-ads.md) | MediaTailor can now prefetch ads for ad breaks before they occur\. | October 12, 2021 | 
+| [Added logging configuration settings for playback configurations](configurations-create.md#configurations-create-addl) | Use logging configuration settings to control settings related to playback configuration logs\. | September 28, 2021 | 
+| [New linear playback mode](channel-assembly-creating-channels.md) | Added a new linear playback mode\. | September 1, 2021 | 
+| [New absolute transition type](channel-assembly-adding-programs.md) | Added support for absolute transition types, which allow you to set a wall clock start time for your program on linear channels\. | September 1, 2021 | 
+| [New channel assembly alerts topic](channel-assembly-alerts.md) | You can now monitor your channel assembly resources using MediaTailor alerts\. When an issue or a potential issue occurs with your channel assembly resources, MediaTailor generates alerts\. | July 14, 2021 | 
+| [New source location authentication type](channel-assembly-source-locations-access-configuration.md) | MediaTailor now supports Secrets Manager access token authentication\. | June 16, 2021 | 
 | [Support for additional UPID types](variables-session.md) | MediaTailor now supports ADS Information \(0xE\) and User Defined \(0x1\) segmentation UPID types\. | April 15, 2021 | 
 | [New segmentation UPID dynamic variables](variables-session.md) | There are three new dynamic variables: `scte.segmentation_upid.assetId`, `scte.segmentation_upid.cueData.key`, and `scte.segmentation_upid.cueData.value`\. These variables are used in conjunction with the MPU segmentation UPID type \(0xC\) for podbuster workflows\. | April 15, 2021 | 
 | [New channel assembly service description](what-is.md) | Added information about the new channel assembly service\. | March 11, 2021 | 
@@ -13,7 +23,7 @@ The following table describes important changes to this documentation\.
 | [Channel assembly tagging support](tagging.md) | Added support for tagging of channel assembly resources in AWS Elemental MediaTailor\. Channels, SourceLocations, and VodSources support tagging\. | March 9, 2021 | 
 | [New dynamic variables topic](variables-domains.md) | MediaTailor now supports dynamic domain variables\. | February 25, 2021 | 
 | [Added optional configuration alias settings](configurations-create.md#configurations-create-addl) | Use configuration aliases alongside domain variables to dynamically configure domains during session initialization\. | February 25, 2021 | 
-| [New scte\.segmentation\_upid dynamic ad variable](variables-session.md) | Added support for the `scte.segmentation_upid` session data dynamic ad variable\. | December 5, 2020 | 
+| [New `scte.segmentation_upid` dynamic ad variable](variables-session.md) | Added support for the `scte.segmentation_upid` session data dynamic ad variable\. | December 5, 2020 | 
 | [New ad marker passthrough topic](ad-marker-passthrough.md) | Ad marker passthrough is now available for HLS manifests\. | October 29, 2020 | 
 | [Updated configuration advanced settings](configurations-create.md#configurations-create-addl) | Ad marker passthrough is a new playback configuration advanced setting\. | October 14, 2020 | 
 | [New debug log mode](debug-log-mode.md) | New topic on the DEBUG log mode\. | August 14, 2020 | 
@@ -21,8 +31,8 @@ The following table describes important changes to this documentation\.
 | [New bumpers topic](bumpers.md) | Added a new bumpers topic | July 27, 2020 | 
 | [Ad Suppression is available for DASH](ad-suppression.md) | Ad suppression is now available for DASH\. Removed the "HLS\-only" restriction from the ad suppression topic\. | June 3, 2020 | 
 | [Update console\-specific names](configurations-create.md#configurations-create-addl) | Updated console\-specific names to reflect a newer version of the console UI\. | May 1, 2020 | 
-| [New avail\.index dynamic ad variable](variables-session.md) | Added support for the new `avail.index` session data dynamic ad variable\. | March 13, 2020 | 
-| [New AdVerifications and Extensions elements](ad-reporting-client-side.md) | For client\-side reporting, the `AdVerifications` and `Extensions` elements are supported\. | March 10, 2020 | 
+| [New `avail.index` dynamic ad variable](variables-session.md) | Added support for the new `avail.index` session data dynamic ad variable\. | March 13, 2020 | 
+| [New `AdVerifications` and `Extensions` elements](ad-reporting-client-side.md) | For client\-side reporting, the `AdVerifications` and `Extensions` elements are supported\. | March 10, 2020 | 
 | [Personalization threshold configuration](configurations-create.md#configurations-create-addl) | Added support for the personalization threshold optional configuration\. | February 14, 2020 | 
 | [DASH VOD manifests](manifest-dash.md) | Added support for video on demand \(VOD\) DASH manifests from the origin server, with multi\-period manifest output\. | December 23, 2019 | 
 | [Console support for transcode profile name](configurations-create.md) | Added description for transcode profile name in the configuration\. | December 23, 2019 | 

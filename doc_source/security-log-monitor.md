@@ -10,7 +10,7 @@ Using CloudWatch alarms, you watch a single metric over a time period that you s
 
 ## AWS CloudTrail logs<a name="security-log-monitor-cloudtrail-logs"></a>
 
-CloudTrail provides a record of actions taken by a user, role, or an AWS service in AWS Elemental MediaTailor\. Using the information collected by CloudTrail, you can determine the request that was made to MediaTailor, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging AWS Elemental MediaTailor API calls with AWS CloudTrail](logging-using-cloudtrail.md)\.
+CloudTrail provides a record of actions taken by a user, role, or an AWS service in AWS Elemental MediaTailor\. Using the information collected by CloudTrail, you can determine the request that was made to MediaTailor, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging using AWS CloudTrail](logging-using-cloudtrail.md)\.
 
 ## AWS Trusted Advisor<a name="security-log-monitor-trust-advisor"></a>
 

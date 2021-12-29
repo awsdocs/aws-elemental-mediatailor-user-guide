@@ -1,4 +1,4 @@
-# IAM for AWS Elemental MediaTailor<a name="security-iam"></a>
+# Identity and access management<a name="security-iam"></a>
 
 AWS Identity and Access Management \(IAM\) is an AWS service that helps an administrator securely control access to AWS resources\. IAM administrators control who can be *authenticated* \(signed in\) and *authorized* \(have permissions\) to use AWS Elemental MediaTailor resources\. IAM is an AWS service that you can use with no additional charge\.
 
@@ -10,18 +10,21 @@ This section provides background and additional information about the setup proc
 + [Managing access using policies](#security-iam-access-manage)
 + [Learn more](#security-iam-learn-more)
 + [How AWS Elemental MediaTailor works with IAM](security-iam-service-with-iam.md)
-+ [AWS Elemental MediaTailor identity\-based policy examples](security-iam-id-based-policy-examples.md)
-+ [Troubleshooting AWS Elemental MediaTailor IAM](security-iam-troubleshoot.md)
++ [AWS managed policies for AWS Elemental MediaTailor](security-iam-awsmanpol.md)
++ [Cross\-service confused deputy prevention](cross-service-confused-deputy-prevention.md)
++ [Identity\-based policy examples](security-iam-id-based-policy-examples.md)
++ [Using service\-linked roles for MediaTailor](using-service-linked-roles.md)
++ [Troubleshooting IAM issues](security-iam-troubleshoot.md)
 
 ## Audience<a name="security-iam-audience"></a>
 
 How you use AWS Identity and Access Management \(IAM\) differs, depending on the work you do in AWS Elemental MediaTailor\.
 
-**Service user** – If you use the AWS Elemental MediaTailor service to do your job, then your administrator provides you with the credentials and permissions that you need\. As you use more MediaTailor features to do your work, you might need additional permissions\. Understanding how access is managed can help you request the right permissions from your administrator\. If you cannot access a feature in MediaTailor, see [Troubleshooting AWS Elemental MediaTailor IAM](security-iam-troubleshoot.md)\.
+**Service user** – If you use the AWS Elemental MediaTailor service to do your job, then your administrator provides you with the credentials and permissions that you need\. As you use more MediaTailor features to do your work, you might need additional permissions\. Understanding how access is managed can help you request the right permissions from your administrator\. If you cannot access a feature in MediaTailor, see [Troubleshooting IAM issues](security-iam-troubleshoot.md)\.
 
 **Service administrator** – If you're in charge of AWS Elemental MediaTailor resources at your company, you probably have full access to MediaTailor\. It's your job to determine which MediaTailor features and resources your employees should access\. You must then submit requests to your IAM administrator to change the permissions of your service users\. Review the information on this page to understand the basic concepts of IAM\. To learn more about how your company can use IAM with MediaTailor, see [How AWS Elemental MediaTailor works with IAM](security-iam-service-with-iam.md)\.
 
-**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can write policies to manage access to AWS Elemental MediaTailor\. To view example MediaTailor identity\-based policies that you can use in IAM, see [AWS Elemental MediaTailor identity\-based policy examples](security-iam-id-based-policy-examples.md)\.
+**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can write policies to manage access to AWS Elemental MediaTailor\. To view example MediaTailor identity\-based policies that you can use in IAM, see [Identity\-based policy examples](security-iam-id-based-policy-examples.md)\.
 
 ## Authenticating with identities<a name="security-iam-authentication"></a>
 
@@ -53,7 +56,7 @@ IAM roles with temporary credentials are useful in the following situations:
 + **Temporary IAM user permissions** – An IAM user can assume an IAM role to temporarily take on different permissions for a specific task\. 
 + **Federated user access** –  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. 
 + **Cross\-account access** – You can use an IAM role to allow someone \(a trusted principal\) in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. To learn the difference between roles and resource\-based policies for cross\-account access, see [How IAM Roles Differ from Resource\-based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html) in the *IAM User Guide*\.
-+ **AWS service access** –  A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf\. Service roles provide access only within your account and cannot be used to grant access to services in other accounts\. An IAM administrator can create, modify, and delete a service role from within IAM\. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. 
++ **AWS service access** –  A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf\. An IAM administrator can create, modify, and delete a service role from within IAM\. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. 
 + **Applications running on Amazon EC2** –  You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests\. This is preferable to storing access keys within the EC2 instance\. To assign an AWS role to an EC2 instance and make it available to all of its applications, you create an instance profile that is attached to the instance\. An instance profile contains the role and enables programs that are running on the EC2 instance to get temporary credentials\. For more information, see [Using an IAM role to grant permissions to applications running on Amazon EC2 instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *IAM User Guide*\. 
 
 To learn whether to use IAM roles, see [When to Create an IAM Role \(Instead of a User\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_which-to-choose_role) in the *IAM User Guide*\.
@@ -95,4 +98,4 @@ When multiple types of policies apply to a request, the resulting permissions ar
 
 For more information about identity and access management for AWS Elemental MediaTailor, see the following:
 + [How AWS Elemental MediaTailor works with IAM](security-iam-service-with-iam.md)
-+ [Troubleshooting AWS Elemental MediaTailor IAM](security-iam-troubleshoot.md)
++ [Troubleshooting IAM issues](security-iam-troubleshoot.md)

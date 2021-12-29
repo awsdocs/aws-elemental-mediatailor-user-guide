@@ -12,14 +12,18 @@
 
 1. Under **Channel details**, enter details about your channel:
    + **Name**: Enter a name for your channel\. 
-   + **Playback mode**: Determines what kind of program transitions are allowed and what happens to a program after it finishes\.
+   + **Playback mode**: The playback mode sets the channel's playback behavior\. MediaTailor supports the following playback modes:
+     + **Loop** \- The programs in the schedule play back\-to\-back in an endless loop\. After the last program plays in a schedule, playback loops back to the first program\. Playback continues looping until you stop the channel\.
+     + **Linear** \- Each program in the schedule plays once, back\-to\-back\.
+
+1. <a name="filler-slate"></a>For **Filler slate**, select the **Source location name** referencing the slate location, and the **VOD source name** to use as slate\. MediaTailor uses the slate to fill gaps between programs in the schedule\. If the duration of the slate is less than the duration of the gap between programs, MediaTailor loops the slate\. You must configure filler slate field is if your channel uses a linear playback mode\.
 
 1. Choose **Next**\.
 
 1. Under **Output details**, define the settings for this output:
    + **Manifest name**: Enter a manifest name, such as ***index***\. MediaTailor automatically inserts the format extension, such as \.m3u8\.
 **Note**  
-The manifest name must be unique for each channel ouput\. For example, you could use index for a HLS ouput and dash for a DASH output\.
+The manifest name must be unique for each channel output\. For example, you could use index for an HLS output and dash for a DASH output\.
    + **Output type**: Select the streaming format for the channel\. DASH and HLS are supported\.
    + **Source group**: Enter the name of the source group that you created in your package configuration, as described in [Adding VOD sources to your source location](channel-assembly-add-vod-source.md)\.
 

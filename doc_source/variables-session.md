@@ -10,17 +10,17 @@ You can use the following session data variables in your template ADS request UR
 + **\[scte\.segmentation\_upid\]** – Corresponds to the SCTE\-35 `segmentation_upid` element\. The `segmentation_upid` element contains `segmentation_upid_type` and `segmentation_upid_length`\.
 
   MediaTailor supports the following `segmentation_upid` types:
-  + **ADS Information \(0xE\)** \- Advertising information\. For more information, see the **segmentation\_upid** description in section 10\.3\.3\.1 of the SCTE\-35 specification\.
-  + **Managed Private UPID \(0xC\) ** \- The Managed Private UPID \(MPU\) structure as defined in SCTE\-35, section 10\.3\.3\.3\. MediaTailor supports binary or DASH XML SCTE representations\.
+  + **ADS Information \(0x0E\)** \- Advertising information\. For more information, see the **segmentation\_upid** description in section 10\.3\.3\.1 of the SCTE\-35 specification\.
+  + **Managed Private UPID \(0x0C\) ** \- The Managed Private UPID \(MPU\) structure as defined in SCTE\-35, section 10\.3\.3\.3\. MediaTailor supports binary or DASH XML SCTE representations\.
 
-    You can use this structure in a podbuster workflow\. To do so, specify `0xC` \(MPU\) as the `segmentation_upid_type`, and include the following parameters in the `private_data` attribute:
+    You can use this structure in a podbuster workflow\. To do so, specify a 32\-bit \(4 byte\) `format_identifier`, and include the following parameters in the `private_data` attribute:
 
     ```
-    0xC{"assetId":"my_program","cueData":{"cueType":"theAdType","key":"pb","value":"123456"}}
+    ABCD{"assetId":"my_program","cueData":{"cueType":"theAdType","key":"pb","value":"123456"}}
     ```
 
      MediaTailor parses the values from the preceding JSON, and passes them into the `scte.segmentation_upid.assetId`, `scte.segmentation_upid.cueData.key`, and `scte.segmentation_upid.cueData.value` dynamic variables\. 
-  + **User Defined \(0x1\) ** \- A user defined structure\. For more information, see the **segmentation\_upid** description in section 10\.3\.3\.1 of the SCTE\-35 specification\.
+  + **User Defined \(0x01\) ** \- A user defined structure\. For more information, see the **segmentation\_upid** description in section 10\.3\.3\.1 of the SCTE\-35 specification\.
 + **\[scte\.segmentation\_upid\.assetId\]** – Used in conjunction with the Managed Private UPID \(0xC\) `segmentation_ upid_type` for podbuster workflows\. MediaTailor derives this value from the `assetId` parameter in the MPU's `private_date` JSON structure\. For more information, see [](#podbuster-workflow)\.
 + **\[scte\.segmentation\_upid\.cueData\.key\]** – Used in conjunction with the Managed Private UPID \(0xC\) `segmentation_ upid_type` for podbuster workflows\. MediaTailor derives this value from the `cueData.key` parameter in the MPU's `private_date` JSON structure\. For more information, see [](#podbuster-workflow)\.
 + **\[scte\.segmentation\_upid\.cueData\.value\]** – Used in conjunction with the Managed Private UPID \(0xC\) `segmentation_ upid_type` for podbuster workflows\. MediaTailor derives this value from the `cueData.key` parameter in the MPU's `private_date` JSON structure\. For more information, see [](#podbuster-workflow)\.
