@@ -1,4 +1,4 @@
-# Troubleshooting AWS Elemental MediaTailor IAM<a name="security-iam-troubleshoot"></a>
+# Troubleshooting IAM issues<a name="security-iam-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Elemental MediaTailor and IAM\.
 

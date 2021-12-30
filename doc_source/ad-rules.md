@@ -7,3 +7,4 @@ When you create a configuration, you can specify optional ad break configuration
 + [Inserting bumpers](bumpers.md)
 + [Inserting pre\-roll ads](ad-behavior-preroll.md)
 + [Inserting slate](slate-management.md)
++ [Prefetching ads](prefetching-ads.md)

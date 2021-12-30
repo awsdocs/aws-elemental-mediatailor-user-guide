@@ -2,7 +2,7 @@
 
 AWS Elemental MediaTailor identifies ad avail boundaries in an HLS manifest ad markers in the input manifest\. The following sections describe what markers MediaTailor uses\.
 
-## EXT\-x\-ASSET<a name="hls-ad-markers-asset"></a>
+## EXT\-X\-ASSET<a name="hls-ad-markers-asset"></a>
 
 The `EXT-X-ASSET` tag contains metadata that's used by the ad decision server \(ADS\) to personalize content for the viewer\. `EXT-X-ASSET` parameters are comma\-separated key\-value pairs\.
 
@@ -25,7 +25,7 @@ The following example shows a VAST `GET` request to an ADS\.
             https://myads.com/stub?c=CV&g=12345678&e=Episode%20Name%20Date&s=Season%20Name%20and%20Number&k=Series%2520Name
 ```
 
-## EXT\-x\-CUE\-OUT and EXT\-x\-CUE\-IN<a name="hls-ad-markers-cue"></a>
+## EXT\-X\-CUE\-OUT and EXT\-X\-CUE\-IN<a name="hls-ad-markers-cue"></a>
 
 This type of ad marker is the most common\. The following examples show options for these cue markers\.
 
@@ -47,7 +47,7 @@ This type of ad marker is the most common\. The following examples show options 
     #EXT-X-CUE-IN
 ```
 
-## EXT\-x\-DATERANGE<a name="hls-ad-markers-range"></a>
+## EXT\-X\-DATERANGE<a name="hls-ad-markers-range"></a>
 
 With `EXT-X-DATERANGE` ad marker tags, you use `SCTE35-OUT` attributes to specify the timing of the ad avail\. 
 
@@ -81,7 +81,7 @@ You can specify the ad avail in one of the following ways:
       #EXT-X-DATERANGE:ID="splice-6FFFFFF0",START-DATE="2019-01T00:15:00Z\",SCTE35-IN=0xF
   ```
 
-## EXT\-x\-SPLICEPOINT\-SCTE35<a name="hls-ad-markers-splice"></a>
+## EXT\-X\-SPLICEPOINT\-SCTE35<a name="hls-ad-markers-splice"></a>
 
 You append the `EXT-X-SPLICEPOINT-SCTE35` ad marker tag with a SCTE\-35 payload in base64\-encoded binary\. The decoded binary must provide a SCTE\-35 `splice_info_section` containing the cue\-out marker `0x34`, for provider placement opportunity start, and the cue\-in marker `0x35`, for provider placement opportunity end\. 
 

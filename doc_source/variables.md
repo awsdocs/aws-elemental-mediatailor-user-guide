@@ -51,7 +51,7 @@ Dynamic variables can take the following forms:
      ```
      GET manifest.mpd?ads.deviceType=ipad&auth_token=kjhdsaf7gh
      ```
-   + \(Option\) Call for client\-side ad\-tracking reporting – Provide parameters for the ADS inside an `adsParams` object\. Provide parameters that you want MediaTailor to send to the origin server as top\-level objects\. 
+   + \(Option\) Call for client\-side ad\-tracking reporting – Provide parameters for the ADS inside an `adsParams` object\.
 
      HLS example:
 
@@ -61,7 +61,6 @@ Dynamic variables can take the following forms:
              "adsParams": {
                 "deviceType": "ipad"
             }
-            "auth_token": "kjhdsaf7gh"
          }
      ```
 
@@ -73,7 +72,6 @@ Dynamic variables can take the following forms:
              "adsParams": {
                 "deviceType": "ipad"
             }
-            "auth_token": "kjhdsaf7gh"
          }
      ```
 

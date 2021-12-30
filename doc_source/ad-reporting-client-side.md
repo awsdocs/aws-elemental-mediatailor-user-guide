@@ -196,7 +196,6 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
          "availId": "8104385",
          "duration": "PT15.100000078S",
          "durationInSeconds": 15.1,
-         "meta": null,
          "startTime": "PT17.817798612S",
          "startTimeInSeconds": 17.817
        }
@@ -261,7 +260,6 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
          "availId": "6744037",
          "duration": "PT45.166667157S",
          "durationInSeconds": 45.166,
-         "meta": null,
          "startTime": "PT39.700000165S",
          "startTimeInSeconds": 39.7
        }
@@ -351,7 +349,6 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
            "availId": "3348173",
            "duration": "PT12.700001178S",
            "durationInSeconds": 12.7,
-           "meta": null,
            "startTime": "PT1M56.060003037S",
            "startTimeInSeconds": 116.06
          }

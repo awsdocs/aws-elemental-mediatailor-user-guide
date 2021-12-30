@@ -1,6 +1,6 @@
 # Setting up AWS Elemental MediaTailor<a name="setting-up"></a>
 
-This section guides you through the steps required to configure users to access AWS Elemental MediaTailor\. For background and additional information about identity and access management for MediaTailor, see [IAM for AWS Elemental MediaTailor](security-iam.md)\.
+This section guides you through the steps required to configure users to access AWS Elemental MediaTailor\. For background and additional information about identity and access management for MediaTailor, see [Identity and access management](security-iam.md)\.
 
 To start using AWS Elemental MediaTailor, complete the following steps\.
 
@@ -33,7 +33,7 @@ To create users with limited permissions, see [Creating a non\-admin IAM user](#
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing **Root user** and entering your AWS account email address\. On the next page, enter your password\.
 **Note**  
-We strongly recommend that you adhere to the best practice of using the **Administrator** IAM user below and securely lock away the root user credentials\. Sign in as the root user only to perform a few [account and service management tasks](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
+We strongly recommend that you adhere to the best practice of using the **Administrator** IAM user that follows and securely lock away the root user credentials\. Sign in as the root user only to perform a few [account and service management tasks](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
 
 1. In the navigation pane, choose **Users** and then choose **Add user**\.
 
@@ -51,7 +51,7 @@ We strongly recommend that you adhere to the best practice of using the **Admini
 
 1. In the **Create group** dialog box, for **Group name** enter **Administrators**\.
 
-1. Choose **Filter policies**, and then select **AWS managed \-job function** to filter the table contents\.
+1. Choose **Filter policies**, and then select **AWS managed \- job function** to filter the table contents\.
 
 1. In the policy list, select the check box for **AdministratorAccess**\. Then choose **Create group**\.
 **Note**  
@@ -101,41 +101,16 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
 
    1. Choose **Create policy**\.
 
-   1. Choose the **JSON** tab and paste the following policy\.
+   1. Choose the **JSON** tab and paste the following policy, replacing the resource ARN for PassRole with the actual ARN\.
 
       ```
       {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Action": [
-                      "mediatailor:*"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              },
-              {
-                  "Action": [
-                      "ec2:DescribeAvailabilityZones"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              },
-               {
-                  "Action": [
-                      "cloudwatch:GetMetricStatistics"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              },
-              {
-                  "Action": [
-                      "iam:PassRole"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              }
-          ]
+      	"Version": "2012-10-17",
+      	"Statement": {
+      		"Effect": "Allow",
+      		"Action": "mediatailor:*",
+      		"Resource": "*"
+      	}
       }
       ```
 
@@ -151,39 +126,16 @@ Create two policies for AWS Elemental MediaTailor: one to provide read/write acc
 
       ```
       {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Action": [
-                      "mediatailor:GetPlaybackConfiguration",
-                      "mediatailor:ListPlaybackConfigurations",
-                      "mediatailor:ListTagsForResource"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              },
-              {
-                  "Action": [
-                      "ec2:DescribeAvailabilityZones"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              },
-               {
-                  "Action": [
-                      "cloudwatch:GetMetricStatistics"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              },
-              {
-                  "Action": [
-                      "iam:PassRole"
-                  ],
-                  "Effect": "Allow",
-                  "Resource": "*"
-              }
-          ]
+      	"Version": "2012-10-17",
+      	"Statement": {
+      		"Effect": "Allow",
+      		"Action": [
+      			"mediatailor:List*",
+      			"mediatailor:Describe*",
+      			"mediatailor:Get*"
+      		],
+      		"Resource": "*"
+      	}
       }
       ```
 
