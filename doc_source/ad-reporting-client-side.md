@@ -278,7 +278,7 @@ Use client\-side reporting for VPAID functionality\. For more information, see [
                "adVerifications": [
                    {
                    "vendor": "vendor1",
-                   "javascriptResource": [{
+                   "javaScriptResource": [{
                        "apiFramework": "omid",
                        "browserOptional": "true",
                        "uri": "https://verificationcompany1.com/verification_script1.js"

@@ -5,4 +5,4 @@ Each program contains a VOD source that's part of a source location in your acco
 A program can be configured with one or more ad breaks\. Each ad break contains a slate, which is a VOD source from a source location\. To create the ad break, you add the slate at an offset in milliseconds into the program\.
 
 **Topics**
-+ [Creating and updating programs](channel-assembly-adding-programs.md)
++ [Creating programs](channel-assembly-adding-programs.md)

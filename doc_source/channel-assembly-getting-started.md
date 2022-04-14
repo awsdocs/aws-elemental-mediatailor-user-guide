@@ -154,7 +154,7 @@ Channels are created in a stopped state\. Your channel won't be active until you
 1. <a name="ad-breaks"></a>Select **Add ad break**\. Under **Ad breaks**, configure the settings for the ad break:
    + **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this tutorial\.
    + **VOD source name**: Choose **Select an existing VOD source** and choose the VOD source you're using for slate that you added earlier in this tutorial\. The duration of the slate determines the duration of the ad break\.
-   + For **Offset in milliseconds**: This value determines the ad break start time in milliseconds, as an offset relative to the beginning of the program\. You can enter any value that's less than the duration of the VOD source, and within 100ms of a segment boundary, otherwise the ad break will be skipped\. For example, if you enter **0**, this creates a pre\-roll ad break that plays before the program begins\.
+   + For **Offset in milliseconds**: This value determines the ad break start time in milliseconds, as an offset relative to the beginning of the program\. Enter any value that's less than the duration of the VOD source, and that aligns with a segment boundary on all tracks within the program's VOD source \(all audio, video and closed caption tracks\), otherwise the ad break will be skipped\. For example, if you enter **0**, this creates a pre\-roll ad break that plays before the program begins\.
 
 1. Choose **Add program**\.
 

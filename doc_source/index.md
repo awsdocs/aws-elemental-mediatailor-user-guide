@@ -84,7 +84,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Using source groups with your channel's outputs](channel-assembly-source-groups.md)
       + [Deleting channels](channel-assembly-starting-stopping-channels.md)
    + [Working with programs](channel-assembly-programs.md)
-      + [Creating and updating programs](channel-assembly-adding-programs.md)
+      + [Creating programs](channel-assembly-adding-programs.md)
    + [Using MediaTailor ad insertion with your channel](channel-assembly-integrating-mediatailor-ssai.md)
       + [Considerations when using MediaTailor ad insertion](ca-considerations-ssai.title.md)
       + [Setting up MediaTailor ad insertion](ca-setting-up-emt-ssai.title.md)

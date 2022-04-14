@@ -1,8 +1,8 @@
-# Creating and updating programs<a name="channel-assembly-adding-programs"></a>
+# Creating programs<a name="channel-assembly-adding-programs"></a>
 
- The following procedure describes how to create and update programs within your channel's schedule using the MediaTailor console\. It also describes how to configure ad breaks, which are optional\. For information about how to create programs using the MediaTailor API, see [CreateProgram](https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname-program-programname.html) in the *AWS Elemental MediaTailor API Reference*\. <a name="add-programs-procedure"></a>
+ The following procedure describes how to create a program within your channel's schedule using the MediaTailor console\. It also describes how to configure ad breaks, which are optional\. For information about how to create programs using the MediaTailor API, see [CreateProgram](https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname-program-programname.html) in the *AWS Elemental MediaTailor API Reference*\. <a name="add-programs-procedure"></a>
 
-**To add and update programs**
+**To add a program**
 
 1. Open the MediaTailor console at [https://console\.aws\.amazon\.com/mediatailor/](https://console.aws.amazon.com/mediatailor/)\.
 
@@ -48,7 +48,7 @@ If there are gaps between programs in the schedule, MediaTailor plays [filler sl
 1. Select **Add ad break**\. Under **Ad breaks**, configure the settings for the ad break:<a name="channel-assembly-programs-ad-breaks"></a>
    + **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this tutorial\.
    + **VOD source name**: Choose **Select an existing VOD source** and choose the VOD source you're using for slate that you added earlier in this tutorial\. The duration of the slate determines the duration of the ad break\.
-   + For **Offset in milliseconds**: This value determines the ad break start time in milliseconds, as an offset relative to the beginning of the program\. You can enter any value that's less than the duration of the VOD source, and within 100ms of a segment boundary, otherwise the ad break will be skipped\. For example, if you enter **0**, this creates a pre\-roll ad break that plays before the program begins\.
+   + For **Offset in milliseconds**: This value determines the ad break start time in milliseconds, as an offset relative to the beginning of the program\. Enter any value that's less than the duration of the VOD source, and that aligns with a segment boundary on all tracks within the program's VOD source \(all audio, video and closed caption tracks\), otherwise the ad break will be skipped\. For example, if you enter **0**, this creates a pre\-roll ad break that plays before the program begins\.
    + For **Avail number**, this is written to `splice_insert.avail_num`, as defined in section 9\.7\.3\.1\. of the SCTE\-35 specification\. The default value is `0`\. Values have to be between `0` and `256`, inclusive\.
 
      For **Avail expected**, this is written to `splice_insert.avails_expected`, as defined in section 9\.7\.3\.1\. of the SCTE\-35 specification\. The default value is `0`\. Values have to be between `0` and `256`, inclusive\.

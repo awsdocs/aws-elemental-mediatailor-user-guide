@@ -2,7 +2,7 @@
 
 Signature Version 4 \(SigV4\) for Amazon S3 is a signing protocol used to authenticate requests to Amazon S3 over HTTP\. When you use SigV4 for Amazon S3, MediaTailor includes a signed authorization header in the HTTP request to the Amazon S3 bucket used as your origin\. If the signed authorization header is valid, your origin fulfills the request\. If it isn't valid, the request fails\.
 
- For general information about SigV4 for Amazon S3, see the [Authenticating Requests \(AWS Signature Version 4\)](Amazon Simple Storage Service User Guide/latest/API/sig-v4-authenticating-requests) topic in the *Amazon S3 API reference*\. 
+ For general information about SigV4 for Amazon S3, see the [Authenticating Requests \(AWS Signature Version 4\)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) topic in the *Amazon S3 API reference*\. 
 
 ## Requirements<a name="channel-assembly-access-configuration-sigv4-how-to"></a>
 

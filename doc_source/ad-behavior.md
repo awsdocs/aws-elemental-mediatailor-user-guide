@@ -96,7 +96,7 @@ Videocontent.ts
 
 ### If no ad markers are present<a name="no-markers"></a>
 
-Ad markers are the recommended way of signaling ad breaks in a live manifest\. However, ad markers aren't required\. If the manifest doesn't contain ad markers, MediaTailor makes a single call to the ADS and creates ad breaks based on the response:
+Ad markers are the recommended way of signaling ad breaks in a manifest\. However, ad markers aren't required\. If the manifest doesn't contain ad markers, MediaTailor makes a single call to the ADS and creates ad breaks based on the response:
 + If the ADS sends a VAST response, then MediaTailor inserts all ads from the response in an ad break at the start of the manifest\. This is a pre\-roll\.
 + If the ADS sends a VMAP response, then MediaTailor uses the ad break time offsets to create breaks and insert them throughout the manifest at the specified times \(pre\-roll, mid\-roll, or post\-roll\)\. MediaTailor uses all ads from each ad break in the VMAP response for each ad break in the manifest\. 
 **Note**  

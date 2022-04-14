@@ -19,7 +19,7 @@ Find your situation in the following list to determine whether you need to disab
   + Otherwise, contact [AWS Support](https://aws.amazon.com/premiumsupport/)\.
 
 **Do I need to use the location feature?**  
-You need to use the location feature for players that don't support sticky HTTP redirects, for example, Shaka\. Use the URL provided in the `<Location>` tag for all of your manifest update requests\. 
+You need to use the location feature for players that don't support sticky HTTP redirects\. Use the URL provided in the `<Location>` tag for all of your manifest update requests\. 
 
 **Example**  
 Example URLs and example `<Location>` tag\.

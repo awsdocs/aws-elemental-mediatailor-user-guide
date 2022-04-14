@@ -118,7 +118,7 @@ You can use conditions in your identity\-based policy to control access to AWS E
             "Action": "mediatailor:GetPlaybackConfiguration",
             "Resource": "arn:aws:mediatailor:*:*:configuration/*",
             "Condition": {
-                "StringEquals": {"mediatailor:ResourceTag/Owner": "${aws:username}"}
+                "StringEquals": {"AWS:ResourceTag/Owner": "${aws:username}"}
             }
         }
     ]

@@ -1,6 +1,6 @@
 # Creating a source location<a name="channel-assembly-creating-source-locations"></a>
 
-The following procedure explains how to create source locations using the MediaTailor console\. For information about how to create source locations using the MediaTailor API, see [CreateSourceLocation](https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname.html) in the *AWS Elemental MediaTailor API Reference*\.<a name="create-source-location-procedure"></a>
+The following procedure explains how to create a source location using the MediaTailor console\. For information about how to create source locations using the MediaTailor API, see [CreateSourceLocation](https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname.html) in the *AWS Elemental MediaTailor API Reference*\.<a name="create-source-location-procedure"></a>
 
 **To create a source location**
 
@@ -26,6 +26,7 @@ The following procedure explains how to create source locations using the MediaT
 
 1. Under **Segment delivery server configuration**, optionally configure a server to deliver your content segments:
    + **Use a default segment delivery server**: Enter the base URL of the server that is used to deliver your content segments, such as a CDN\. Configure **Default segment host name** if you'd like to use a different server than the source location server to serve the content segments\. For example, you can restrict access to the origin manifests from players by using a different CDN configuration for the **Base HTTP URL** \(what MediaTailor uses to access the manifests\) and the **Default Segment Base URL** \(what players uses to access the content segments\)\. If you don't enter a value, MediaTailor defaults to the source location server for segment delivery\.
+   + **Use named segment delivery servers**: If you have configured a default segment delivery server, you can also configure additional segment delivery servers\. Each one must have a unique name and a base URL\. The base URL can be a full HTTP URL, or it can be a relative path like `/some/path/` \. The names are used to identify which server should be used when MediaTailor receives a request for content segments\. If the request contains the header `X-MediaTailor-SegmentDeliveryConfigurationName` and the value of the header matches a name, the corresponding base URL will be used to serve the content\. If the header is not included in the request, or if it does not match any names, then the default segment delivery server will be used\.
 
 1. Choose **Create source location**\.
 
