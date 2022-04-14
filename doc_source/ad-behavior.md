@@ -1,6 +1,6 @@
 # Understanding MediaTailor ad insertion behavior<a name="ad-behavior"></a>
 
-AWS Elemental MediaTailor stiches ads into live or video on demand \(VOD\) content by either replacing or inserting ads into the origin manifest\. Whether ads are inserted or replaced depends on how the ad breaks are configured in the origin manifest, and whether the content is VOD or live\.
+AWS Elemental MediaTailor stitches ads into live or video on demand \(VOD\) content by either replacing or inserting ads into the origin manifest\. Whether ads are inserted or replaced depends on how the ad breaks are configured in the origin manifest, and whether the content is VOD or live\.
 + With **ad replacement**, MediaTailor replaces content segments with ads\. 
 + With **ad insertion**, MediaTailor inserts ad content where segments don't exist\.
 
