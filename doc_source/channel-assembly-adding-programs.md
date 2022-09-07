@@ -16,6 +16,9 @@ For looping channels, if you modify the program list for a program that is sched
 
    Under **Program details**, enter details about your program:
    + **Name**: This is the name of the program that you add to your channel\.
+   + **Source type**: Determines what type of source the program plays\. This option is only available for Standard channels\.
+     + **VOD** \- The program plays a VOD source, such as a pre\-recorded TV episode\.
+     + **Live** \- The program plays a live source, such as a live news broadcast\.
    + **Source location name**: The source location to be associated with the program\.
 
      If you choose **Select an existing source location**, select a source location name from the **Select a source location** drop\-down menu\. You can alternatively search for your source location by name\. This is helpful if you have a large number of source locations\.
@@ -26,10 +29,16 @@ For looping channels, if you modify the program list for a program that is sched
      If you choose **Select an existing VOD source**, select a VOD source name from the list of VOD sources that are associated with your account\. You can alternatively search for your VOD source by name\. This is helpful if you have a large number of VOD sources\.
 
      If you choose **Search by name**, search for your VOD source by name\.
+   + **Live source name**: The name of the live source to be associated with the program\. This option is only available if you selected **Live** as the source type\.
+
+     If you choose **Select an existing live source**, select a live source name from the list of live sources that are associated with your account\. You can alternatively search for your live source by name\. This is helpful if you have a large number of live sources\.
+
+     If you choose **Search by name**, search for your live source by name\.
 
 1. Under **Playback configuration**, define when a program plays in your channel's schedule:
+   + **Duration in milliseconds**: Defines the duration of the program in milliseconds\. This option is only available for programs that use live sources\.
    + **Transition type**: Defines the transitions from program to program in the schedule\.
-     + **Relative** \- The program plays either before or after another program in the schedule\.
+     + **Relative** \- The program plays either before or after another program in the schedule\. This option is only available for programs that use VOD sources\.
      + **Absolute** \- The program plays at a specific wall clock time\. MediaTailor makes a best effort to play the program at the clock time that you specify\. We start playback of the program on a common segment boundary between the preceding program or slate\. This option is only available for channels configured to use the [linear playback mode](channel-assembly-creating-channels.md#linear-playback-mode)\.
 **Note**  
 Be aware of the following behavior for absolute transition types:  
@@ -43,7 +52,7 @@ If there are gaps between programs in the schedule, MediaTailor plays [filler sl
 
      If you choose **Search for a program by name**, enter name of an existing program in your channel\.
 
-    If you'd like to add ad breaks to your program, continue to the next step\. 
+   If you'd like to add ad breaks to your program, continue to the next step\. Ad breaks are only configurable for programs that use VOD sources\. For live sources, ad breaks in DASH manifests and ad breaks in HLS manifests that use the `EXT-X-DATERANGE` tag are passed through automatically\.
 
 1. Select **Add ad break**\. Under **Ad breaks**, configure the settings for the ad break:<a name="channel-assembly-programs-ad-breaks"></a>
    + **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this tutorial\.
@@ -59,4 +68,4 @@ If there are gaps between programs in the schedule, MediaTailor plays [filler sl
 
 1. Choose **Add program**\.
 
-    For more advanced information using MediaTailor to personalize your ad breaks, see [Using MediaTailor ad insertion with your channel](channel-assembly-integrating-mediatailor-ssai.md)\. 
+    For more advanced information using MediaTailor to personalize your ad breaks, see [Using MediaTailor ad insertion with your channel](channel-assembly-integrating-mediatailor-ssai.md)\.

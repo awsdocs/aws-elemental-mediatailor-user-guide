@@ -8,3 +8,6 @@ A source location represents the origin server where your source content is stor
 + [Creating a source location](channel-assembly-creating-source-locations.md)
 + [Configuring authentication for your source location](channel-assembly-source-locations-access-configuration.md)
 + [Working with VOD sources](channel-assembly-working-vod-sources.md)
++ [Working with live sources](channel-assembly-working-live-sources.md)
++ [Using package configurations](channel-assembly-package-configurations.md)
++ [Manifest caching](channel-assembly-manifest-caching.md)

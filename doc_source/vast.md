@@ -23,7 +23,7 @@ AWS Elemental MediaTailor proxies the player's `user-agent` and `x-forwarded-for
 
 ### Ad calls<a name="ad-calls"></a>
 
-AWS Elemental MediaTailor calls your VAST ads URL as defined in your configuration\. It substitutes any player\-specific or session\-specific parameters when making the ad call\. MediaTailor follows up to five levels of VAST wrappers and redirects in the VAST response\. In live streaming scenarios, MediaTailor makes ad calls simultaneously at the ad avail start for connected players\. In practice, due to jitter, these ad calls can be spread out over a few seconds\. Make sure that your ad server can handle the number of concurrent connections this type of calling requires\. MediaTailor doesn't currently support pre\-fetching VAST responses\.
+AWS Elemental MediaTailor calls your VAST ads URL as defined in your configuration\. It substitutes any player\-specific or session\-specific parameters when making the ad call\. MediaTailor follows up to five levels of VAST wrappers and redirects in the VAST response\. In live streaming scenarios, MediaTailor makes ad calls simultaneously at the ad avail start for connected players\. In practice, due to jitter, these ad calls can be spread out over a few seconds\. Make sure that your ad server can handle the number of concurrent connections this type of calling requires\. MediaTailor supports prefetching VAST responses for live workflows\. For more information, see [Prefetching ads](prefetching-ads.md)\.
 
 ### Creative handling<a name="creative-handling"></a>
 

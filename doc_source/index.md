@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -77,8 +77,9 @@ Amazon's trademarks and trade dress may not be used in
             + [Integrating with MediaPackage endpoints that use CDN authorization](channel-assembly-access-configuration-access-token-integrating-emp-cdn-auth.md)
             + [How MediaTailor Secrets Manager access token authentication works](channel-assembly-access-configuration-overview.md)
       + [Working with VOD sources](channel-assembly-working-vod-sources.md)
-         + [Adding VOD sources to your source location](channel-assembly-add-vod-source.md)
-         + [Using package configurations](channel-assembly-package-configurations.md)
+      + [Working with live sources](channel-assembly-working-live-sources.md)
+      + [Using package configurations](channel-assembly-package-configurations.md)
+      + [Manifest caching](channel-assembly-manifest-caching.md)
    + [Working with channels](channel-assembly-channels.md)
       + [Creating channels](channel-assembly-creating-channels.md)
       + [Using source groups with your channel's outputs](channel-assembly-source-groups.md)

@@ -1,11 +1,15 @@
 # Monitoring channel assembly resources with MediaTailor alerts<a name="channel-assembly-alerts"></a>
 
-MediaTailor creates alerts for issues or potential issues that occur with your channel assembly resources\. The alert describes the issue, when it issue occurred, and the resources that are affected\.\.
+MediaTailor creates alerts for issues or potential issues that occur with your channel assembly resources\. The alert describes the issue, when the issue occurred, and the affected resources\.
 
 You can view the alerts in the AWS Management Console, AWS CLI, AWS SDKs, or programmatically using the MediaTailor [ListAlerts](https://docs.aws.amazon.com/mediatailor/latest/apireference/alerts.html) API\.
 
 **Important**  
 Alerts are only available for channel assembly resources created on or after July 14th, 2021\.
+
+
+**Channel Assembly Alerts**  
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-alerts.html)
 
 ## Viewing alerts<a name="channel-assembly-viewing-alerts-procedure"></a>
 
@@ -42,7 +46,7 @@ aws mediatailor list-alerts --resource-arn arn:aws:mediatailor:region:aws-accoun
 ------
 #### [ API ]
 
-To list alerts for a channel assembly resource, you need the use resource's [Amazon Resource Name \(ARN\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)\. You can use the `DescribeResource` operation in the MediaTailor API to get the resource's ARN\. For example, use the `[DescribeChannel](https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname.html#channel-channelname-http-methods)` operation to get a specific channel's ARN\.
+To list alerts for a channel assembly resource, you need the resource's [Amazon Resource Name \(ARN\)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)\. You can use the `DescribeResource` operation in the MediaTailor API to get the resource's ARN\. For example, use the `[DescribeChannel](https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname.html#channel-channelname-http-methods)` operation to get a specific channel's ARN\.
 
 Then use the [https://docs.aws.amazon.com/mediatailor/latest/apireference/alerts.html](https://docs.aws.amazon.com/mediatailor/latest/apireference/alerts.html) API to list the alerts for the resource\.
 

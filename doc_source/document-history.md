@@ -4,6 +4,10 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New channel assembly alerts tablee](channel-assembly-alerts.md) | You can now see a table that explains channel assembly alerts\. | September 1, 2022 | 
+| [New Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md) | Added new CloudWatch metrics\. | June 26, 2022 | 
+| [Ad calls topic](vast.md#ad-calls) | Added link to prefetch support for VAST responses\. | May 25, 2022 | 
+| [New ADS request variables](variables-session.md) | MediaTailor now supports these additional SCTE\-35 variables in ADS requests: `scte.segmentation_type_id`, `scte.avails_expected`, `scte.delivery_not_restricted_flag`, `scte.segment_num`, `scte.sub_segment_num`, `scte.segments_expected`, `scte.sub_segments_expected`, `scte.device_restrictions`, `scte.no_regional_blackout_flag`, `scte.archive_allowed_flag` and `scte.segmentation_event_id`\. | April 27, 2022 | 
 | [New IAM managed policy policy topic](security-iam-awsmanpol.md) | Added two new managed policies for MediaTailor\. | November 24, 2021 | 
 | [New `AWSElementalMediaTailorReadOnly` managed policy](security-iam-awsmanpol.md#security-iam-awsmanpol-updates) | Added a new AWS managed policy that grants permissions that allows read\-only access to MediaTailor resources\. | November 10, 2021 | 
 | [New `AWSElementalMediaTailorFullAccess` managed policy](security-iam-awsmanpol.md#security-iam-awsmanpol-updates) | Added a new AWS managed policy that allows full access to MediaTailor resources\. | November 10, 2021 | 
@@ -14,6 +18,9 @@ The following table describes important changes to this documentation\.
 | [New absolute transition type](channel-assembly-adding-programs.md) | Added support for absolute transition types, which allow you to set a wall clock start time for your program on linear channels\. | September 1, 2021 | 
 | [New channel assembly alerts topic](channel-assembly-alerts.md) | You can now monitor your channel assembly resources using MediaTailor alerts\. When an issue or a potential issue occurs with your channel assembly resources, MediaTailor generates alerts\. | July 14, 2021 | 
 | [New source location authentication type](channel-assembly-source-locations-access-configuration.md) | MediaTailor now supports Secrets Manager access token authentication\. | June 16, 2021 | 
+| [New Tier information](channel-assembly-creating-channels.md) | Added information about the modes and source types that each Tier supports\. | June 13, 2021 | 
+| [New Source type information](channel-assembly-adding-programs.md) | For Standard channels, added information about the type of source that the program plays\. | June 13, 2021 | 
+| [New MediaTailor live sources documentation](channel-assembly-working-live-sources.md) | A live source represents a single live stream that you add to your source location\. After you create your channel, you can add live sources to your source location and associate each live source with a program\. | June 13, 2021 | 
 | [Support for additional UPID types](variables-session.md) | MediaTailor now supports ADS Information \(0xE\) and User Defined \(0x1\) segmentation UPID types\. | April 15, 2021 | 
 | [New segmentation UPID dynamic variables](variables-session.md) | There are three new dynamic variables: `scte.segmentation_upid.assetId`, `scte.segmentation_upid.cueData.key`, and `scte.segmentation_upid.cueData.value`\. These variables are used in conjunction with the MPU segmentation UPID type \(0xC\) for podbuster workflows\. | April 15, 2021 | 
 | [New channel assembly service description](what-is.md) | Added information about the new channel assembly service\. | March 11, 2021 | 
@@ -57,7 +64,7 @@ The following table describes important changes to this documentation\.
 | [New and updated metrics](monitoring-cloudwatch-metrics.md) | Added metrics for ad decision server \(ADS\) and origin timeouts, and updated the ADS and origin error definitions to include timed\-out responses\.  | October 13, 2018 | 
 | [Better documentation coverage for server\-side and client\-side ad insertion use cases](variables.md) | Expanded description and examples to cover the use of dynamic ad variables for server\-side ad insertion and for client\-side ad insertion\.  | October 1, 2018 | 
 | [New regions](what-is.md#regions-endpoints) | Added support for the PDX and FRA Regions\. | July 18, 2018 | 
-| [VAST/VPAID](vast.md) | Added information about VAST and VPAID\.  | March 16, 2018 | 
+| [VAST/VPAID](vast.md) | Added information about VAST and VPAID\. | March 16, 2018 | 
 | [CloudWatch](monitoring.md) | Added information about available CloudWatch metrics, namespaces, and dimensions\.  | March 16, 2018 | 
 | [New regions](what-is.md#regions-endpoints) | Added support for the Asia Pacific \(Singapore\), Asia Pacific \(Sydney\), and Asia Pacific \(Tokyo\) Regions\. | February 8, 2018 | 
 | [Default Amazon CloudFront distribution paths](integrating-cdn-standard.md) | Added the list of paths for the Amazon CloudFront distribution where AWS Elemental MediaTailor stores ads\.  | February 6, 2018 | 

@@ -11,7 +11,10 @@
 1. On the navigation bar, choose **Create channel**\.
 
 1. Under **Channel details**, enter details about your channel:
-   + **Name**: Enter a name for your channel\. 
+   + **Name**: Enter a name for your channel\.
+   + **Tier**: The tier determines what features the channel supports and how much it costs to run the channel\. For more information about pricing, see the [Channel Assembly pricing page](https://aws.amazon.com/mediatailor/pricing/#Channel_Assembly_Pricing)\. MediaTailor supports the following tiers:
+     + **Basic** \- The Basic tier supports both the Linear and Loop playback modes, and does not support live sources\.
+     + **Standard** \- The Standard tier supports live sources, and requires the Linear playback mode\.
    + **Playback mode**: The playback mode sets the channel's playback behavior\. MediaTailor supports the following playback modes:
      + **Loop** \- The programs in the schedule play back\-to\-back in an endless loop\. After the last program plays in a schedule, playback loops back to the first program\. Playback continues looping until you stop the channel\.
      + **Linear** \- Each program in the schedule plays once, back\-to\-back\.
@@ -25,7 +28,7 @@
 **Note**  
 The manifest name must be unique for each channel output\. For example, you could use index for an HLS output and dash for a DASH output\.
    + **Output type**: Select the streaming format for the channel\. DASH and HLS are supported\.
-   + **Source group**: Enter the name of the source group that you created in your package configuration, as described in [Adding VOD sources to your source location](channel-assembly-add-vod-source.md)\.
+   + **Source group**: Enter the name of the source group that you created in your package configuration, as described in [Adding VOD sources to your source location](channel-assembly-working-vod-sources.md#channel-assembly-add-vod-source)\.
 
 1. Under **Manifest settings**, enter additional information about your manifest settings:
    + **Manifest window \(sec\)**: The time window \(in seconds\) contained in each manifest\. 
@@ -45,4 +48,4 @@ The manifest name must be unique for each channel output\. For example, you coul
 
 1. Choose **Create channel**\.
 **Note**  
-Channels are created in a stopped state\. Your channel won't be active until you start it via the console or the MediaTailor StartChannel API\. 
+Channels are created in a stopped state\. Your channel won't be active until you start it via the console or the MediaTailor StartChannel API\.

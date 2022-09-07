@@ -1,6 +1,6 @@
 # Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics<a name="monitoring-cloudwatch-metrics"></a>
 
-You can monitor AWS Elemental MediaTailor metrics using CloudWatch\. CloudWatch collects raw data and processes it into readable, near real\-time metrics\. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing\. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met\. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
+You can monitor AWS Elemental MediaTailor metrics using CloudWatch\. CloudWatch collects raw data about the performane of the service and processes that data into readable, near real\-time metrics\. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing\. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met\. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
 
 Metrics are grouped first by the service namespace, and then by the various dimension combinations within each namespace\.
 
@@ -27,25 +27,58 @@ Metrics are grouped first by the service namespace, and then by the various dime
 
 The AWS Elemental MediaTailor namespace includes the following metrics\. These metrics are published by default to your account\. 
 
+### Channel Assembly \(CA\) metrics<a name="metrics.channel-assembly"></a>
+
+In the following table, all metrics are available by channel or by channel output\.
+
 
 | Metric | Description | 
 | --- | --- | 
-| AdDecisionServer\.Ads |  The count of ads included in ad decision server \(ADS\) responses within the CloudWatch time period that you specified\.  | 
-| AdDecisionServer\.Duration | The total duration, in milliseconds, of all ads that MediaTailor received from the ADS within the CloudWatch time period that you specified\.  | 
-| AdDecisionServer\.Errors |  The number of non\-HTTP 200 status code responses, empty responses, and timed\-out responses that MediaTailor received from the ADS within the CloudWatch time period that you specified\.  | 
-| AdDecisionServer\.FillRate | The simple average of the rates at which the responses from the ADS filled the corresponding individual ad avails for the time period that you specified\. To get the weighted average, calculate the `AdDecisionServer.Duration` as a percentage of the `Avail.Duration`\. For more information about simple and weighted averages, see [Simple and weighted averages](#metrics-simple-average)\. | 
-| AdDecisionServer\.Timeouts |  The number of timed\-out requests to the ADS in the CloudWatch time period that you specified\.  | 
-| AdNotReady |  The number of times that the ADS pointed at an ad that wasn't yet transcoded by the internal transcoder service in the time period that you specified\. A high value for this metric might contribute to a low overall `Avail.FillRate`\.  | 
-| Avail\.Duration | The planned total number of milliseconds of ad avails within the CloudWatch time period\. The planned total is based on the ad avail durations in the origin manifest\. | 
-| Avail\.FilledDuration | The planned number of milliseconds of ad avail time that MediaTailor will fill with ads within the CloudWatch time period\. | 
-| Avail\.FillRate |  The planned simple average of the rates at which MediaTailor will fill individual ad avails within the CloudWatch time period\. To get the weighted average, calculate the `Avail.FilledDuration` as a percentage of the `Avail.Duration`\. For more information about simple and weighted averages, see [Simple and weighted averages](#metrics-simple-average)\. The maximum `Avail.FillRate` that MediaTailor can attain is bounded by the `AdDecisionServer.FillRate`\. If the `Avail.FillRate` is low, compare it to the `AdDecisionServer.FillRate`\. If the `AdDecisionServer.FillRate` is low, your ADS might not be returning enough ads for the avail durations\.   | 
-| Avail\.ObservedDuration |  The observed total number of milliseconds of ad avails that occurred within the CloudWatch time period\. `Avail.ObservedDuration` is emitted at the end of the ad avail, and is based on the duration of the segments reported in the manifest during the ad avail\.  | 
-| Avail\.ObservedFilledDuration |  The observed number of milliseconds of ad avail time that MediaTailor filled with ads within the CloudWatch time period\.  | 
-| Avail\.ObservedFillRate |  The observed simple average of the rates at which MediaTailor filled individual ad avails within the CloudWatch time period\.  | 
-| Avail\.ObservedSlateDuration |  The observed total number of milliseconds of slate that was inserted within the CloudWatch period\.  | 
-| GetManifest\.Errors |  The number of errors received while MediaTailor was generating manifests in the CloudWatch time period that you specified\.  | 
-|  `Origin.Errors`  |  The number of non\-HTTP 200 status code responses and timed\-out responses that MediaTailor received from the origin server in the CloudWatch time period that you specified\.  | 
-| Origin\.Timeouts |  The number of timed\-out requests to the origin server in the CloudWatch time period that you specified\.  | 
+|  4xxErrorCount  |  The number of `4xx` errors\.  | 
+|  5xxErrorCount  |  The number of `5xx` errors\.  | 
+|  RequestCount  |  The total number of requests\. The transaction count depends largely on how often players request updated manifests, and the number of players\. Each player request counts as a transaction\.  | 
+|  TotalTime  |  The amount of time that the application server took to process the request, including the time used to receive bytes from and write bytes to the client and network\.   | 
+
+#### Server\-side Ad\-insertion \(SSAI\) metrics<a name="metrics.server-side-ad-insertion"></a>
+
+The following table lists server\-side ad\-insertion metrics\.
+
+
+| Metric | Description | 
+| --- | --- | 
+|  AdDecisionServer\.Ads  |  The count of ads included in ad decision server \(ADS\) responses within the CloudWatch time period that you specified\.  | 
+|  AdDecisionServer\.Duration  |  The total duration, in milliseconds, of all ads that MediaTailor received from the ADS within the CloudWatch time period that you specified\. This duration can be greater than the `Avail.Duration` that you specified\.  | 
+|  AdDecisionServer\.Errors  |  The number of non\-HTTP 200 status code responses, empty responses, and timed\-out responses that MediaTailor received from the ADS within the CloudWatch time period that you specified\.  | 
+|  AdDecisionServer\.FillRate  |  The simple average of the rates at which the responses from the ADS filled the corresponding individual ad avails for the time period that you specified\. To get the weighted average, calculate the `AdDecisionServer.Duration` as a percentage of the `Avail.Duration`\. For more information about simple and weighted averages, see [Simple and weighted averages](#metrics-simple-average)\.  | 
+|  AdDecisionServer\.Latency  |  The response time in milliseconds for requests made by MediaTailor to the ADS\.  | 
+|  AdDecisionServer\.Timeouts  |  The number of timed\-out requests to the ADS in the CloudWatch time period that you specified\.  | 
+|  AdNotReady  |  The number of times that the ADS pointed at an ad that wasn't yet transcoded by the internal transcoder service in the time period that you specified\. A high value for this metric might contribute to a low overall `Avail.FillRate`\.  | 
+|  AdsBilled  |  The number of ads for which MediaTailor bills customers based on insertion\.  | 
+|  Avail\.Duration  |  The planned total number of milliseconds of ad avails within the CloudWatch time period\. The planned total is based on the ad avail durations in the origin manifest\.  | 
+|  Avail\.FilledDuration  |  The planned number of milliseconds of ad avail time that MediaTailor will fill with ads within the CloudWatch time period\.  | 
+|  Avail\.FillRate  |  The planned simple average of the rates at which MediaTailor will fill individual ad avails within the CloudWatch time period\. To get the weighted average, calculate the `Avail.FilledDuration` as a percentage of the `Avail.Duration`\. For more information about simple and weighted averages, see [Simple and weighted averages](#metrics-simple-average)\. The maximum `Avail.FillRate` that MediaTailor can attain is bounded by the `AdDecisionServer.FillRate`\. If the `Avail.FillRate` is low, compare it to the `AdDecisionServer.FillRate`\. If the `AdDecisionServer.FillRate` is low, your ADS might not be returning enough ads for the avail durations\.   | 
+|  Avail\.Impression  |  The number of ads with impression tracking events that MediaTailor sees during server\-side beaconing \(not the number of impressions\)\.  | 
+|  Avail\.ObservedDuration  |  The observed total number of milliseconds of ad avails that occurred within the CloudWatch time period\. `Avail.ObservedDuration` is emitted at the end of the ad avail, and is based on the duration of the segments reported in the manifest during the ad avail\.  | 
+|  Avail\.ObservedFilledDuration  |  The observed number of milliseconds of ad avail time that MediaTailor filled with ads within the CloudWatch time period\.  | 
+|  Avail\.ObservedFillRate  |  The observed simple average of the rates at which MediaTailor filled individual ad avails within the CloudWatch time period\.  | 
+|  Avail\.ObservedSlateDuration  |  The observed total number of milliseconds of slate that was inserted within the CloudWatch period\.  | 
+|  GetManifest\.Errors  |  The number of errors received while MediaTailor was generating manifests in the CloudWatch time period that you specified\.  | 
+|  GetManifest\.Latency  |  The MediaTailor response time in milliseconds for the request to generate manifests\.  | 
+|  Origin\.Errors  |  The number of non\-HTTP 200 status code responses and timed\-out responses that MediaTailor received from the origin server in the CloudWatch time period that you specified\.  | 
+|  Origin\.Latency  |  The response time for requests made by MediaTailor to your content origin server\.  | 
+|  Origin\.ManifestFileSizeBytes  |  The file size of the origin manifest in bytes for both HLS and DASH\. Typically this metric is used in conjunction with `Origin.ManifestFileSizeTooLarge`\.  | 
+|  Origin\.ManifestFileSizeTooLarge  |  The number of responses from the origin that have a manifest size larger than the configured amount\. Typically this metric is used in conjunction with `Origin.ManifestFileSizeBytes`\.  | 
+|  Origin\.Timeouts  |  The number of timed\-out requests to the origin server in the CloudWatch time period that you specified\.  | 
+|  Requests  |  The number of concurrent transactions per second across all request types\. The transaction count depends mainly on the number of players and how often the players request updated manifests\. Each player request counts as a transaction\.  | 
+|  SkippedReason\.DurationExceeded  |  The number of ads that were not inserted into an avail because the ADS returned a duration of ads that was greater than the specified avail duration\. A high value for this metric might contribute to a discrepancy between the `Avail.Ads` and `AdDecisionServer.Ads` metric\.  | 
+|  SkippedReason\.EarlyCueIn  |  The number of ads skipped due to an early `CUE-IN`\.  | 
+|  SkippedReason\.InternalError  |  The number of ads skipped due to a MediaTailor internal error\.  | 
+|  SkippedReason\.NewCreative  |  The number of ads that were not inserted into an avail because it was the first time the asset had been requested by a client\. A high value for this metric might temporarily contribute to a low overall `Avail.FillRate`, until assets can be successfully transcoded\.  | 
+|  SkippedReason\.NoVariantMatch  |  The number of ads skipped due to there being no variant match between the ad and content\.  | 
+|  SkippedReason\.PersonalizationThresholdExceeded  |  The duration of ads exceeding the **Personalization Threshold** setting in this configuration\.  | 
+|  SkippedReason\.ProfileNotFound  |  The number of ads skipped due to the transcoding profile not being found\.  | 
+|  SkippedReason\.TranscodeError  |  The number of ads skipped due to a transcode error\.  | 
+|  SkippedReason\.TranscodeInProgress  |  The count of the number of ads that were not inserted into an avail because the ad had not yet been transcoded\. A high value for this metric might temporarily contribute to a low overall `Avail.FillRate`, until the assets can be successfully transcoded\.  | 
 
 ### Simple and weighted averages<a name="metrics-simple-average"></a>
 
