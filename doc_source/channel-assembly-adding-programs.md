@@ -68,4 +68,4 @@ If there are gaps between programs in the schedule, MediaTailor plays [filler sl
 
 1. Choose **Add program**\.
 
-    For more advanced information using MediaTailor to personalize your ad breaks, see [Using MediaTailor ad insertion with your channel](channel-assembly-integrating-mediatailor-ssai.md)\.
+    For more advanced information using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md)\.

@@ -4,6 +4,8 @@ The following table describes important changes to this documentation\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated quotas content](quotas.md) | Updated and reorganized quotas information\. | September 13, 2022 | 
+| [Added and corrected channel assembly quotas](quotas.md#channel-assembly-quotas) | Added quotas for live sources, segment delivery configurations, manifest requests, and channel transactions in the MediaTailor channel assembly service\. | September 13, 2022 | 
 | [New channel assembly alerts tablee](channel-assembly-alerts.md) | You can now see a table that explains channel assembly alerts\. | September 1, 2022 | 
 | [New Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md) | Added new CloudWatch metrics\. | June 26, 2022 | 
 | [Ad calls topic](vast.md#ad-calls) | Added link to prefetch support for VAST responses\. | May 25, 2022 | 
@@ -14,9 +16,11 @@ The following table describes important changes to this documentation\.
 | [New confused deputy topic](cross-service-confused-deputy-prevention.md) | Added a topic that explains how to prevent the confused deputy problem\. | November 4, 2021 | 
 | [Prefetching ads topic](prefetching-ads.md) | MediaTailor can now prefetch ads for ad breaks before they occur\. | October 12, 2021 | 
 | [Added logging configuration settings for playback configurations](configurations-create.md#configurations-create-addl) | Use logging configuration settings to control settings related to playback configuration logs\. | September 28, 2021 | 
+| [SCTE\-35 messages for ad breaks](ca-scte-35-messages.md) | Added information about using `segmentation_descriptor` messages together with `time_signal` messages\. | September 1, 2021 | 
 | [New linear playback mode](channel-assembly-creating-channels.md) | Added a new linear playback mode\. | September 1, 2021 | 
 | [New absolute transition type](channel-assembly-adding-programs.md) | Added support for absolute transition types, which allow you to set a wall clock start time for your program on linear channels\. | September 1, 2021 | 
 | [New channel assembly alerts topic](channel-assembly-alerts.md) | You can now monitor your channel assembly resources using MediaTailor alerts\. When an issue or a potential issue occurs with your channel assembly resources, MediaTailor generates alerts\. | July 14, 2021 | 
+| [Corrected channel assembly quotas for channels egress requests](quotas.md#channel-assembly-quotas) | Corrected quotas for channels egress requests in the MediaTailor channel assembly service\. | June 29, 2021 | 
 | [New source location authentication type](channel-assembly-source-locations-access-configuration.md) | MediaTailor now supports Secrets Manager access token authentication\. | June 16, 2021 | 
 | [New Tier information](channel-assembly-creating-channels.md) | Added information about the modes and source types that each Tier supports\. | June 13, 2021 | 
 | [New Source type information](channel-assembly-adding-programs.md) | For Standard channels, added information about the type of source that the program plays\. | June 13, 2021 | 

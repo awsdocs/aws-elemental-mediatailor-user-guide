@@ -10,4 +10,4 @@ AWS Elemental MediaTailor channel assembly is a manifest\-only service that allo
 + [Working with source locations](channel-assembly-source-locations.md)
 + [Working with channels](channel-assembly-channels.md)
 + [Working with programs](channel-assembly-programs.md)
-+ [Using MediaTailor ad insertion with your channel](channel-assembly-integrating-mediatailor-ssai.md)
++ [Insert personalized ads and ad breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md)
